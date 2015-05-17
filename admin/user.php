@@ -64,4 +64,17 @@ $Users = new Ss\User\User();
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 <?php
+include_once '../Public_javascript.php';
+?>
+<!-- 在下面添加功能引用的js -->
+
+<!-- 下面加载 dataTables 要用的 js 文件 -->
+<script src="../asset/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+<script src="../asset/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function () {
+    $("#example1").dataTable();
+  });
+</script>
+<?php
 require_once '_footer.php'; ?>
