@@ -72,7 +72,11 @@
                                     <p id="ss-msg-success-p"></p>
                                 </div>
 
-
+                                <div id="ss-msg-error" class="alert alert-warning alert-dismissable" style="display:none">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                                    <p id="ss-msg-error-p"></p>
+                                </div>
 
                                 <div class="form-group">
                                     <input type="text" id="sspwd" placeholder="输入新密码" class="form-control"  >
@@ -97,6 +101,14 @@
     $("#msg-success").hide();
     $("#msg-error").hide();
     $("#ss-msg-success").hide();
+    // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
+    function removeHTMLTag(str) {
+            str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
+            str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
+            str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
+            str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
+            return str;
+    }
 </script>
 
 <script>
@@ -123,7 +135,11 @@
                     }
                 },
                 error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
+                        $("#msg-error-p").html("发生错误："+jqXHR.status);
+                        $("#msg-error").hide(10);
+                        $("#msg-error").show(100);
+                        // 在控制台输出错误信息
+                        console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
         })
@@ -150,7 +166,11 @@
                     }
                 },
                 error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
+                        $("#ss-msg-error-p").html("发生错误："+jqXHR.status);
+                        $("#ss-msg-error").hide(10);
+                        $("#ss-msg-error").show(100);
+                        // 在控制台输出错误信息
+                        console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
         })
