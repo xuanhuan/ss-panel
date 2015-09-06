@@ -85,6 +85,32 @@ class Ss {
             return 0;
         }
     }
+    
+        //返回签到天数
+    function  get_sign_day(){
+        return $this->get_user_info_array()['sign_day'];
+    }
+
+    //update sign_day
+    function update_sign_day(){
+        $now = time();
+        $sign1=48*3600 - 3600*date('H', $this->get_last_check_in_time());
+        $sign2=$now - $this->get_last_check_in_time();
+        if( $sign2 < $sign1 ){
+         $this->db->update("user",[
+            "sign_day[+]" => 1
+         ],[
+            "uid" => $this->uid
+         ]);
+         }else{
+            $this->db->update("user",[
+            "sign_day" => 1
+         ],[
+            "uid" => $this->uid
+         ]);
+         }
+    }
+
 
     //update last check_in time
     function update_last_check_in_time(){
