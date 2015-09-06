@@ -8,6 +8,7 @@ $sign_day = 0;
 if(!$oo->is_able_to_check_in()){
     $transfer_to_add = 0;
 }else {
+    $oo->update_sign_day();
     $sign_day = $oo->get_sign_day(); //获得已经签到的天数
     if($sign_day < 10 ){
         $level_add = 0;
@@ -48,8 +49,7 @@ if(!$oo->is_able_to_check_in()){
     }
     $per_add = rand($check_min, $check_max);    //随机值get
     $transfer_to_add = $per_add + $level_add; //汇总
-    $oo->update_sign_day();
-    $sign_day= $sign_day+1;
+	$sign_day= $oo->get_sign_day();
     $oo->update_last_check_in_time();
     $oo->add_transfer($transfer_to_add*$tomb);
 }
