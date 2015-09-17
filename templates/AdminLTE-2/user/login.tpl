@@ -36,6 +36,7 @@
                 <input id="passwd" name="Password" type="password" class="form-control" placeholder="密码"/>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div id="assp"></div>
         </form>
         <div class="row">
             <div class="col-xs-8">
@@ -72,6 +73,9 @@
 <script src="<{$resources_dir}>/asset/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- iCheck -->
 <script src="<{$resources_dir}>/asset/js/icheck.min.js" type="text/javascript"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script>
     $(function () {
         $('input').iCheck({
@@ -98,8 +102,8 @@
                 dataType:"json",
                 data:{
                     email: $("#email").val(),
-                    passwd: $("#passwd").val(),
-                    remember_me: $("#remember_me").val()
+                    passwd: Aes.Ctr.encrypt($("#passwd").val(), "<{$randomChar}>", 256),
+                    remember_me: remember_me: document.getElementById("remember_me").checked ? "week" : "no"
                 },
                 success:function(data){
                     if(data.ok){

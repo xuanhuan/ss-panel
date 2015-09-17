@@ -42,11 +42,15 @@
                                 <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
                                 <label for="invite_num">邀请码数量</label>
                               </div>
-                              <div class="input-field">
-                                <input type="text" name="enable" id="enable" value="<{$rs['enable']}>" class="validate">
-                                <label for="enable">是否启用（1为启用，0为停用）</label>
-                              </div>   
-                                  <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
+                              <div class="switch">状态：
+                                <label>
+                                  停止
+                                  <input type="checkbox"  id="enable" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  >
+                                  <span class="lever"></span>
+                                  正常          
+                                </label>
+                              </div><br/>
+                              <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
                           </form>
                       </div>
                  </span> 
@@ -61,6 +65,10 @@
 <{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
 <{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
 <{* 请在下面加入你的 javascript *}>
+
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
 <script type="text/javascript">
   _Prompt_msg();
@@ -85,13 +93,13 @@
                     user_name: $("#user_name").val(),
                     user_email: $("#user_email").val(),
                     user_email_hidden: "<{$rs['email']}>",
-                    user_pass: $("#user_pass").val(),
+                    user_pass: Aes.Ctr.encrypt($("#user_pass").val(), "<{$randomChar}>", 256),
                     user_pass_hidden: "<{$rs['pass']}>",
-                    user_passwd: $("#user_passwd").val(),
+                    user_passwd: Aes.Ctr.encrypt($("#user_passwd").val(), "<{$randomChar}>", 256),
                     transfer_enable: $("#transfer_enable").val(),
                     transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
                     invite_num: $("#invite_num").val(),
-                    enable: $("#enable").val()
+                    enable: document.getElementById("enable").checked ? "1" : "0"
                 },
                 success:function(data){
                     if(data.ok){

@@ -56,6 +56,7 @@
                         <input id="password" type="password" name="password" class="validate" required>
                         <label for="password">密码 PassWord</label>
                       </div>
+                      <div id="assp"></div>
                         <p class="modal-trigger waves-effect">
                           <input type="checkbox" id="remember_me"/>
                           <label for="remember_me">记住我</label>
@@ -77,6 +78,9 @@
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/jquery-2.1.1.min.js?<{$version}><{date('Ym')}>"></script>
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/materialize.min.js?<{$version}><{date('Ym')}>"></script>
         <script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+        <!-- AES -->
+        <script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
+        <script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
         <script type="text/javascript">
             _Prompt_msg();
             // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
@@ -97,8 +101,8 @@
                         dataType:"json",
                         data:{
                             email: $("#email").val(),
-                            passwd: $("#password").val(),
-                            remember_me: $("#remember_me").val()
+                            passwd: Aes.Ctr.encrypt($("#password").val(), "<{$randomChar}>", 256),
+                            remember_me: remember_me: document.getElementById("remember_me").checked ? "week" : "no"
                         },
                         success:function(data){
                             if(data.ok){
@@ -120,9 +124,10 @@
                                     console.log(removeHTMLTag(jqXHR.responseText));
                         }
                     });
-
+                    
                     inemail=$("#email").val();
                     inpasswd=$("#password").val();
+                    
                 }
                 function logincheck()
                 {
