@@ -128,13 +128,13 @@
             $("#msg-error").closeModal();
         })
     })
-function changeForm(value){
-  if(value=="custom_node_method") {
-      $('#custom_node_method_css').show(200);
-      $('#custom_node_method').focus();
-      $('#custom_node_method').select();
-  }else{
-      $('#custom_node_method_css').hide(200);
-  }
-}
+   function changeForm(value){
+     if(value=="custom_node_method") {
+         $('#custom_node_method_css').show(200);
+         $('#custom_node_method').focus();
+         $('#custom_node_method').select();
+     }else{
+         $('#custom_node_method_css').hide(200);
+     }
+   }
 </script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
