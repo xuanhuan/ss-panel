@@ -153,6 +153,8 @@ $("#error-close").click(function(){
 function changeForm(value){
   if(value=="custom_node_method") {
       $('#custom_node_method_css').show(200);
+      $('#custom_node_method').focus();
+      $('#custom_node_method').select();
   }else{
       $('#custom_node_method_css').hide(200);
   }
