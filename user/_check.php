@@ -11,10 +11,10 @@ if(isset($_COOKIE['uid'])|| $_COOKIE['uid'] != ''){
         $pwd = $U->GetPasswd();
         $pw = \Ss\User\Comm::CoPW($pwd);
         if($pw != $user_pwd || $pw == null || $user_pwd == null  ){
-            header("Location:login.php");
+            header("Location:../auth/login.php");
         }
 }else{
-    header("Location:login.php");
+    header("Location:../auth/login.php");
     exit();
 }
 $oo = new Ss\User\Ss($uid);

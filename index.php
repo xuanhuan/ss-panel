@@ -1,7 +1,15 @@
 <?php
 include_once 'lib/config.php';
 $varsarray = get_defined_vars();
-$smarty->assign("index_Announcement",Ss\ac::get('index_Announcement',$varsarray));// 首页公告内容
-$smarty->assign("index_button",Ss\ac::get('index_button',$varsarray));// 首页公告按钮
-$smarty->assign("index_Custom",Ss\ac::get('index_Custom',$varsarray));// 首页自定义内容
+$c = new \Ss\User\Invite();
+$smarty->assign('c',$c);
+$datas = $c->CodeArray();
+$smarty->assign('datas',$datas);
+$smarty->assign('a',$a=1);
+//把随机字符串保存到session
+$_SESSION['randomChar']=$randomChar;
+$smarty->assign('randomChar',$randomChar);
+$smarty->assign("tos_content",Ss\ac::get('tos_content',get_defined_vars()));// 用户协议 
+//注册
 $smarty->display("index.tpl");
+

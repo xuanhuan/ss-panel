@@ -1,5 +1,6 @@
 <?php
 header("Content-type:text/html;charset=utf-8"); //指定编码
+clearstatcache();
 // 请在调试时去除注释，输出错误信息。
 // error_reporting(E_ALL);
 // ini_set('display_errors', '1');

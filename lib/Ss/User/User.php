@@ -1,13 +1,16 @@
 <?php
-
-
 namespace Ss\User;
+ini_set("display_errors", "On");
+
+error_reporting(E_ALL);
+
+
 
 
  class User {
 
      public  $uid;
-     private $db;
+     public $db;
 
      private $table = "user";
 
@@ -22,7 +25,7 @@ namespace Ss\User;
         return $datas;
      }
 
-     function updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num,$enable){
+     function updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num,$plan,$enable,$plan_end_time){
          return $this->db->update($this->table,[
              "user_name" => $name,
              "email" => $email,
@@ -30,7 +33,9 @@ namespace Ss\User;
              "passwd" => $passwd,
              "transfer_enable" => $transfer_enable,
              "invite_num" => $invite_num,
-             "enable" => $enable
+             "enable" => $enable,
+             "plan"=> $plan,
+             "plan_end_time"=>$plan_end_time,
          ],[
              "uid" => $this->uid
          ]);
@@ -111,5 +116,10 @@ namespace Ss\User;
              "uid" => $this->uid
          ]);
      }
+     
+
+     
 
  }
+ 
+ 

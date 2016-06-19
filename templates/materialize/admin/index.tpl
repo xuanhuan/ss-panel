@@ -1,68 +1,99 @@
-<{extends file="header.tpl"}> <{block name="title" prepend}>用户中心 - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='admin/nav.tpl'}>
-<style type="text/css">
-  .btn0{width: 100%;}
-</style>
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5  class="white-text">
-          用户中心
-          <small>User Center</small>
-      </h5>
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2">
-            <div class="col s12 m12 l6">
-              <div class="card-panel light-blue accent-3 hoverable">
-                      <span class="white-text">
-                      <h5 class="header center">
-                      <div class="center">
-                            <h3>
-                                <{$node_count}>
-                            </h3>
-                            <p>
-                                节点
-                            </p>
-                        </div>
-                      </h5>
-                      <div class="center white-text">
-                       <a href="node.php" class="btn btn0 waves-effect waves-light light-blue lighten-5 teal-text center">
-                            管理
-                        </a>
-                      </div>
-                 </span>     
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='../source.tpl'}>
+<title>管理中心 - <{$site_name}></title>
+<{include file='admin/header.tpl'}>
+<main class="content">
+	<div class="content-header ui-content-header">
+		<div class="container">
+			<h1 class="content-heading">管理中心<small>Admin Center</small></h1>
+		</div>
+	</div>
+	<div class="container">
+		<section class="content-inner margin-top-no">
+			<div class="row">
+				<div class="col-lg-12 col-md-6">
+					<div class="card margin-bottom-no">
+						<div class="card-main">
+							<div class="card-inner">
+								<p>管理员<{$GetUserName}>，您好 :-),欢迎来到<{$site_name}></p></div>
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+			    <div class="col-lg-12 col-sm-12">
+				    <div class="card">
+					    <div class="card-main">
+						    <div class="card-inner">
+							    <p class="card-heading">概览</p>
+							    <div class="col-lg-6 col-sm-6">
+								    <div class="card">
+									    <div class="card-main">
+										    <div class="card-inner">
+											    <p class="card-heading">节点信息</p>
+											    <h1><{$node_count}>个</h1>
+											 </div>
+										    <div class="card-action">
+											    <div class="form-group">
+												    <div class="row">
+													    <div class="col-md-10 col-md-push-1">
+														    <a href="node.php" class="btn btn-block btn-brand waves-attach waves-light">查看</a>
+                                                        </div>
+												    </div>
+											    </div>
+										    </div>
+									    </div>
+								    </div>
+							    </div>
+							    <div class="col-lg-6 col-sm-6">
+								    <div class="card">
+									    <div class="card-main">
+										    <div class="card-inner">
+											    <p class="card-heading">用户信息</p>
+											    <h1><{$all_user}>名</h1>
+                                            </div>
+										    <div class="card-action">
+											    <div class="form-group">
+												    <div class="row">
+													    <div class="col-md-10 col-md-push-1">
+														    <a href="user.php" class="btn btn-block btn-brand waves-attach waves-light">查看</a></div>
+												        </div>
+											        </div>
+										        </div>
+									        </div>
+								        </div>
+							        </div>
+						        </div>
+					        </div>
+				        </div>
+			        </div>
                 </div>
             </div>
+        </section>
+	</div>
+</main>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#checkin").click(function(){
+            $.ajax({
+                type:"GET",
+                url:"_checkin.php",
+                dataType:"json",
+                success:function(data){
+                    $("#checkin-msg").html(data.msg);
+                    $("#checkin-btn").hide();
+                },
+                error:function(jqXHR){
+                    alert("发生错误："+jqXHR.status);
+                }
+            })
+        })
+    })
+</script>
+</html>
 
-            <div class="col s12 m12 l6">
-                <div class="card-panel orange darken-1 hoverable">
-                  <span class="blue-text">
-                    <h5 class="header center white-text ">
-                      <div class="center">
-                              <h3>
-                                  <{$all_user}>
-                              </h3>
-                              <p>
-                                  用户
-                              </p>
-                      </div>
-                    </h5>
-                      <div class="center white-text">
-                        <a href="user.php" class="btn btn0 waves-effect waves-light light-blue lighten-5 teal-text center">
-                            查看
-                        </a>
-                      </div>
-                  </span>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-
-<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>

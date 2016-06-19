@@ -44,5 +44,4 @@ class NodeInfo extends \Ss\Etc\Db {
         ]);
         return 1;
     }
-
 }

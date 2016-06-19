@@ -8,6 +8,8 @@ $reset_date = '1';
 if (date('d')==$reset_date){
     $db->update("user",[
         "u" => "0",
-        "d" => "0"
+        "d" => "0",
+        "t"=>  "0",
+        "transfer_enable" => "5368709120"
     ]);
 }

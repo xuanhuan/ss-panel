@@ -1,0 +1,3 @@
+<?php
+header('login.php');
+?>

@@ -1,53 +1,60 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>统计信息 - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='user/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          <{$site_name}> 统计信息
-          <small>Statistics</small>
-      </h5>
-
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2">
-            <div class="col s12">
-              <div class="card-panel orange darken-2 hoverable">
-                      <span class="white-text">
-                      <h5 class="header center white-text">注意！</h5>
-                      <div class="center white-text">
-                        <p>流量统计仅供参考，在线人数有一小会儿的延迟。</p>
-                      </div>
-                 </span>     
-                </div>
-            </div>
-
-            <div class="col s12">
-                <div class="card-panel hoverable">
-                  <div class="center black-text">
-                    <p>当前时间：<{$time}></p>
-                    <p>当前版本：<code><{$version}></code></p>
-                    <p><{$site_name}> 已经产生流量<code><{$getTrafficGB}></code>GB。</p>
-                    <p>注册用户：<code><{$allUserCount}> </code></p>
-                    <p>已经有<code><{$activedUserCount}></code>个用户使用了<{$site_name}> 服务。</p>
-                    <p>签到用户：<code><{$checkinUser}></code></p>
-                    <p>24小时签到用户：<code><{$CheckInUser_24}></code></p>
-                    <p>过去1小时在线人数：<code><{$onlineUserCount_1_h}></code>。</p>
-                    <p>过去5分钟在线人数：<code><{$onlineUserCount_5_i}></code>。</p>
-                    <p>过去1分钟在线人数：<code><{$onlineUserCount_1_i}></code>。</p>
-                    <p>实时在线人数：<code><{$onlineUserCount}></code>。</p>
-                    <p>过去24小时在线人数：<code><{$onlineUserCount_24_h}></code>。</p>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-
-<{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='source.tpl'}>
+<title>系统信息 -<{$site_name}></title>
+<{include file='user/header.tpl'}>
+	<main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+						<h1 class="content-heading">系统信息</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+								    <div class="text-center">
+									    <p>A Shadowsocks Provider | Product of <a href="http://ahref.me/" target="_blank">Ahref Group</a></p>
+                                        <p>统计信息仅供参考<small>The statistical data is only for your information</small></p>
+                                    </div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <div class="text-center">
+                                        <p>当前时间：<{$time}></p>
+                                        <p><{$site_name}> 版本：<span class="label label-brand-accent margin-right"><{$version}></span></p>
+                                        <p><{$site_name}> 已经产生流量<span class="label label-brand-accent margin-right"><{$getTrafficGB}></span>GB。</p>
+                                        <p>有<span class="label label-brand-accent margin-right"><{$allUserCount}> </span>个用户选择了<{$site_name}> 站点</p>
+                                        <p>已经有<span class="label label-brand-accent margin-right"><{$activedUserCount}></span>个用户使用了<{$site_name}> 服务。</p>
+                                        <p>24小时内签到用户：<span class="label label-brand-accent margin-right"><{$CheckInUser_24}></span></p>
+                                        <p>过去24小时在线人数：<span class="label label-brand-accent margin-right"><{$onlineUserCount_24_h}></span>。</p>
+                                        <p>过去1小时在线人数：<span class="label label-brand-accent margin-right"><{$onlineUserCount_1_h}></span>。</p>
+                                        <p>过去5分钟在线人数：<span class="label label-brand-accent margin-right"><{$onlineUserCount_5_i}></span>。</p>
+                                        <p>过去1分钟在线人数：<span class="label label-brand-accent margin-right"><{$onlineUserCount_1_i}></span>。</p>
+                                        <p>实时在线人数：<span class="label label-brand-accent margin-right"><{$onlineUserCount}></span>。</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+<{include file='footer.tpl'}>
+</html>

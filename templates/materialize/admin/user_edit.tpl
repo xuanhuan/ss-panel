@@ -1,130 +1,167 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>用户管理 - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='admin/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          用户管理
-          <small>User Manage</small>
-      </h5>
-
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2 hoverable">
-            <div class="col s12">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">编辑用户</h5>
-                      <div class="black-text">
-                          <form role="form" method="post" action="javascript:void(0);">
-                              ID: <{$uid}>
-                              <div class="input-field">
-                                <input type="text" name="user_name" id="user_name" value="<{$rs['user_name']}>" class="validate">
-                                <label for="user_name">用户名</label>
-                              </div>
-                              <div class="input-field">
-                                <input type="text" name="user_email" id="user_email" value="<{$rs['email']}>" class="validate">
-                                <label for="user_email">用户邮箱</label>
-                              </div>
-                              <div class="input-field">
-                                <input type="text" name="user_pass" id="user_pass" class="validate">
-                                <label for="user_pass">用户密码 新密码(不修改请留空)</label>
-                              </div>
-                              <div class="input-field">
-                                <input type="text" name="user_passwd" id="user_passwd" value="<{$rs['passwd']}>" class="validate">
-                                <label for="user_passwd">连接密码</label>
-                              </div>
-                              <div class="input-field">
-                                <input type="text" name="transfer_enable" id="transfer_enable" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>" class="validate">
-                                <label for="transfer_enable">设置流量 单位为GB</label>
-                              </div>
-                              <div class="input-field">
-                                <input type="text" name="invite_num" id="invite_num" value="<{$rs['invite_num']}>" class="validate">
-                                <label for="invite_num">邀请码数量</label>
-                              </div>
-                              <div class="switch">状态：
-                                <label>
-                                  停止
-                                  <input type="checkbox"  id="enable" <{if $rs['enable']==1}> value="checkbox" checked="checked" <{/if}>  >
-                                  <span class="lever"></span>
-                                  正常          
-                                </label>
-                              </div><br/>
-                              <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
-                          </form>
-                      </div>
-                 </span> 
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='../source.tpl'}>
+<title>编辑用户 - <{$site_name}></title>
+<{include file='admin/header.tpl'}>
+    <main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">编辑用户<small>Edit User</small></h1>
+			</div>
+		</div>
+		<div class="container">
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					
+					<div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>管理员<{$GetUserName}>，您好 :-),您正在修改<{$rs['user_name']}>的资料</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			    <div class="col-lg-12 col-sm-12">
+				    <div class="card">
+				        <div class="card-main">
+				            <div class="card-inner">
+				                <div class="col-lg-6 col-md-12 col-sm-12">
+				                <p class="card-heading">ID: <{$uid}>的用户信息</p>
+				                <div class="form-group form-group-label">
+				                    <form role="form" method="post" action="javascript:void(0);">
+							    		<label class="floating-label" for="user_name">用户名</label>
+										<input class="form-control" id="user_name" type="text" value="<{$rs['user_name']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="user_email">用户邮箱</label>
+										<input class="form-control" id="user_email" type="text" value="<{$rs['email']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="user_pass">用户密码 新密码(不修改请留空)</label>
+										<input class="form-control" id="user_pass" type="text">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="user_passwd">Shadowsocks连接密码</label>
+										<input class="form-control" id="user_passwd" type="text" value="<{$rs['passwd']}>">
+									</div>
+									</div>
+									<div class="col-lg-6 col-md-12 col-sm-12">
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="transfer_enable">设置流量 单位为GB</label>
+										<input class="form-control" id="transfer_enable" type="text" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="invite_num">邀请码数量</label>
+										<input class="form-control" id="invite_num" type="text" value="<{$rs['invite_num']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="plan">套餐类别</label>
+										<input class="form-control" id="plan" type="text" value="<{$rs['plan']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="plan_end_time">套餐到期时间</label>
+										<input class="form-control" id="plan_end_time" type="text"  onclick="$('#plan_end_time').pickdate();" value="<{date('Y-m-d',$rs['plan_end_time'])}>">
+									</div>
+									<div class="checkbox switch">
+                                        <label for="enable">
+                                        停止/
+                                        <input class="access-hide" id="enable" name="enable" type="checkbox"<{if $rs['enable']==1}> checked="checked" <{/if}>  ><span class="switch-toggle"></span>
+                                        正常
+                                        </label>
+                                    </div><br/>
+                                    </div>
+                                    <button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">修改</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
+            </section>
         </div>
-      </div>
-    </div>
-</div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-
-<!-- AES -->
-<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+	        <div class="modal-dialog modal-xs">
+		        <div class="modal-content">
+			        <div class="modal-inner">
+				        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+			        </div>
+			        <div class="modal-footer">
+				        <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
 <script type="text/javascript">
-  _Prompt_msg();
-  // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
-  function removeHTMLTag(str) {
-      str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-      str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-      str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-      str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-      return str;
-  }
-</script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#Submit").click(function(){
-            $.ajax({
-                type:"POST",
-                url:"_user_edit.php",
-                dataType:"json",
-                data:{
-                    user_uid: "<{$uid}>",
-                    user_name: $("#user_name").val(),
-                    user_email: $("#user_email").val(),
-                    user_email_hidden: "<{$rs['email']}>",
-                    user_pass: Aes.Ctr.encrypt($("#user_pass").val(), "<{$randomChar}>", 256),
-                    user_pass_hidden: "<{$rs['pass']}>",
-                    user_passwd: Aes.Ctr.encrypt($("#user_passwd").val(), "<{$randomChar}>", 256),
-                    transfer_enable: $("#transfer_enable").val(),
-                    transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
-                    invite_num: $("#invite_num").val(),
-                    enable: document.getElementById("enable").checked ? "1" : "0"
-                },
-                success:function(data){
-                    if(data.ok){
-                        $("#msg-error").closeModal();
-                        $("#msg-success").openModal();
-                        $("#msg-success-p").html(data.msg);
-                        window.setTimeout("location.href='user.php'", 2000);
-                    }else{
-                        $("#msg-error").openModal();
-                        $("#msg-error-p").html(data.msg);
-                    }
-                },
-                error:function(jqXHR){
-                        $("#msg-error-p").html("发生错误："+jqXHR.status);
-                        $("#msg-error").openModal();
-                        // 在控制台输出错误信息
-                        console.log(removeHTMLTag(jqXHR.responseText));
+function get_unix_time(dateStr)
+{
+date = new Date(Date.parse(dateStr.replace(/-/g, "/")));
+date = date.getTime();
+return parseInt(date/1000);
+}
+$(document).ready(function(){
+    $("#Submit").click(function(){
+        $('#result').modal();
+        $('#loading').show();
+        $.ajax({
+            type:"POST",
+            url:"_user_edit.php",
+            dataType:"json",
+            data:{
+                user_uid: "<{$uid}>",
+                user_name: $("#user_name").val(),
+                user_email: $("#user_email").val(),
+                user_email_hidden: "<{$rs['email']}>",
+                user_pass: Aes.Ctr.encrypt($("#user_pass").val(), "<{$randomChar}>", 256),
+                user_pass_hidden: "<{$rs['pass']}>",
+                user_passwd: Aes.Ctr.encrypt($("#user_passwd").val(), "<{$randomChar}>", 256),
+				transfer_enable: $("#transfer_enable").val(),
+				plan: $("#plan").val(),
+                transfer_enable_hidden: "<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>",
+                invite_num: $("#invite_num").val(),
+                enable: document.getElementById("enable").checked ? "1" : "0",
+                plan_end_time: get_unix_time($("#plan_end_time").val())
+            },
+            success:function(data){
+                $('#loading').hide();
+                if(data.ok){
+                    $("#msg").html(data.msg);
+                    window.setTimeout("location.href='user.php'", 1000);
+                }else{
+                    $("#msg").html(data.msg);
                 }
-            })
-        })
-        $("#ok-close").click(function(){
-            $("#msg-success").closeModal();
-        })
-        $("#error-close").click(function(){
-            $("#msg-error").closeModal();
+            },
+            error:function(jqXHR){
+                $('#loading').hide();
+                $("#msg").html("发生错误："+jqXHR.status);
+                // 在控制台输出错误信息
+                console.log(removeHTMLTag(jqXHR.responseText));
+            }
         })
     })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+})
+</script>
+<script>
+    $('#plan_end_time').pickdate({
+    cancel: '取消',
+    closeOnCancel: false,
+    closeOnSelect: false,
+    container: '',
+    firstDay: 1,
+    format: 'yyyy-mm-dd', // escape any formatting characters with an exclamation mark
+    formatSubmit: 'yyyy-mm-dd',
+    ok: '确认',
+    selectMonths: true,
+    selectYears: 5,
+    today: '今天'
+});
+</script>

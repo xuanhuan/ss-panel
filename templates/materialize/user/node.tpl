@@ -1,187 +1,422 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>节点列表 - <{/block}>
-<{block name="contents"}>
-<div class="had-container">
-   <{include file='user/nav.tpl'}>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='source.tpl'}>
+<title>节点列表 -<{$site_name}></title>
+<{include file='user/header.tpl'}>
+    <main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">节点列表<small>Node List</small></h1>
+			</div>
+		</div>
+		
+		
+		<div class="container">
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					
+					<div class="col-lg-12 col-md-12">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>请寻找适合自己的节点；正常情况下普通节点速度在10000kbps-20000kbps，高级节点在20000kbps-90000kbps。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-6 col-md-12 col-sm-12">
+				    <div class="card">
+				        <div class="card-main">
+				            <div class="card-inner">
+				                <p class="card-heading"><i class="icon icon-lg">cloud_queue</i>&nbsp;普通节点</p>
+				                
+				                <div class="card card-red">
+								    <div class="card-main">
+									    <div class="card-inner">
+										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项<small>Attention</small></p>
+										    <p><{$notice->notice('common_node')}></p>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <{if $oo->get_enable()==0}>
+							        <div class="card card-red">
+								        <div class="card-main">
+									        <div class="card-inner">
+										        <p class="card-heading">账户异常<small>Error</small></p>
+										        <p>你的账号状态为：停止，请查看用户中心。</p>
+									        </div>
+								        </div>
+							        </div>
+							    <{else}>
+							        <{if $plan==A}>
+							            <div class="card card-green">
+								            <div class="card-main">
+									            <div class="card-inner">
+										            <p><i class="icon icon-lg">lightbulb_outline</i>&nbsp;立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+									            </div>
+								            </div>
+							            </div>
+							        <{/if}>
+							    
+				                    <{foreach $node0 as $row}>
+                                        <h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+						                    <div class="card">
+							                    <div class="card-main">
+								                    <div class="card-inner">
+									                    <{$row['node_info']}>
+								                    </div>
+								                <div class="card-action">
+									                <ul class="nav nav-list margin-no pull-left">
+										                <li class="dropdown">
+											                <a class="dropdown-toggle text-black waves-attach" data-toggle="dropdown"><i class="icon icon-lg">network_wifi</i>&nbsp;详细信息</a>
+										                    <ul class="dropdown-menu">
+												                <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">location_on</i>&nbsp;伺服器地址：<{$row['node_server']}></a>
+												                </li>
+											                    <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">device_hub</i>&nbsp;伺服器状态：<{$row['node_status']}></a>
+											                    </li>
+											                    <li>
+											                        <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">security</i>&nbsp;伺服器加密方式：<{$row['node_method']}></a>
+												                </li>
+											                </ul>
+										               </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-left">
+									                    <li>
+									                        <a href="javascript:void(0)" class='dropdown-toggle text-black waves-attach'><i class="icon icon-lg">import_export</i><span class="ping" id="<{$row['id']}>_ping" value="<{$row['node_server']}>">Ping</span></a>
+									                    </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-right">
+                                                        <a href="javascript:void(0)" class="dropdown-toggle text-black waves-attach getqrcode" value="<{$row['qr']}>"><i class="icon icon-lg">blur_on</i>二维码</a>
+									                </ul>
+								                </div>
+								                <div class="card-action text-center" style="min-height:15px;">
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">data_usage</i>&nbsp;负载:&nbsp;<span id="<{$row['id']}>_load"><{$row['load_1']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">graphic_eq</i>&nbsp;CPU:&nbsp;<span id="<{$row['id']}>_cpu"><{$row['cpu']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_up</i>&nbsp;上行:&nbsp;<span id="<{$row['id']}>_upload"><{$row['upload']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
+								                </div>
+                							</div>
+						                </div>
+							        <{/foreach}>
+							    <{/if}>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				
+				
+				<div class="col-lg-6 col-md-12 col-sm-12">
+				    <div class="card">
+				        <div class="card-main">
+				            <div class="card-inner">
+				                <p class="card-heading"><i class="icon icon-lg">cloud_queue</i>&nbsp;高级节点</p>
+				                
+				                <div class="card card-red">
+								    <div class="card-main">
+									    <div class="card-inner">
+										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项<small>Attention</small></p>
+										    <p><{$notice->notice('special_node')}></p>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <{if $oo->get_enable()==0}>
+							        <div class="card card-red">
+								        <div class="card-main">
+									        <div class="card-inner">
+										        <p class="card-heading">账户异常<small>Error</small></p>
+										        <p>你的账号状态为：停止，请查看用户中心。</p>
+									        </div>
+								        </div>
+							        </div>
+							    <{else}>
+							        <{if $plan>'C'}>
+							            <div class="card card-green">
+								            <div class="card-main">
+									            <div class="card-inner">
+										            <p><{$GetUserName}>&nbsp;, 您是高级账户持有者，您可以使用任意的<{$site_name}>节点，玩的愉快：-）</p>
+									            </div>
+								            </div>
+							            </div>
+							    
+				                        <{foreach $node1 as $row}>
+                                        <h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+						                    <div class="card">
+							                    <div class="card-main">
+								                    <div class="card-inner">
+									                    <{$row['node_info']}>
+								                    </div>
+								                <div class="card-action">
+									                <ul class="nav nav-list margin-no pull-left">
+										                <li class="dropdown">
+											                <a class="dropdown-toggle text-black waves-attach" data-toggle="dropdown"><i class="icon icon-lg">network_wifi</i>&nbsp;详细信息</a>
+										                    <ul class="dropdown-menu">
+												                <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">location_on</i>&nbsp;伺服器地址：<{$row['node_server']}></a>
+												                </li>
+											                    <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">device_hub</i>&nbsp;伺服器状态：<{$row['node_status']}></a>
+											                    </li>
+											                    <li>
+											                        <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">security</i>&nbsp;伺服器加密方式：<{$row['node_method']}></a>
+												                </li>
+											                </ul>
+										               </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-left">
+									                    <li>
+									                        <a href="javascript:void(0)" class='dropdown-toggle text-black waves-attach'><i class="icon icon-lg">import_export</i><span class="ping" id="<{$row['id']}>_ping" value="<{$row['node_server']}>">Ping</span></a>
+									                    </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-right">
+													     <a href="javascript:void(0)" class="dropdown-toggle text-black waves-attach getqrcode" value="<{$row['qr']}>"><i class="icon icon-lg">blur_on</i>二维码</a>
+									                </ul>
+								                </div>
+								                <div class="card-action text-center" style="min-height:15px;">
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">data_usage</i>&nbsp;负载:&nbsp;<span id="<{$row['id']}>_load"><{$row['load_1']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">graphic_eq</i>&nbsp;CPU:&nbsp;<span id="<{$row['id']}>_cpu"><{$row['cpu']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_up</i>&nbsp;上行:&nbsp;<span id="<{$row['id']}>_upload"><{$row['upload']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
+								                </div>
+                							</div>
+						                </div>
+							            <{/foreach}>
+							        <{else}>
+							            <div class="card card-green">
+								            <div class="card-main">
+									            <div class="card-inner">
+										            <p><i class="icon icon-lg">lightbulb_outline</i>立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+									            </div>
+								            </div>
+							            </div>
+							            
+							            <{foreach $node1 as $row}>
+                                        <h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+						                    <div class="card">
+							                    <div class="card-main">
+								                    <div class="card-inner">
+									                    <{$row['node_info']}>
+								                    </div>
+								                <div class="card-action">
+									                <ul class="nav nav-list margin-no pull-left">
+										                <li class="dropdown">
+											                <a class="dropdown-toggle text-black waves-attach" data-toggle="dropdown"><i class="icon icon-lg">network_wifi</i>&nbsp;详细信息</a>
+										                    <ul class="dropdown-menu">
+												                <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">location_on</i>&nbsp;伺服器地址：<i class="icon icon-lg">visibility_off</i></a>
+												                </li>
+											                    <li>
+												                    <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">device_hub</i>&nbsp;伺服器状态：<i class="icon icon-lg">visibility_off</i></a>
+											                    </li>
+											                    <li>
+											                        <a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">security</i>&nbsp;伺服器加密方式：<i class="icon icon-lg">visibility_off</i></a>
+												                </li>
+											                </ul>
+										               </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-left">
+									                    <li>
+									                        <a href="javascript:void(0)" class='dropdown-toggle text-black waves-attach'><i class="icon icon-lg">import_export</i><span class="ping" id="<{$row['id']}>_ping" value="<{$row['node_server']}>">Ping</span></a>
+									                    </li>
+									                </ul>
+									                <ul class="nav nav-list margin-no pull-right">
+										                <li class="dropdown">
+											                <a href="#buy" class="dropdown-toggle text-black waves-attach" data-toggle="modal"><i class="icon icon-lg">next_week</i>&nbsp;支付</a>
+											                
+										                </li>
+									                </ul>
+								                </div>
+								                <div class="card-action text-center" style="min-height:15px;">
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">data_usage</i>&nbsp;负载:&nbsp;<span id="<{$row['id']}>_load"><{$row['load_1']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">graphic_eq</i>&nbsp;CPU:&nbsp;<span id="<{$row['id']}>_cpu"><{$row['cpu']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_up</i>&nbsp;上行:&nbsp;<span id="<{$row['id']}>_upload"><{$row['upload']}></span></small></div>
+									                    <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
+								                </div>
+                							</div>
+						                </div>
+							            <{/foreach}>
+							            <div aria-hidden="true" class="modal modal-va-middle fade" id="buy"  role="dialog" tabindex="-1" >
+	                                        <div class="modal-dialog modal-xs">
+		                                        <div class="modal-content">
+			                                        <div class="modal-inner">
+			                                            <div class="text-center">
+				                                            <h1 class="h1 margin-top-sm" id="msg">开通高级节点</h1>
+				                                        
+				                                        <div class="form-group form-group-label">
+                                                            <label class="floating-label" for="code">输入您的兑换码</label>
+                                                            <input class="form-control" id="code" name="code" maxlength="30" required>
+                                                        </div>
+                                                        <p id="info"></p>
+                                                        <div class="progress-circular progress-circular-inline" style="display:none;" id="loading">
+										                    <div class="progress-circular-wrapper">
+											                    <div class="progress-circular-inner">
+												                    <div class="progress-circular-left">
+													                    <div class="progress-circular-spinner"></div>
+												                    </div>
+												                    <div class="progress-circular-gap"></div>
+												                    <div class="progress-circular-right">
+												                    	<div class="progress-circular-spinner"></div>
+												                    </div>
+											                    </div>
+										                    </div>
+									                    </div>
+			                                         </div>
+			                                        <div class="modal-footer">
+				                                       <button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
+									                   <button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
+									                    <div class="divider"></div>
+									                    <p>没有兑换码？</p>
+									                   <a href="javascript:void(0)" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
+			                                        </div>
+			                                        </div>
+		                                        </div>
+	                                        </div>
+                                        </div>
+							        <{/if}>
+							    <{/if}>
+			
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				
+				
+			</div>
+		</div>
+</main>
+</body>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="node_qr" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-xs">
+			<div class="modal-content">
+				<div class="modal-heading">
+					<p class="modal-title"></p>
+				</div>
+				<div class="text-center">
+				    <div class="modal-inner" id="qrcode"></div>
+				</div>
+				
+			</div>
+		</div>
+</div>
+<{include file='../footer.tpl'}>
 
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          节点列表
-          <small>Node List</small>
-      </h5>
-          <div class="row">
-            <div class="col s12 m6 card-panel hoverable">
-              <span class="header black-text">
-                <h5 class="header black-text"><i class="mdi-editor-format-list-numbered" style="font-size: 1em;"></i>「 节点 」</h5>
-                  <div class="col s12 orange darken-1 hoverable">
-                  <span class="white-text">
-                    <h5 class="header black-text"><{$user_node_Announcement_node}><{* 普通节点公告内容 *}></h5>                  
-                  </span>
-                </div>
-                <{if $oo->get_enable()==0}>
-                    <div class="col s12 card-panel hoverable light-blue lighten-5">
-                        <p class="center">                            
-                        你的SS服务已被停止，你不能连接和查看节点。
-                        </p>
-                    </div>
-                <{elseif count($node0)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
-                  <{assign var="a" value="1"}>
-                  <{foreach $node0 as $row}><!-- <{$a++}> -->
-                      <div class="col s12 card-panel hoverable <{if $a%2==0}>light-blue lighten-5<{else}>yellow lighten-5<{/if}>">
-                      <ul id="node<{$row['id']}>" class="dropdown-content">
-                        <li><a href="#!" onclick="rel_url(this);" rel="../user/node_qr.php?id=<{$row['id']}>" class="waves-effect waves-red" title="<{$row['node_name']}>">二维码</a></li>
-                        <li><a href="#!" onclick="rel_url(this);" rel="../user/node_json.php?id=<{$row['id']}>" class="waves-effect waves-red" title="<{$row['node_name']}>">配置文件</a></li>
-                      </ul>
-                      <i class="mdi-navigation-chevron-right" style="font-size: 1em;"></i>&nbsp;&nbsp;<{$row['node_name']}><a class="btn waves-effect waves-light light-blue lighten-1 dropdown-button ss_node_btn" href="#!" data-activates="node<{$row['id']}>">查看<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                      <hr/>
-                          <div class="tab-content">
-                              <div class="tab-pane active" id="tab_1-1">
-                                  <p> <b class="btn waves-effect waves-light deep-purple accent-1 ss_node_btn0">地址:</b> <b class="btn ss_node_btn0 waves-effect"><{$row['node_server']}></b>
-                                      <b class="btn waves-effect waves-light amber darken-3 ss_node_btn0"><{$row['node_status']}></b>
-                                      <b class="btn waves-effect waves-light green accent-4 ss_node_btn0"><{$row['node_method']}></b>
-                                  </p>
-                                  <p> <{$row['node_info']}></p>
-                              </div>
-                          </div>
-                      </div>
-                  <{/foreach}>
-                <{else}>
-                  <div class="col s12 card-panel hoverable light-blue lighten-5">
-                    <p class="center">                            
-                    没有节点信息
-                    </p>
-                  </div>
-                <{/if}>
-              </span>
-            </div>
-            <div class="col s12 m6 card-panel hoverable">
-              <span class="header black-text">
-                <h5 class="header black-text"><i class="mdi-device-storage" style="font-size: 1em;"></i>『 Pro节点 』</h5>
-                  <div class="col s12 orange darken-1 hoverable">
-                      <span class="white-text">
-                        <h5 class="header black-text"><{$user_node_Announcement_node_pro}><{* pro节点公告内容 *}></h5>
-                      </span>
-                    </div>
-                         <{if $oo->get_enable()==0}>
-                            <div class="col s12 card-panel hoverable light-blue darken-1">
-                                <p class="white-text center">                           
-                                你的SS服务已被停止，你不能连接和查看节点。
-                                </p>
-                            </div>
-                        <{elseif count($node1)!=null}><{* 如果有邀请码就显示，没有就显示文字。*}>
-                        <{assign var="i" value="1"}>
-                          <{foreach $node1 as $row}><!-- <{$i++}> -->
-                               <div class="col s12 card-panel hoverable <{if $i%2==0}>light-blue darken-1 white-text<{else}>light-blue lighten-1 white-text<{/if}>">
-                                  <ul id="node_Pro<{$row['id']}>" class="dropdown-content">
-                                    <li><a href="#!" onclick="rel_url(this);" rel="../user/node_qr.php?id=<{$row['id']}>" class="waves-effect waves-red" title="<{$row['node_name']}>">二维码</a></li>
-                                    <li><a href="#!" onclick="rel_url(this);" rel="../user/node_json.php?id=<{$row['id']}>" class="waves-effect waves-red" title="<{$row['node_name']}>">配置文件</a></li>
-                                  </ul>
-                                  <i class="mdi-navigation-chevron-right" style="font-size: 1em;"></i>&nbsp;&nbsp;<{$row['node_name']}><a class="btn waves-effect waves-light light-blue lighten-5 teal-text dropdown-button ss_node_btn" href="#!" data-activates="node_Pro<{$row['id']}>">查看<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                  <hr/>
-                                  <div class="tab-content">
-                                      <div class="tab-pane active" id="tab_1-1">
-                                          <p> <b class="btn waves-effect waves-light deep-purple accent-1 ss_node_btn0">地址:</b> <b class="btn ss_node_btn0 waves-effect" ><{$row['node_server']}></b>
-                                              <b class="btn waves-effect waves-light amber darken-3 ss_node_btn0"><{$row['node_status']}></b>
-                                              <b class="btn waves-effect waves-light green accent-4 ss_node_btn0"><{$row['node_method']}></b>
-                                          </p>
-                                          <p><{$row['node_info']}></p>
-                                      </div>
-                                  </div>
-                              </div>
-                          <{/foreach}>
-                        <{else}>
-                          <div class="col s12 card-panel hoverable light-blue darken-1">
-                            <p class="white-text center">                            
-                            没有节点信息
-                            </p>
-                          </div>
-                        <{/if}>
-              </span>
-            </div>
-          </div>
-      </div>
-    </div>
-</div> 
-  <div id="modalnode" class="modal"><!--  modal-fixed-footer -->
-    <div class="modal-content">
-        <div id="no_node" style="margin: 12% 1% 1% 40%; display: none;">
-            <!-- 循环闪烁的颜色 -->
-            <div class="container">
-                <div class="preloader-wrapper big active">
-                  <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-
-                  <div class="spinner-layer spinner-red">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-
-                  <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-
-                  <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div><div class="gap-patch">
-                      <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-                </div>
-            </div>        
-        </div>
-        <div id="node"></div>      
-    </div>
-    <div class="modal-footer">   
-      <button onclick="$('#modalnode').closeModal();" class="btn waves-light light-blue lighten-1 modal-action modal-close waves-effect waves-green">关闭</button>
-      <div id="node_btn"></div>
-    </div>
-  </div>
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-<script type="text/javascript">
-console.log(document.getElementsByTagName("a").onclick);
-// 定义ID是否显示
-var no_node=document.getElementById('no_node');
-var node=document.getElementById('node');
-// 显示加载，不显示内容。
-function open_css(){
-  no_node.style.display="block";
-  node.style.display="none";
-}
-// 显示内容，不显示加载。
-function close_css(){
-  no_node.style.display="none";
-  node.style.display="block";
-}
-// 获取被点击的a标签rel内容，然后加载内容到 modalnode ID中。
-function rel_url(obj){
-  // console.log(obj.id);
-  // console.log(obj.rel);
-  open_css();
-  $('#node').load(obj.rel);
-  $('#modalnode').openModal();
-}
+<script src="<{$resources_dir}>/js/ping.js"></script>
+<script>
+var ping_id=0;
+p = new Ping();
+    $('.ping').click(function(){
+        ping_id = $(this).attr('id');
+        url = 'http://'+$(this).attr('value');
+        ping_result(ping_id, url)
+        })
+    
+    function ping_result(ping_id, url){
+        p.ping(url, function(data){
+            if ($('#'+ping_id).html() == 'Ping')
+                {
+                    $('#'+ping_id).html('请稍后');
+                    ping_result(ping_id, url);
+                }
+            else
+                $('#'+ping_id).html(data+'ms')
+            })
+        }
 </script>
-<script src="<{$resources_dir}>/asset/js/jquery.qrcode.min.js"></script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#test").click(function(){
+        $("#loading").show();
+        $("#test").hide();
+        $("#info").html("");
+        $.get('_code.php',{method:"test",code:$('#code').val()},
+            function(data){
+                $("#info").html(data['info']);
+                $("#loading").hide();
+                if (data['status'] == 'success'){
+                    $("#exchange").show();
+                    $("#test").hide();
+                }
+                else{
+                    $("#info").html(data['info']);
+                    $("#test").show();
+                    $("#exchange").hide();
+                }
+        },'json')
+        })
+    })
+    $('#exchange').click(function(){
+        $("#loading").show();
+        $("#info").html(" ");
+        $.get('_code.php',{'method':'redeem', code:$('#code').val()},
+        function(data){
+                $("#info").html(data['info']);
+                $("#loading").hide();
+                if(data['status'] == 'success'){
+                $("#info").html(data['info']);
+                $("#test").show();
+                $("#exchange").hide();
+                document.getElementById("code").value="";
+                $("#test").html("提交并检查新的兑换码");
+                }
+                else{
+                $("#info").html(data['info']);
+                }
+            },'json'
+        )
+    });
+    
+    $('#code').change(function(){
+        $("#info").html("");
+        $("#loading").hide();
+        $("#test").show();
+        $("#exchange").hide();
+    });
+    
+    $('.getqrcode').click(function(){
+        ssurl=$(this).attr('value');
+        $('#qrcode').html('<img src="../code/api.php?text='+ssurl+'" height="250px" width ="250px"\>');
+        $('#node_qr').modal();
+        });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+        setTimeout(get_node_info,3000);
+    })
+    
+    function get_node_info(){
+        $.ajax({
+            type:"POST",
+            url:"nodeinfo.php",
+            dataType:"json",
+            data:{},
+            success: function (response, xml) {
+
+                 response.forEach(function(e){
+                    
+                    $('#'+e['id']+'_load').html(e['load_1']==null?'<s>无数据</s>':e['load_1'])
+                    $('#'+e['id']+'_cpu').html(e['cpu']==null?'<s>无数据</s>':e['cpu'])
+                    $('#'+e['id']+'_upload').html(e['upload']==null?'<s>无数据</s>':e['upload'])
+                    $('#'+e['id']+'_download').html(e['download']==null?'<s>无数据</s>':e['download'])
+                });
+                setTimeout(get_node_info,3000);
+            },
+            fail: function (status) {
+                // 此处放失败后执行的代码
+            },
+        })
+    }
+</script>
+</html>
+
+				

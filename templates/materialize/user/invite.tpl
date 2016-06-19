@@ -1,114 +1,149 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>邀请 - <{/block}>
-<{block name="contents"}>
-<div class="had-container">
-   <{include file='user/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          邀请
-          <small>Invite</small>
-      </h5>
-
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2">
-            <div class="col s12 m12 l6">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">邀请</h5>
-                      <div class="black-text">
-                        <p>当前您可以生成<code><{$InviteNum}></code>个邀请码。  </p>
-                            <{if $InviteNum !=0}>
-                                <button id="invite" class="btn waves-effect waves-light light-blue lighten-1">生成我的邀请码</button>
-                            <{/if}>
-                        <p>我的邀请码</p>
-                        <div class="row card-panel no-padding-panel light-blue lighten-5 z-depth-2">
-                        <{if count($code)!=null}>
-                          <table class="centered striped responsive-table hoverable">
-                                  <thead>
-                                  <tr>
-                                      <th>###</th>
-                                      <th>邀请码</th>
-                                      <th>状态</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <{foreach $code as $data}>
-                                  <tr>
-                                      <td><{$a++}></td>
-                                       <td><{$data['code']}></td>
-                                      <td>可用</td>
-                                  </tr>
-                                  <{/foreach}>
-                                  </tbody>
-                              </table>
-                        <{else}>
-                              <div class="section no-pad-bot hoverable">
-                                  <div class="container">
-                                          <div class="row center">
-                                          <h5 class="header col s12 light">
-                                              <p>没有邀请码啊。。。 (>_<)</p>
-                                          </h5>
-                                          </div>
-                                  </div>
-                              </div>
-                        <{/if}>
-                        </div>  
-                    </div>
-                 </span>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='source.tpl'}>
+<title>邀请 -<{$site_name}></title>
+<{include file='user/header.tpl'}>
+    <main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">邀请好友&nbsp;<small>Invite</small></h1>
+			</div>
+		</div>
+		<div class="container">
+			<section class="content-inner margin-top-no">
+			    <div class="row">
+			        <div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p><{$GetUserName}>，您好 :-),<{$site_name}>欢迎您邀请他人加入。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			    <div class="col-lg-6 col-sm-6">
+			        <div class="ui-card-wrap">
+				        <div class="card card-brand-accent">
+					        <div class="card-main">
+						        <div class="card-inner margin-bottom-no">
+							        <p class="card-heading">邀请码申请</p>
+							        <div class="card-table">
+								        <p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y  </p>
+								        <{if $InviteNum !=0}>
+                                            <button id="invite" class="btn btn-brand waves-attach"><i class="icon icon-lg">near_me</i>&nbsp;我要生喵！</button><br><br>
+                                        <{/if}>
+                                        <{include file='loading.tpl'}>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--<div class="ui-card-wrap">-->
+				 <!--       <div class="card card-brand-brand">-->
+				 <!--           <div class="card-main">-->
+				 <!--               <div class="card-inner margin-bottom-no">-->
+				 <!--                   <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>-->
+				 <!--                   <div class="card-table"><{$notice->notice('user_invite')}></div>-->
+				 <!--               </div>-->
+				 <!--           </div>-->
+				 <!--       </div>-->
+				 <!--   </div>-->
+			        <div class="ui-card-wrap">
+				        <div class="card card-brand">
+				            <div class="card-main">
+				                <div class="card-inner margin-bottom-no">
+				                    <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>
+				                    <div class="card-table"><{$notice->notice('user_invite')}></div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			    <div class="col-lg-6 col-sm-6">
+			        <div class="card">
+						<div class="card-main">
+							<div class="card-inner margin-bottom-no">
+                                <p class="card-heading"><i class="icon icon-lg">adb</i>&nbsp;我的喵星人</p>
+                                <div class="card-inner">
+                                    <{if count($code)!=null}>
+                                        <div class="table-responsive">
+                                            <table class="table" title="A basic table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>###</th>
+                                                        <th>邀请码</th>
+                                                        <th>状态</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <{foreach $code as $data}>
+                                                        <tr>
+                                                            <td><{$a++}></td>
+                                                            <td><{$data['code']}></td>
+                                                            <td>可用</td>
+                                                        </tr>
+                                                    <{/foreach}>
+                                                </tbody>
+                                            </table> 
+                                        </div>
+                                    <{else}>
+                                    <div class="card-table">
+                                        <p>唔，您暂时没有喵星人 (>_<)</p>
+                                    <{/if}>
+                                </div>	
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</section>
+		</div>
+    </main>
+</body>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-xs">
+        <div class="modal-content">
+            <div class="modal-inner">
+                <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
             </div>
-
-            <div class="row card-panel col s12 m12 l6 hoverable">
-                  <div class="black-text">
-                    <div class="col s12">
-                        <div class="card-panel orange darken-1 hoverable">
-                          <div class="white-text">
-                              <{$user_invite_Announcement_color_orange}><{* 橙色公告内容 *}>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col s12">
-                        <div class="card-panel light-blue accent-3 hoverable">
-                          <div class="white-text">
-                              <{$user_invite_Announcement_color_blue}><{* 蓝色公告内容 *}>
-                          </div>
-                        </div>
-                    </div>
-                  </div>
+            <div class="modal-footer">
+                <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 </div>
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+<{include file='../footer.tpl'}>
+<script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
 <script type="text/javascript">
   _Prompt_msg();
 </script>
 <script>
     $(document).ready(function(){
         $("#invite").click(function(){
+            $("#loading").show();
+            $("#invite").hide();
             $.ajax({
                 type:"GET",
                 url:"_invite.php",
                 dataType:"json",
                 success:function(data){
                     if(data.ok){
+                        $("#loading").hide();
                         window.location.reload();
                     }else{
-                        $("#msg-error").openModal();
-                        $("#msg-error-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                    $("#msg-error").openModal();
-                    $("#msg-error-p").html("发生错误："+jqXHR.status);
+                    $("#result").modal();
+                    $("#msg").html("发生错误："+jqXHR.status);
                 }
             })
         })
     })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+</script>

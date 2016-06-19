@@ -45,6 +45,11 @@ class Ss {
         return $this->get_user_info_array()['plan'];
     }
 
+    //get plan_start_time
+    function  get_plan_end_time(){
+        return $this->get_user_info_array()['plan_end_time'];
+    }
+    
     //返回transfer_enable
     function  get_transfer_enable(){
         return $this->get_user_info_array()['transfer_enable'];
@@ -78,8 +83,11 @@ class Ss {
 
     //check is able to check in
     function is_able_to_check_in(){
-        $now = time();
-        if( $now-$this->get_last_check_in_time() > 3600*22 ){
+        ini_set("display_errors", "On");
+        error_reporting(E_ALL | E_STRICT);
+        $now = date('Y-m-d', time());
+        $last = date('Y-m-d', $this->get_last_check_in_time());
+        if( $now<>$last ){
             return 1;
         }else{
             return 0;
@@ -147,6 +155,20 @@ class Ss {
     //剩余流量
     function getUnusedTransfer(){
         return $this->getTransferEnable()-$this->getUsedTransfer();
+    }
+    
+    function update_plan_end_time_checkin(){
+        $current_end_time = $this->get_plan_end_time();
+        if ($current_end_time > time()+7*86400)
+            $data = $current_end_time;
+        else
+            $data = time() + 7*86400;
+            
+        $this->db->update("user",[
+            "plan_end_time"=>$data,
+            ],[
+                "uid"=>$this->uid
+            ]);
     }
 
 }

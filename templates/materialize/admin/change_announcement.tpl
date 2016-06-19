@@ -1,61 +1,69 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>修改<{$announcement_title}> - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='admin/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          修改公告
-          <small>Change announcement</small>
-      </h5>
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2 hoverable">
-          <{if $announcement_name!=null}>
-            <div class="col s12">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">修改<{$announcement_title}></h5>
-                      <div class="black-text">
-                          <form role="form" method="post" action="javascript:submit();">
-                              <div class="input-field">
-                              <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
-                              </div>
-                                  <button id="change" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
-                          </form>
-                      </div>
-                 </span> 
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='../source.tpl'}>
+<title>修改公告 - <{$site_name}></title>
+<{include file='admin/header.tpl'}>
+    <main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">修改公告<small>Change Announcement</small></h1>
+			</div>
+		</div>
+		<div class="container">
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					<div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>管理员<{$GetUserName}>，您好 :-),您正在修改<{$announcement_title}>的的公告</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			    <div class="col-lg-12 col-sm-12">
+				    <div class="card">
+				        <div class="card-main">
+				            <div class="card-inner">
+				                <{if $announcement_name!=null}>
+				                    <p class="card-heading">修改公告</p>
+				                    <div class="form-group form-group-label">
+				                        <form role="form" method="post" action="javascript:void(0);">
+                                            <{textareaCodemirror name="new_content" id="new_content" class="textarea"}><{$original_content}><{/textareaCodemirror}>
+                                            <button class="btn btn-red waves-attach waves-light waves-effect" id="change" type="submit">修改</button>
+                                        </form>
+                                    </div>
+                                <{else}>
+                                    <p class="card-heading">没有此公告名称</p>
+                                <{/if}>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          <{else}>
-            <div class="col s12">
-                <div class="card-panel darken-1 hoverable">
-                        <span class="white-text">
-                        <h5 class="header black-text center">没有这个公告名称</h5>
-                   </span> 
-                  </div>
-              </div>
-          <{/if}>
-          </div>
+            </section>
         </div>
-      </div>
-    </div>
-</div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript">
-  _Prompt_msg();
-  // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
-  function removeHTMLTag(str) {
-      str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-      str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-      str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-      str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-      return str;
-  }
-</script>
+        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+	        <div class="modal-dialog modal-xs">
+		        <div class="modal-content">
+			        <div class="modal-inner">
+				        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+			        </div>
+			        <div class="modal-footer">
+				        <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+    </main>
+</body>
+    <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
+    <script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
+    <script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
 <script type="text/javascript">
 function submit(){
   $(document).ready(function(){
@@ -70,20 +78,21 @@ function submit(){
                 },
                 success:function(data){
                     if(data.ok){
-                        $("#msg-success").openModal();
-                        $("#msg-success-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
+                        window.setTimeout("location.href='index.php'", 1000);
                     }else{
-                        $("#msg-error").openModal();
-                        $("#msg-error-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                        $("#msg-error-p").html("发生错误："+jqXHR.status);
-                        $("#msg-error").openModal();
+                        $("#msg").html("发生错误："+jqXHR.status);
+                        $("result").modal();
                         // 在控制台输出错误信息
                         console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
     })
 }
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+</script>
