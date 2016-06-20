@@ -45,7 +45,7 @@
 						<h2 class="content-sub-heading">客户端下载</h2>
 						<p>以下为<{$site_name}>推荐使用客户端，我们将对这些客户端提供技术支持。</p>
 						<div class="tile-wrap">
-                            <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand-accent">
 									<div class="card-main">
 										<div class="card-inner">
@@ -54,28 +54,28 @@
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="/Download/ShadowsocksR-dotnet4.0.exe"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/breakwa11/shadowsocks-csharp/releases"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-12 col-sm-12">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand">
 									<div class="card-main">
 										<div class="card-inner">
-											<p class="card-heading">Max OSX</p>
+											<p class="card-heading">macOS</p>
 											<p>ShadowsocksX</p>
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="/Download/ShadowsocksX.dmg"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/shadowsocks/shadowsocks-iOS/releases"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-12 col-sm-12">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand-accent">
 									<div class="card-main">
 										<div class="card-inner">
@@ -84,7 +84,22 @@
 										</div>
 										<div class="card-action">
 											<div class="card-action-btn pull-left">
-												<a class="btn btn-flat waves-attach waves-light" href="/Download/shadowsocks-latest.apk"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
+												<a class="btn btn-flat waves-attach waves-light" href="https://github.com/shadowsocks/shadowsocks-android/releases"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
+											</div>
+										</div>
+									</div>
+								</div>
+                            </div>
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="card card-brand-accent">
+									<div class="card-main">
+										<div class="card-inner">
+											<p class="card-heading">iOS</p>
+											<p>Shadowrocket</p>
+										</div>
+										<div class="card-action">
+											<div class="card-action-btn pull-left">
+												<a class="btn btn-flat waves-attach waves-light" href="https://itunes.apple.com/cn/app/shadowrocket/id932747118?mt=8"><i class="icon icon-lg">file_download</i>&nbsp;下载</a>
 											</div>
 										</div>
 									</div>
