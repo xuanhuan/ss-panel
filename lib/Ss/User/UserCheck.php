@@ -122,8 +122,38 @@ function resolve_ip($ip){
     return $info;
 }
 
+/*获取真实IP*/
 function get_user_ip(){
-    $user_IP = ($_SERVER["HTTP_VIA"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
-    $user_IP = ($user_IP) ? $user_IP : $_SERVER["REMOTE_ADDR"]; 
-    return $user_IP;
- }
+    $user_IP = '';  
+    $unknown = 'unknown';  
+    if (isset($_SERVER)){  
+        if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR']) && strcasecmp($_SERVER['HTTP_X_FORWARDED_FOR'], $unknown)){  
+            $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);  
+            foreach($arr as $realip){  
+                $realip = trim($realip);  
+                if ($realip != 'unknown'){  
+                    $user_IP = $realip;  
+                    break;  
+                }  
+            }  
+        }else if(isset($_SERVER['HTTP_CLIENT_IP']) && !empty($_SERVER['HTTP_CLIENT_IP']) && strcasecmp($_SERVER['HTTP_CLIENT_IP'], $unknown)){  
+            $user_IP = $_SERVER['HTTP_CLIENT_IP'];  
+        }else if(isset($_SERVER['REMOTE_ADDR']) && !empty($_SERVER['REMOTE_ADDR']) && strcasecmp($_SERVER['REMOTE_ADDR'], $unknown)){  
+            $user_IP = $_SERVER['REMOTE_ADDR'];  
+        }else{  
+            $user_IP = $unknown;  
+        }  
+    }else{  
+        if(getenv('HTTP_X_FORWARDED_FOR') && strcasecmp(getenv('HTTP_X_FORWARDED_FOR'), $unknown)){  
+            $user_IP = getenv("HTTP_X_FORWARDED_FOR");  
+        }else if(getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), $unknown)){  
+            $user_IP = getenv("HTTP_CLIENT_IP");  
+        }else if(getenv('REMOTE_ADDR') && strcasecmp(getenv('REMOTE_ADDR'), $unknown)){  
+            $user_IP = getenv("REMOTE_ADDR");  
+        }else{  
+            $user_IP = $unknown;  
+        }  
+    }  
+    $user_IP = preg_match("/[\d\.]{7,15}/", $user_IP, $matches) ? $matches[0] : $unknown;  
+    return $user_IP;  
+}
