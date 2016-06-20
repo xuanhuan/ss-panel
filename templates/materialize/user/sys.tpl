@@ -25,8 +25,7 @@
 							<div class="card-main">
 								<div class="card-inner">
 								    <div class="text-center">
-									    <p>A Shadowsocks Provider | Product of <a href="http://ahref.me/" target="_blank">Ahref Group</a></p>
-                                        <p>统计信息仅供参考<small>The statistical data is only for your information</small></p>
+									                                           <p>统计信息仅供参考<small>The statistical data is only for your information</small></p>
                                     </div>
 								</div>
 							</div>
