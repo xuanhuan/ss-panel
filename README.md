@@ -55,9 +55,11 @@ SS-Panel-smarty-Edition
 ### Install
 * Import sql/*.sql to your MySQL Database
 * Rename lib/config-sample.php && lib/Ss/Code/config-sample.php to config.php,and edit the infomation in lib/config.php.
+
 * IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
 * IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
 * IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
+
 * Enjoy it.
 
 ### Admin
