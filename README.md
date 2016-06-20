@@ -1,8 +1,7 @@
 A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)  
 
-ss-panel + smarty
+SS-Panel-smarty-Edition
 
-[ss pane_2.2.9_ _smarty_3.1.24_=_dev_0.2界面截图](https://github.com/xuanhuan/ss-panel/wiki/ss-pane_2.2.9_-_smarty_3.1.24_=_dev_0.2%E7%95%8C%E9%9D%A2)
 ========
 
 重要提醒
@@ -50,10 +49,15 @@ ss-panel + smarty
 ### Requirements
 * PHP >= 5.4
 * PDO Extension
+* MCrypt Extension
+* Mysql >= 5.1
 
 ### Install
 * Import sql/*.sql to your MySQL Database
-* Rename lib/config-sample.php to config.php,and edit the database infomation.
+* Rename lib/config-sample.php && lib/Ss/Code/config-sample.php to config.php,and edit the infomation in lib/config.php.
+* IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
+* IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
+* IMPORTANT:DON'T MANUALLY change lib/Ss/Code/config.php after doing above!
 * Enjoy it.
 
 ### Admin
@@ -70,8 +74,8 @@ $ php composer.phar  install
 
 
 ### Thanks to
-* [Materialize](http://materializecss.com/)
-* [smarty](http://www.smarty.net/)
-* [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
+* [smarty](https://github.com/smarty-php/smarty)
 * [Medoo](https://github.com/catfan/Medoo)
-
+* [phpqrcode](https://github.com/t0k4rt/phpqrcode)
+* [pingjs](https://github.com/jdfreder/pingjs)
+* [material](https://github.com/Daemonite/material)
