@@ -1,39 +1,30 @@
-A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)  
-
+A simple front end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser)
+This Version is based on xuanhuan's [SS-Panel-smarty](https://github.com/xuanhuan/ss-panel)
 SS-Panel-smarty-Edition
-
 ========
 
-重要提醒
+!Important!
 ========
+This edition requires Chrome or FireFox for compatible functioning and surfing.
 
-新版要求浏览器为 IE11 以上，部分手机会出现显示不正常，请使用UC QQ OPERA 等浏览器。
+Please configur the config.php in /lib, set $site_url as your Website address, assure that it contains a "/" in the back.
 
-支持把程序放在二级目录。
+Make sure that Lib/Ss has the autherize to read& write. If not, please set for convenient.
 
-请一定要配置config.php中的$site_url为你的网址，后面一定要有一个“/”。
+========
+### AdminSystem 
 
-还要修改Sqlite数据库配置。
-
-请确保 lib/Ss 目录有创建文件、文件夹、读写权限，如果没有，请分配权限，因为这是用来创建文件夹放Sqlite数据库的。
-
-
-### 管理后台 /admin    建议修改目录名称
-默认管理帐号: first@blood.com 密码 1993
-(和用户中心共用)
+Please use the invite code to register and set your account as admin in you database.
 
 新版密码加密方式说明
 ========
 
-当使用新的加密方式「带salt的sha256」加密，由于每个站点的$salt值都不同，所以初始密码「1993」是没有用的，安装完成后，访问
-```
-/pwd.php?pwd=1993
-```
-将获得的字符串更新到数据库user表的pass字段。
+Please change the encrypted salt in /lib/config.php
+we offer「salt sha256」encryt
 
-注意：
+Attention to：
 
-* $salt 不可随意修改！
+* the $salt can not be changed after been set!
 * 如果原来为2.4之前的版本，需要将pass字段的长度修改为64
 
 
