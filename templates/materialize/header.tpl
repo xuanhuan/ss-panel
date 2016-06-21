@@ -30,7 +30,6 @@
 	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
-			<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 				<a class="menu-logo" href="index.php" style="font-family: Orbitron;"><{$site_name}></a>
 				<ul class="nav">
 					<li>
