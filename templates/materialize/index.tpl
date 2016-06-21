@@ -91,7 +91,7 @@
 								</div>
                             </div>
 							<div class="col-lg-3 col-md-6 col-sm-6">
-								<div class="card card-brand-accent">
+								<div class="card card-brand">
 									<div class="card-main">
 										<div class="card-inner">
 											<p class="card-heading">iOS</p>
