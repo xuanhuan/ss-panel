@@ -36,7 +36,7 @@ class Reg {
             "u" => '0',
             "d" => '0',
             "plan" => $plan,
-            "enable" => '0',
+            "enable" => '1',
             "transfer_enable" => $transfer,
             "port" => $this->GetLastPort()+rand(1,5),
             "invite_num" => $invite_num,
