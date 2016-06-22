@@ -7,7 +7,7 @@ SS-Panel-smarty-Edition
 ========
 This edition requires Chrome or FireFox for compatible functioning and surfing.
 
-Please configur the config.php in /lib, set $site_url as your Website address, assure that it contains a "/" in the back.
+Please configure the config.php in /lib, set $site_url as your Website address, assure that it contains a "/" in the back.
 
 Make sure that Lib/Ss has the autherize to read& write. If not, please set for convenient.
 
