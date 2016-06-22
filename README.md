@@ -31,7 +31,6 @@ Attention to：
 * 增加 Nginx 的配置文件 tpl.conf，用于防止直接访问模板文件。 放在当前网站Nginx 配置文件相同目录，然后打开原来的配置文件，找到当前域名的server { } 在里面粘贴：include tpl.conf;
 * 增加Apache 的配置文件 .htaccess，用于防止直接访问模板文件，放在当前目录。
 
-[中文安装文档](https://github.com/orvice/ss-panel/wiki/Install-Guide-zh_cn)
 
 ### Upgrade from 0.X
 
