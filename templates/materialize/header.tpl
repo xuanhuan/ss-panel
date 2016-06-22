@@ -8,7 +8,7 @@
 			</li>
 		</ul>
 		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-		<a class="header-logo margin-left-no" href="index.php" style="font-family: Orbitron;"><{$site_name}></a>
+		<a class="header-logo margin-left-no" href="/index.php" style="font-family: Orbitron;"><{$site_name}></a>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
@@ -30,7 +30,7 @@
 	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
-				<a class="menu-logo" href="index.php" style="font-family: Orbitron;"><{$site_name}></a>
+				<a class="menu-logo" href="/index.php" style="font-family: Orbitron;"><{$site_name}></a>
 				<ul class="nav">
 					<li>
 						<a class="waves-attach" href="/index.php">首页</a>
