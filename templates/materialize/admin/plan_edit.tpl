@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
@@ -24,7 +24,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在<{$submit}><{$title}></p>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在<{$submit}><{$title}>。</p>
 								</div>
 							</div>
 						</div>
@@ -133,11 +133,11 @@ $(document).ready(function(){
             id =<{$rs['id']}>;
             if ($('#plan_price').val()>1000){
                 $("#result").modal();
-                $("#info").html('卖这么贵鬼买！');
+                $("#info").html('卖这么贵鬼买！(val>1000)');
             }
             else if($('#plan_price').val()<0){
                 $("#result").modal();
-                $("#info").html('诶呦，这么乐意亏本？');
+                $("#info").html('诶呦，这么乐意亏本？(val<0)');
             }
             else
                 $.get('_plan_edit.php',{'id':id, 'method':method,plan:$('#plan').val(),plan_id:$('#plan_id').val(),type:$('#plan_type').val(),data:$('#plan_type_amount').val(),money:$('#plan_price').val(),url:$('#plan_url').val()},
