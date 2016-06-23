@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
@@ -21,7 +21,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在修改<{$rs['user_name']}>的资料</p>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在修改用户 <{$rs['user_name']}> 的资料。</p>
 								</div>
 							</div>
 						</div>
@@ -32,7 +32,7 @@
 				        <div class="card-main">
 				            <div class="card-inner">
 				                <div class="col-lg-6 col-md-12 col-sm-12">
-				                <p class="card-heading">ID: <{$uid}>的用户信息</p>
+				                <p class="card-heading">ID: <{$uid}> 的用户信息</p>
 				                <div class="form-group form-group-label">
 				                    <form role="form" method="post" action="javascript:void(0);">
 							    		<label class="floating-label" for="user_name">用户名</label>
@@ -47,13 +47,13 @@
 										<input class="form-control" id="user_pass" type="text">
 									</div>
 									<div class="form-group form-group-label">
-										<label class="floating-label" for="user_passwd">Shadowsocks连接密码</label>
+										<label class="floating-label" for="user_passwd">Shadowsocks 连接密码</label>
 										<input class="form-control" id="user_passwd" type="text" value="<{$rs['passwd']}>">
 									</div>
 									</div>
 									<div class="col-lg-6 col-md-12 col-sm-12">
 									<div class="form-group form-group-label">
-										<label class="floating-label" for="transfer_enable">设置流量 单位为GB</label>
+										<label class="floating-label" for="transfer_enable">设置流量，单位为GB</label>
 										<input class="form-control" id="transfer_enable" type="text" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>">
 									</div>
 									<div class="form-group form-group-label">
