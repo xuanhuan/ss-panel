@@ -12,7 +12,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-						<h1 class="content-heading">系统信息</h1>
+						<h1 class="content-heading">系统信息<small>System Information</small></h1>
 					</div>
 				</div>
 			</div>
