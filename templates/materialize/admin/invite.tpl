@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='../source.tpl'}>
-<title>邀请码 - <{$site_name}></title>
+<title>发放邀请码 - <{$site_name}></title>
 <{include file='admin/header.tpl'}>
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">邀请码<small>Invite Code</small></h1>
+				<h1 class="content-heading">发放邀请码<small> Generate Invite Code</small></h1>
 			</div>
 		</div>
 		<div class="container">
@@ -20,7 +20,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在尝试发放邀请码。</p>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在尝试发放邀请码。</p>
 								</div>
 							</div>
 						</div>
@@ -36,11 +36,11 @@
 									<input class="form-control" id="code_sub" type="text">
 								</div>
 								<div class="form-group form-group-label">
-									<label class="floating-label" for="code_type">邀请码类别 0为公开，其他数字为对应用户的UID</label>
+									<label class="floating-label" for="code_type">邀请码类别 0 为公开，其他数字为对应用户的 UID。</label>
 									<input class="form-control" id="code_type" type="text">
 								</div>
 								<div class="form-group form-group-label">
-									<label class="floating-label" for="code_num">邀请码数量 要生成的邀请码数量</label>
+									<label class="floating-label" for="code_num">邀请码数量（要生成的邀请码数量）</label>
 									<input class="form-control" id="code_num" type="text">
 								</div>
 								<a class="btn btn-block btn-brand waves-attach waves-light" data-toggle="modal" href="#result">发放</a>
@@ -54,7 +54,7 @@
 	        <div class="modal-dialog modal-xs">
 		        <div class="modal-content">
 			        <div class="modal-inner">
-				        <p class="h5 margin-top-sm text-black-hint" id="msg">发放后不可收回，是否继续？</p>
+				        <p class="h5 margin-top-sm text-black-hint" id="msg">该操作不可撤销，是否继续？</p>
 			        </div>
 			        <div class="modal-footer">
 				         <p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">取消</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="subinvite" type="submit">确认发放</a></p>
