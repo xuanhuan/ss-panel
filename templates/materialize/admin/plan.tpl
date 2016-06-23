@@ -5,7 +5,7 @@
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='../source.tpl' }>
-<title>计划管理 -<{$site_name}></title>
+<title>计划管理 - <{$site_name}></title>
 <{include file='admin/header.tpl' }>
 	<main class="content">
 		<div class="content-header ui-content-header">
@@ -20,7 +20,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在管理计划套餐类型</p>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在管理计划套餐类型。</p>
 								</div>
 							</div>
 						</div>
