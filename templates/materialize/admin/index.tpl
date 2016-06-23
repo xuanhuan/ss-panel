@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
@@ -20,7 +20,7 @@
 					<div class="card margin-bottom-no">
 						<div class="card-main">
 							<div class="card-inner">
-								<p>管理员<{$GetUserName}>，您好 :-),欢迎来到<{$site_name}></p></div>
+								<p>管理员 <{$GetUserName}> 您好 :-)，欢迎来到 <{$site_name}> 管理中心。</p></div>
 						    </div>
 					    </div>
 				    </div>
@@ -35,7 +35,7 @@
 									    <div class="card-main">
 										    <div class="card-inner">
 											    <p class="card-heading">节点信息</p>
-											    <h1><{$node_count}>个</h1>
+											    <h1><{$node_count}> 个</h1>
 											 </div>
 										    <div class="card-action">
 											    <div class="form-group">
@@ -54,7 +54,7 @@
 									    <div class="card-main">
 										    <div class="card-inner">
 											    <p class="card-heading">用户信息</p>
-											    <h1><{$all_user}>名</h1>
+											    <h1><{$all_user}> 名</h1>
                                             </div>
 										    <div class="card-action">
 											    <div class="form-group">
