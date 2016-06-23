@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
@@ -24,7 +24,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在添加节点</p>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在 <{$site_name}> 上添加节点。</p>
 								</div>
 							</div>
 						</div>
@@ -68,7 +68,7 @@
 										<textarea class="form-control textarea-autosize" id="node_info" rows="1"><{$rs['node_info']}></textarea>
 									</div>
 									<div class="form-group form-group-label">
-										<label class="floating-label" for="node_type">分类(0为普通节点，1为高级节点）</label>
+										<label class="floating-label" for="node_type">分类（0为普通节点，1为高级节点）</label>
 										<input class="form-control" id="node_type" type="text" value="<{$rs['node_type']}>">
 									</div>
 									<div class="form-group form-group-label">
@@ -76,7 +76,7 @@
 										<input class="form-control" id="node_status" type="text" value="<{$rs['node_status']}>">
 									</div>
 									<div class="form-group form-group-label">
-										<label class="floating-label" for="node_order">排序(0为最高)</label>
+										<label class="floating-label" for="node_order">排序（0为最高）</label>
 										<input class="form-control" id="node_order" type="text"  value="<{$rs['node_order']}>">
 									</div>
                                     <button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">添加</button>
