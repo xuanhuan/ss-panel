@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>管理员登录 -<{$site_name}></title>
+<title>管理员登录 - <{$site_name}></title>
 <{include file='header.tpl'}>
 
 <body class="page-brand">
