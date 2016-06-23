@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -61,7 +61,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>管理员<{$GetUserName}>，您好 :-),您正在查看<{$site_name}>的用户列表</p></div>
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在查看 <{$site_name}> 的用户列表。</p></div>
 							</div>
 						</div>
 					</div>
