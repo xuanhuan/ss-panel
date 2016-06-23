@@ -6,7 +6,7 @@
 		<div class="fbtn-inner">
 			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">更多</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropup">
-				<a class="fbtn waves-attach waves-circle" href="https://github.com/Ahref-Group" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Ahref-Group" target="_blank"><span class="fbtn-text fbtn-text-left">Fork us on GitHub</span><span class="icon">code</span></a>
 				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://ahref.me/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Ahref's Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
