@@ -404,10 +404,10 @@ p = new Ping();
 
                  response.forEach(function(e){
                     
-                    $('#'+e['id']+'_load').html(e['load_1']==null?'<s>无数据</s>':e['load_1'])
-                    $('#'+e['id']+'_cpu').html(e['cpu']==null?'<s>无数据</s>':e['cpu'])
-                    $('#'+e['id']+'_upload').html(e['upload']==null?'<s>无数据</s>':e['upload'])
-                    $('#'+e['id']+'_download').html(e['download']==null?'<s>无数据</s>':e['download'])
+                    $('#'+e['node_id']+'_load').html(e['load_1']==null?'<s>无数据</s>':e['load_1'])
+                    $('#'+e['node_id']+'_cpu').html(e['cpu']==null?'<s>无数据</s>':e['cpu'])
+                    $('#'+e['node_id']+'_upload').html(e['upload']==null?'<s>无数据</s>':e['upload'])
+                    $('#'+e['node_id']+'_download').html(e['download']==null?'<s>无数据</s>':e['download'])
                 });
                 setTimeout(get_node_info,3000);
             },

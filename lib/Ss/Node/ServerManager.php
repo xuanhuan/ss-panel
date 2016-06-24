@@ -31,7 +31,7 @@ class ServerManager{
     }
     
     function get_all_server_info(){
-        return $this->db->select("node_info",['id','load_1', 'cpu', 'upload', 'download']);
+        return $this->db->select("node_info",['node_id','load_1', 'cpu', 'upload', 'download']);
     }
     
     function update_server_info($node_id, $load, $cpu, $upload, $download){
