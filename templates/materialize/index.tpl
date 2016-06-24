@@ -25,27 +25,27 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-								    <div class="text-center">
-								        <{$index_Announcement}>
-								        <div class="col-lg-6 col-md-6 col-sm-12">
-								            <a class="btn btn-block btn-brand waves-attach waves-light" href="/user">登入</a>
-								        </div>
-								        <div class="col-lg-6 col-md-6 col-sm-12">
-								            <a class="btn btn-block btn-brand-accent waves-attach waves-light" href="/auth/register.php">注册</a>
-                                        </div>
-                                        <br/><br/>
-                                    </div>
-                                </div>
+									<div class="text-center">
+										<{$index_Announcement}>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<a class="btn btn-block btn-brand waves-attach waves-light" href="/user">登入</a>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<a class="btn btn-block btn-brand-accent waves-attach waves-light" href="/auth/register.php">注册</a>
+										</div>
+										<p>&nbsp;</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 				</div>
 				<div class="col-lg-10 col-lg-push-1 col-sm-10 col-sm-push-1">	
-				    <section>
+					<section>
 						<h2 class="content-sub-heading">客户端下载</h2>
 						<p>以下为<{$site_name}>推荐使用客户端，我们将对这些客户端提供技术支持。</p>
 						<div class="tile-wrap">
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand-accent">
 									<div class="card-main">
 										<div class="card-inner">
@@ -89,7 +89,7 @@
 										</div>
 									</div>
 								</div>
-                            </div>
+							</div>
 							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="card card-brand">
 									<div class="card-main">
@@ -104,7 +104,7 @@
 										</div>
 									</div>
 								</div>
-                            </div>
+							</div>
 						</div>
 					</section>
 				</div>
