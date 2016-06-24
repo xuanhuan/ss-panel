@@ -13,8 +13,6 @@
 				<h1 class="content-heading">节点列表&nbsp;<small>Node List</small></h1>
 			</div>
 		</div>
-		
-		
 		<div class="container">
 			<section class="content-inner margin-top-no">
 				<div class="row">
