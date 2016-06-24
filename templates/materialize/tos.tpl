@@ -29,12 +29,12 @@
 							</div>
 						</div>
 						<div class="card">
-                            <div class="card-main">
-                                <div class="card-inner">
-                                    <{$tos_content}>
-                                </div>
-                            </div>
-                        </div>
+							<div class="card-main">
+								<div class="card-inner">
+									<{$tos_content}>
+								</div>
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>
