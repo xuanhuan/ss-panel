@@ -51,23 +51,21 @@
 	                </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
-                    <div class="ui-card-wrap">
-				        <div class="card">
-				            <div class="card-main">
-				                <div class="card-inner">
-				                    <p class="card-heading">修改ShadowSocks连接密码</p>
-				                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="sspwd">输入新的连接密码</label>
-                                        <input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
-                                    </div>
-                                    <a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+				    <div class="card">
+				        <div class="card-main">
+				            <div class="card-inner">
+				                <p class="card-heading">修改ShadowSocks连接密码</p>
+				                <div class="form-group form-group-label">
+                                    <label class="floating-label" for="sspwd">输入新的连接密码</label>
+                                    <input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
+                                /div>
+                                <a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
                                 </div>
-                            </div>
-				        </div>
-				    </div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
-		</div>
 	</main>
 </body>
 <div aria-hidden="true" class="modal modal-va-middle fade" id="updatepwd" role="dialog" tabindex="-1">
