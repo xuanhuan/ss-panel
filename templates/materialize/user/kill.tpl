@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#88629e">
 <title>删除账户 - <{$site_name}></title>
+<head>
 	<style>
-	    .pagination {
+		.pagination {
 			display:inline-block;
 			padding-left:0;
 			margin:20px 0;
@@ -109,74 +109,55 @@
 			cursor:not-allowed;
 			background-color:#fff
 		}
-
-		
-		
-		
-		
-		.pagination>li>a,
-		.pagination>li>span {
-		  border: 1px solid white;
+		.pagination>li>a, .pagination>li>span {
+			border: 1px solid white;
 		}
 		.pagination>li.active>a {
-		  background: #f50057;
-		  color: #fff;
+			background: #f50057;
+			color: #fff;
 		}
-		
 		.pagination>li>a {
-		  background: white;
-		  color: #000;
+			background: white;
+			color: #000;
 		}
-		
-		
 		.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
 			color: #fff;
 			background-color: #000;
 			border-color: #000;
 		}
-
 		.pagination>.active>span {
-		  background-color: #f50057;
-		  color: #fff;
-		  border-color: #fff;
+			background-color: #f50057;
+			color: #fff;
+			border-color: #fff;
 		}
-		
-		
-		
 		.pagination > .disabled > span {
-		  border-color: #fff;
+			border-color: #fff;
 		}
-		
-		
 		pre {
 			white-space: pre-wrap;
 			word-wrap: break-word;
 		}
-		
 		.progress-green .progress-bar {
 			background-color: #f0231b;
 		}
-		
 		.progress-green {
 			background-color: #000;
 		}
-		
 		.progress-green .progress-bar {
 			background-color: #ff0a00;
 		}
-		
 		.page-purple .ui-content-header {
 			background-image: url(/templates/materialize/css/images/bg/red.jpg);
 		}
-		
 		.content-heading {
 			font-weight: 300;
 			color: #fff;
 		}
 				
 	</style>
-    <link href="<{$resources_dir}>/css/base.min.css" rel="stylesheet">
+	<link href="<{$resources_dir}>/css/base.min.css" rel="stylesheet">
 	<link href="<{$resources_dir}>/css/project.min.css" rel="stylesheet">
+</head>
 <body class="page-purple">
     <main class="content">
 		<div class="content-header ui-content-header">
@@ -197,18 +178,18 @@
 								<div class="card-inner">
 									<p>如果你需要从我们的数据库移除账户信息，请在此输入密码并确认。</p>
 									<p>此过程不可逆！</p>
-                                    <p>点击删除按钮后无后续确认，请谨慎操作。</p>
+									<p>点击删除按钮后无后续确认，请谨慎操作。</p>
 								</div>
 							</div>
 						</div>
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-                                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="pwd"><i class="icon icon-lg">visibility_off</i>&nbsp;输入账户密码</label>
-                                        <input class="form-control" id="pwd" type="password" name="pwd" maxlength="30" required>
-                                    </div>
-						            <a href="#kill_final" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"><i class="icon icon-lg">delete_forever</i>&nbsp;删除我的账户</a>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="pwd"><i class="icon icon-lg">visibility_off</i>&nbsp;输入账户密码</label>
+										<input class="form-control" id="pwd" type="password" name="pwd" maxlength="30" required>
+									</div>
+									<a href="#kill_final" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"><i class="icon icon-lg">delete_forever</i>&nbsp;删除我的账户</a>
 								</div>
 							</div>
 						</div>
@@ -219,41 +200,41 @@
 	</main>
 </body>
 <div aria-hidden="true" class="modal modal-va-middle fade" id="kill_final" role="dialog" tabindex="-1">
-		<div class="modal-dialog modal-xs">
-			<div class="modal-content">
-				<div class="modal-heading">
-					<p class="modal-title">最后确认</p>
-				</div>
-				<div class="modal-inner">
-					<p class="h5 margin-top-sm text-black-hint">我自愿删除本账户，非他人所为，账户信息在删除后将不可恢复。<br>如出现问题，<{$site_name}>将不承担任何责任。</p>
-				</div>
-				<div class="modal-footer">
-					<p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">保留账户</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="removeme" type="submit">我确认删除</a></p>
-				</div>
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-heading">
+				<p class="modal-title">最后确认</p>
+			</div>
+			<div class="modal-inner">
+				<p class="h5 margin-top-sm text-black-hint">我自愿删除本账户，非他人所为，账户信息在删除后将不可恢复。<br>如出现问题，<{$site_name}>将不承担任何责任。</p>
+			</div>
+			<div class="modal-footer">
+				<p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">保留账户</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="removeme" type="submit">我确认删除</a></p>
 			</div>
 		</div>
+	</div>
 </div>
 <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-xs">
-        <div class="modal-content">
-            <div class="modal-inner">
-                <div class="text-center">
-				    <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-inner">
+				<div class="text-center">
+					<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
 				</div>
-            </div>
-            <div class="modal-footer">
-                <div class="text-center">
-				    <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
-			    </div>
-            </div>
+			</div>
+			<div class="modal-footer">
+				<div class="text-center">
+					<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+				</div>
+			</div>
         </div>
     </div>
 </div>
-	<script src="<{$resources_dir}>/js/jquery.min.js"></script>
-	<script src="<{$resources_dir}>/js/base.min.js"></script>
-	<script src="<{$resources_dir}>/js/project.min.js"></script>
-	<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js"></script>
-	<script type="text/javascript">
+<script src="<{$resources_dir}>/js/jquery.min.js"></script>
+<script src="<{$resources_dir}>/js/base.min.js"></script>
+<script src="<{$resources_dir}>/js/project.min.js"></script>
+<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js"></script>
+<script type="text/javascript">
     $(document).ready(function(){
         $("#removeme").click(function(){
             $.ajax({
