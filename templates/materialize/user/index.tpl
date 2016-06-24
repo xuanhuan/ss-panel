@@ -93,46 +93,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-12 col-sm-12">
-				        <div class="card">
-						    <div class="card-main">
-							    <div class="card-inner">
-								    <div class="card-inner margin-bottom-no">
-									    <p class="card-heading text-center">近10次登录IP</p>
-                                    </div>
-                                    <{if count($datas)!=null}>
-							            <div class="card-table">
-										    <div class="table-responsive">
-											    <table class="table table_no" title="IP">
-									                <thead>
-									                	<tr>
-											                <th>编号</th>
-											                <th>登入IP</th>
-											                <th>登入地点&运营商</th>
-											                <th>时间</th>
-										                </tr>
-									                </thead>
-								                    <tbody>
-								                        <{foreach $datas as $data}>
-                                                            <tr>
-                                                                <td><{$a++}></td>
-                                                                <td><{$data[ 'ip']}></td>
-                                                                <td><{$data['location']}></td>
-                                                                <td><{date('Y-m-d H:i:s',$data['time'])}></td>
-                                                            </tr>
-                                                        <{/foreach}>
-									                </tbody>
-								                </table>
-							                </div>
-                                        </div>
-						            <{else}>
-							            <a class="btn btn-brand-accent waves-attach waves-light">暂时没有匹配的IP地址！</a>
-			    	                <{/if}>
-							    </div>
-                            </div>
-				        </div>
-				    </div>
-                </div>
+				</div>
 				<div class="col-lg-6 col-sm-12">
 				    <div class="col-lg-12 col-sm-12">
 				        <div class="card">

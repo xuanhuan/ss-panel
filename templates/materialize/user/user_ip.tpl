@@ -5,12 +5,12 @@
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>登录IP -<{$site_name}></title>
+<title>登录历史 -<{$site_name}></title>
 <{include file='user/header.tpl'}>
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">IP记录<small>&nbsp;IP</small></h1>
+				<h1 class="content-heading">登录历史<small>&nbsp;Login History</small></h1>
 			</div>
 		</div>
 		<div class="container">
@@ -32,7 +32,7 @@
 										<tr>
 											<th>编号</th>
 											<th>登入IP</th>
-											<th>登入地点以&运营商</th>
+											<th>登入地点&运营商</th>
 											<th>时间</th>
 										</tr>
 									</thead>
