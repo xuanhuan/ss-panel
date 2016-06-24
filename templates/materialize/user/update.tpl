@@ -58,14 +58,14 @@
 				                <div class="form-group form-group-label">
                                     <label class="floating-label" for="sspwd">输入新的连接密码</label>
                                     <input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
-                                /div>
-                                <a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
                                 </div>
-							</div>
-						</div>
-					</div>
+                                <a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+                            </div>
+                         </div>
+				    </div>
 				</div>
 			</section>
+		</div>
 	</main>
 </body>
 <div aria-hidden="true" class="modal modal-va-middle fade" id="updatepwd" role="dialog" tabindex="-1">
