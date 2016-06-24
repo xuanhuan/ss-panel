@@ -40,7 +40,7 @@
 											<th>状态</th>
 										</tr>
 									</thead>
-							    	<tbody>
+							    		<tbody>
 										<{foreach $datas as $data}>
 											<tr>
 												<td><{$a++}></td>
