@@ -20,7 +20,7 @@
 					<div class="card margin-bottom-no">
 						<div class="card-main">
 							<div class="card-inner">
-								<p><{$GetUserName}>，您好 :-),您在我特么也不知道怎么说页面</p>
+								<p><{$GetUserName}>，您好 :-),您在使用兑换码。</p>
 							</div>
 						</div>
 					</div>
@@ -49,19 +49,7 @@
 								<div class="text-center">
 									<p class="card-heading"><i class="icon icon-lg">info_ouline</i>&nbsp;兑换码信息</p>
 									<p id="info"></p>
-									<div class="progress-circular progress-circular-inline" style="display:none;" id="loading">
-										<div class="progress-circular-wrapper">
-											<div class="progress-circular-inner">
-												<div class="progress-circular-left">
-													<div class="progress-circular-spinner"></div>
-												</div>
-												<div class="progress-circular-gap"></div>
-												<div class="progress-circular-right">
-													<div class="progress-circular-spinner"></div>
-												</div>
-											</div>
-										</div>
-									</div>
+									<{include file='loading.tpl'}>
 								</div>
 								<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light" id='test'><i class="icon icon-lg">done</i>&nbsp;提交并检查兑换码</button>
 								<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light" id='exchange' style="display:none;"><i class="icon icon-lg">done_all</i>&nbsp;兑换</button>
@@ -82,7 +70,8 @@
 			</div>
 			<div class="modal-footer">
 				<p class="text-right">
-					<button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+					<button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -90,52 +79,50 @@
 <{include file='footer.tpl'}>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#test").click(function(){
-        $("#loading").show();
-        $("#test").hide();
-        $("#info").html("");
-        $.get('_code.php',{method:"test",code:$('#code').val()},
-            function(data){
-                $("#info").html(data['info']);
-                $("#loading").hide();
-                if (data['status'] == 'success'){
-                    $("#exchange").show();
-                    $("#test").hide();
-                }
-                else{
-                    $("#info").html(data['info']);
-                    $("#test").show();
-                    $("#exchange").hide();
-                }
-        },'json')
-        })
-    })
-    $('#exchange').click(function(){
-        $("#loading").show();
-        $("#info").html(" ");
-        $.get('_code.php',{'method':'redeem', code:$('#code').val()},
-        function(data){
-                $("#info").html(data['info']);
-                $("#loading").hide();
-                if(data['status'] == 'success'){
-                $("#info").html(data['info']);
-                $("#test").show();
-                $("#exchange").hide();
-                document.getElementById("code").value="";
-                $("#test").html("提交并检查新的兑换码");
-                }
-                else{
-                $("#info").html(data['info']);
-                }
-            },'json'
-        )
-    });
-    
-    $('#code').change(function(){
-        $("#info").html("");
-        $("#loading").hide();
-        $("#test").show();
-        $("#exchange").hide();
-    });
+	$(document).ready(function(){
+		$("#test").click(function(){
+			$("#loading").show();
+			$("#test").hide();
+			$("#info").html("");
+			$.get('_code.php',{method:"test",code:$('#code').val()},
+			function(data){
+				$("#info").html(data['info']);
+				$("#loading").hide();
+				if (data['status'] == 'success'){
+					$("#exchange").show();
+					$("#test").hide();
+                		}
+                		else{
+                			$("#info").html(data['info']);
+                			$("#test").show();
+                			$("#exchange").hide();
+                		}
+			},'json')
+		})
+	})
+	$('#exchange').click(function(){
+		$("#loading").show();
+		$("#info").html(" ");
+		$.get('_code.php',{'method':'redeem', code:$('#code').val()},
+		function(data){
+			$("#info").html(data['info']);
+			$("#loading").hide();
+			if(data['status'] == 'success'){
+				$("#info").html(data['info']);
+				$("#test").show();
+				$("#exchange").hide();
+				document.getElementById("code").value="";
+				$("#test").html("提交并检查新的兑换码");
+			}
+			else{
+			$("#info").html(data['info']);
+			}
+		},'json')
+	});
+	$('#code').change(function(){
+		$("#info").html("");
+		$("#loading").hide();
+		$("#test").show();
+		$("#exchange").hide();
+	});
 </script>
