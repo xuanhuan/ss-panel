@@ -10,7 +10,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">登录历史<small>&nbsp;Login History</small></h1>
+				<h1 class="content-heading">登录历史&nbsp;<small>Login History</small></h1>
 			</div>
 		</div>
 		<div class="container">

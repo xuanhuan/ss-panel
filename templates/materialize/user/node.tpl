@@ -10,7 +10,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">节点列表<small>Node List</small></h1>
+				<h1 class="content-heading">节点列表&nbsp;<small>Node List</small></h1>
 			</div>
 		</div>
 		
