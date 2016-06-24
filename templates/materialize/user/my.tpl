@@ -20,20 +20,20 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-								    <div class="text-center">
-								        <p>昵称：<{$GetUserName}></p>
-								        <p>邮箱：<{$user_email}></p>
-								        <p>注册时间：<{$RegDate}></p>
-								        <p>套餐：<span class="label label-brand-accent"><{$get_plan}></span></p>
-								        <p>喵币余额：<{$get_money}>个</p>
-								    </div>
+									<div class="text-center">
+										<p>昵称：<{$GetUserName}></p>
+										<p>邮箱：<{$user_email}></p>
+										<p>注册时间：<{$RegDate}></p>
+										<p>套餐：<span class="label label-brand-accent"><{$get_plan}></span></p>
+										<p>喵币余额：<{$get_money}>个</p>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-                                    <a class="btn btn-block btn-brand-accent waves-attach waves-light"  data-toggle="modal" href="#kill"><i class="icon icon-lg">delete</i>&nbsp;删除我的账户</a>
+									<a class="btn btn-block btn-brand-accent waves-attach waves-light"  data-toggle="modal" href="#kill"><i class="icon icon-lg">delete</i>&nbsp;删除我的账户</a>
 								</div>
 							</div>
 						</div>
@@ -43,6 +43,7 @@
 		</div>
 	</main>
 </body>
+<{include file='footer.tpl'}>
 <div aria-hidden="true" class="modal fade" id="kill" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-full">
 		<div class="modal-content">
@@ -50,25 +51,3 @@
 		</div>
 	</div>
 </div>
-<{include file='footer.tpl'}><{* 以上继承内容到父模板header.tpl 中的 contents *}>
-
-</html>
-
-<script>
-    $(document).ready(function(){
-        $("#checkin").click(function(){
-            $.ajax({
-                type:"GET",
-                url:"_checkin.php",
-                dataType:"json",
-                success:function(data){
-                    $("#checkin-msg").html(data.msg);
-                    $("#checkin-btn").hide();
-                },
-                error:function(jqXHR){
-                    alert("发生错误："+jqXHR.status);
-                }
-            })
-        })
-    })
-</script>
