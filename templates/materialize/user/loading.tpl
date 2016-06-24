@@ -6,10 +6,10 @@
 					<div class="progress-circular-spinner"></div>
 				</div>
 				<div class="progress-circular-gap"></div>
-                <div class="progress-circular-right">
-                    <div class="progress-circular-spinner"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="progress-circular-right">
+					<div class="progress-circular-spinner"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
