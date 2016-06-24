@@ -37,7 +37,7 @@
 				                <div class="card card-red">
 								    <div class="card-main">
 									    <div class="card-inner">
-										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项<small>Attention</small></p>
+										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项&nbsp;<small>Attention</small></p>
 										    <p><{$notice->notice('common_node')}></p>
 									    </div>
 								    </div>
@@ -121,7 +121,7 @@
 				                <div class="card card-red">
 								    <div class="card-main">
 									    <div class="card-inner">
-										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项<small>Attention</small></p>
+										    <p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项&nbsp;<small>Attention</small></p>
 										    <p><{$notice->notice('special_node')}></p>
 									    </div>
 								    </div>
