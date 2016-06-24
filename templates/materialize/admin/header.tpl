@@ -68,4 +68,3 @@
 			</div>
 		</div>
 	</nav>
-<{include file='../footer.tpl'}>
