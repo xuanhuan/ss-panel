@@ -10,7 +10,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">修改个人信息&nbsp;<small>Update</small></h1>
+				<h1 class="content-heading">修改个人信息&nbsp;<small>Update Information</small></h1>
 			</div>
 		</div>
 		<div class="container">
