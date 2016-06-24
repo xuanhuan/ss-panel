@@ -41,7 +41,7 @@
 					<li>
 						<a class="waves-attach" href="/auth/register.php">注册</a>
 					</li>
-		    		<li>
+					<li>
 						<a class="waves-attach" href="/tos.php">用户协议</a>
 					</li>
 					<li>
