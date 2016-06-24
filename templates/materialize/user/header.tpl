@@ -60,7 +60,8 @@
 					    <a href="user_ip.php"><i class="icon icon-lg">security</i>&nbsp;登录历史</a>
 					</li>
 					<li>
-						<a href="sys.php"><i class="icon icon-lg">info</i>&nbsp;系统信息</a></li>
+						<a href="sys.php"><i class="icon icon-lg">info</i>&nbsp;系统信息</a>
+					</li>
 				</ul>
 			</div>
 		</div>
