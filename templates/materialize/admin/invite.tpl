@@ -26,12 +26,12 @@
 						</div>
 					</div>
 				</div>
-			    <div class="col-lg-12 col-sm-12">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <p class="card-heading">邀请码发放</p>
-				                <div class="form-group form-group-label">
+				<div class="col-lg-12 col-sm-12">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">邀请码发放</p>
+								<div class="form-group form-group-label">
 									<label class="floating-label" for="code_sub">邀请码前缀</label>
 									<input class="form-control" id="code_sub" type="text">
 								</div>
@@ -44,40 +44,40 @@
 									<input class="form-control" id="code_num" type="text">
 								</div>
 								<a class="btn btn-block btn-brand waves-attach waves-light" data-toggle="modal" href="#result">发放</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
-			        <div class="modal-inner">
-				        <p class="h5 margin-top-sm text-black-hint" id="msg">该操作不可撤销，是否继续？</p>
-			        </div>
-			        <div class="modal-footer">
-				         <p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">取消</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="subinvite" type="submit">确认发放</a></p>
-			        </div>
-		        </div>
-	        </div>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result_yes" role="dialog" tabindex="-1">
-		    <div class="modal-dialog modal-xs">
-			    <div class="modal-content">
-				    <div class="modal-heading">
-					    <p class="modal-title">发放成功！</p>
-				    </div>
-				    <div class="modal-inner">
-					    <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-				    </div>
-				    <div class="modal-footer">
-					    <p class="text-right"><a href="../invite_code.php" class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">查看邀请码</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">返回</a></p>
-				    </div>
-			    </div>
-		    </div>
-	    </div>
-    </main>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint" id="msg">该操作不可撤销，是否继续？</p>
+					</div>
+					<div class="modal-footer">
+						<p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">取消</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="subinvite" type="submit">确认发放</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div aria-hidden="true" class="modal modal-va-middle fade" id="result_yes" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-heading">
+						<p class="modal-title">发放成功！</p>
+					</div>
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+					</div>
+					<div class="modal-footer">
+						<p class="text-right"><a href="../invite_code.php" class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">查看邀请码</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">返回</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
 <script type="text/javascript">
