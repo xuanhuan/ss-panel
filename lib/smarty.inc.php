@@ -7,10 +7,8 @@ clearstatcache();
 // session_start(); //开启session，如果服务器内存在512以下，不建议开启。
 require_once 'Ss/smarty/Smarty.class.php'; //引用Smarty.class.php
 define("__ROOT__",str_replace("lib/smarty.inc.php","",str_replace("\\","/",__FILE__))); //设置路径
-// $templates_dir = "AdminLTE-2"; //模板目录
-// $templates_dir = "materialize"; //模板目录
 // 读取客户端的cookie templates 
-$templates_dir = "materialize";
+$templates_dir = "materialize"; //模板目录
 setrawcookie("templates",$templates_dir,time()+3600*24*365,"/");
 $smarty=new smarty(); //实例化smarty
 $smarty->settemplatedir(__ROOT__."templates/".$templates_dir); //设置模板文件存放目录
