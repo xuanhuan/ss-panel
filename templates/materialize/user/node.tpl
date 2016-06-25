@@ -31,40 +31,40 @@
 						<div class="card-main">
 							<div class="card-inner">
 								<p class="card-heading"><i class="icon icon-lg">cloud_queue</i>&nbsp;普通节点</p>
+								<div class="card card-red">
+									<div class="card-main">
+										<div class="card-inner">
+											<p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项&nbsp;<small>Attention</small></p>
+											<p><{$notice->notice('common_node')}></p>
+										</div>
+									</div>
+								</div>
+								<{if $oo->get_enable()==0}>
 									<div class="card card-red">
 										<div class="card-main">
 											<div class="card-inner">
-												<p class="card-heading"><i class="icon icon-lg">warning</i>&nbsp;注意事项&nbsp;<small>Attention</small></p>
-												<p><{$notice->notice('common_node')}></p>
+												<p class="card-heading">账户异常<small>Error</small></p>
+												<p>你的账号状态为：停止，请查看用户中心。</p>
 											</div>
 										</div>
 									</div>
-									<{if $oo->get_enable()==0}>
-										<div class="card card-red">
+								<{else}>
+									<{if $plan==A}>
+										<div class="card card-green">
 											<div class="card-main">
 												<div class="card-inner">
-													<p class="card-heading">账户异常<small>Error</small></p>
-													<p>你的账号状态为：停止，请查看用户中心。</p>
+													<p><i class="icon icon-lg">lightbulb_outline</i>&nbsp;立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
 												</div>
 											</div>
 										</div>
-									<{else}>
-										<{if $plan==A}>
-											<div class="card card-green">
-												<div class="card-main">
-													<div class="card-inner">
-														<p><i class="icon icon-lg">lightbulb_outline</i>&nbsp;立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
-													</div>
+									<{/if}>
+									<{foreach $node0 as $row}>
+										<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+										<div class="card">
+											<div class="card-main">
+												<div class="card-inner">
+													<{$row['node_info']}>
 												</div>
-											</div>
-										<{/if}>
-										<{foreach $node0 as $row}>
-											<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
-											<div class="card">
-												<div class="card-main">
-													<div class="card-inner">
-														<{$row['node_info']}>
-													</div>
 												<div class="card-action">
 													<ul class="nav nav-list margin-no pull-left">
 														<li class="dropdown">
@@ -90,9 +90,9 @@
 													<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
 												</div>
 											</div>
-										<{/foreach}>
-									<{/if}>
-								</div>
+										</div>
+									<{/foreach}>
+								<{/if}>
 							</div>
 						</div>
 					</div>
@@ -102,38 +102,38 @@
 						<div class="card-main">
 							<div class="card-inner">
 								<p class="card-heading"><i class="icon icon-lg">cloud_queue</i>&nbsp;高级节点</p>
+								<div class="card card-red">
+									<div class="card-main">
+										<div class="card-inner">
+											<p><{$notice->notice('special_node')}></p>
+										</div>
+									</div>
+								</div>
+								<{if $oo->get_enable()==0}>
 									<div class="card card-red">
 										<div class="card-main">
 											<div class="card-inner">
-												<p><{$notice->notice('special_node')}></p>
+												<p class="card-heading">账户异常<small>Error</small></p>
+												<p>你的账号状态为：停止，请查看用户中心。</p>
 											</div>
 										</div>
 									</div>
-									<{if $oo->get_enable()==0}>
-										<div class="card card-red">
+								<{else}>
+									<{if $plan>'C'}>
+										<div class="card card-green">
 											<div class="card-main">
 												<div class="card-inner">
-													<p class="card-heading">账户异常<small>Error</small></p>
-													<p>你的账号状态为：停止，请查看用户中心。</p>
+													<p><{$GetUserName}>&nbsp;, 您是高级账户持有者，您可以使用任意的<{$site_name}>节点，玩的愉快：-）</p>
 												</div>
 											</div>
 										</div>
-									<{else}>
-										<{if $plan>'C'}>
-											<div class="card card-green">
+										<{foreach $node1 as $row}>
+											<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+											<div class="card">
 												<div class="card-main">
 													<div class="card-inner">
-														<p><{$GetUserName}>&nbsp;, 您是高级账户持有者，您可以使用任意的<{$site_name}>节点，玩的愉快：-）</p>
+														<{$row['node_info']}>
 													</div>
-												</div>
-											</div>
-											<{foreach $node1 as $row}>
-												<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
-												<div class="card">
-													<div class="card-main">
-														<div class="card-inner">
-															<{$row['node_info']}>
-														</div>
 													<div class="card-action">
 														<ul class="nav nav-list margin-no pull-left">
 															<li class="dropdown">
@@ -159,77 +159,77 @@
 														<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
 													</div>
 												</div>
-											<{/foreach}>
-										<{else}>
-											<div class="card card-green">
+											</div>
+										<{/foreach}>
+									<{else}>
+										<div class="card card-green">
+											<div class="card-main">
+												<div class="card-inner">
+													<p><i class="icon icon-lg">lightbulb_outline</i>立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+												</div>
+											</div>
+										</div>
+										<{foreach $node1 as $row}>
+											<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
+											<div class="card">
 												<div class="card-main">
 													<div class="card-inner">
-														<p><i class="icon icon-lg">lightbulb_outline</i>立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+														<{$row['node_info']}>
+													</div>
+													<div class="card-action">
+														<ul class="nav nav-list margin-no pull-left">
+															<li class="dropdown">
+																<a class="dropdown-toggle text-black waves-attach" data-toggle="dropdown"><i class="icon icon-lg">network_wifi</i>&nbsp;详细信息</a>
+																<ul class="dropdown-menu">
+																<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">location_on</i>&nbsp;伺服器地址：<i class="icon icon-lg">visibility_off</i></a></li>
+																<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">device_hub</i>&nbsp;伺服器状态：<i class="icon icon-lg">visibility_off</i></a></li>
+																	<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">security</i>&nbsp;伺服器加密方式：<i class="icon icon-lg">visibility_off</i></a></li>
+																</ul>
+															</li>
+														</ul>
+														<ul class="nav nav-list margin-no pull-left">
+															<li>
+																<a href="javascript:void(0)" class='dropdown-toggle text-black waves-attach'><i class="icon icon-lg">import_export</i><span class="ping" id="<{$row['id']}>_ping" value="<{$row['node_server']}>">Ping</span></a>
+															</li>
+														</ul>
+														<ul class="nav nav-list margin-no pull-right">
+															<li class="dropdown">
+																<a href="#buy" class="dropdown-toggle text-black waves-attach" data-toggle="modal"><i class="icon icon-lg">next_week</i>&nbsp;支付</a>
+															</li>
+														</ul>
+													</div>
+													<div class="card-action text-center" style="min-height:15px;">
+														<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">data_usage</i>&nbsp;负载:&nbsp;<span id="<{$row['id']}>_load"><{$row['load_1']}></span></small></div>
+														<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">graphic_eq</i>&nbsp;CPU:&nbsp;<span id="<{$row['id']}>_cpu"><{$row['cpu']}></span></small></div>
+														<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_up</i>&nbsp;上行:&nbsp;<span id="<{$row['id']}>_upload"><{$row['upload']}></span></small></div>
+														<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
 													</div>
 												</div>
 											</div>
-											<{foreach $node1 as $row}>
-												<h2 class="content-sub-heading"><i class="icon icon-lg">cloud_circle</i><{$row['node_name']}></h2>
-												<div class="card">
-													<div class="card-main">
-														<div class="card-inner">
-															<{$row['node_info']}>
-														</div>
-														<div class="card-action">
-															<ul class="nav nav-list margin-no pull-left">
-																<li class="dropdown">
-																	<a class="dropdown-toggle text-black waves-attach" data-toggle="dropdown"><i class="icon icon-lg">network_wifi</i>&nbsp;详细信息</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">location_on</i>&nbsp;伺服器地址：<i class="icon icon-lg">visibility_off</i></a></li>
-																		<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">device_hub</i>&nbsp;伺服器状态：<i class="icon icon-lg">visibility_off</i></a></li>
-																		<li><a class="waves-attach" href="javascript:void(0)"><i class="icon icon-lg">security</i>&nbsp;伺服器加密方式：<i class="icon icon-lg">visibility_off</i></a></li>
-																	</ul>
-																</li>
-															</ul>
-															<ul class="nav nav-list margin-no pull-left">
-																<li>
-																	<a href="javascript:void(0)" class='dropdown-toggle text-black waves-attach'><i class="icon icon-lg">import_export</i><span class="ping" id="<{$row['id']}>_ping" value="<{$row['node_server']}>">Ping</span></a>
-																</li>
-															</ul>
-															<ul class="nav nav-list margin-no pull-right">
-																<li class="dropdown">
-																	<a href="#buy" class="dropdown-toggle text-black waves-attach" data-toggle="modal"><i class="icon icon-lg">next_week</i>&nbsp;支付</a>
-																</li>
-															</ul>
-														</div>
-														<div class="card-action text-center" style="min-height:15px;">
-															<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">data_usage</i>&nbsp;负载:&nbsp;<span id="<{$row['id']}>_load"><{$row['load_1']}></span></small></div>
-															<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">graphic_eq</i>&nbsp;CPU:&nbsp;<span id="<{$row['id']}>_cpu"><{$row['cpu']}></span></small></div>
-															<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_up</i>&nbsp;上行:&nbsp;<span id="<{$row['id']}>_upload"><{$row['upload']}></span></small></div>
-															<div class="col-lg-3 col-md-3 col-sm-3 col-xl-3"><small><i class="icon icon-lg">trending_down</i>&nbsp;下行:&nbsp;<span id="<{$row['id']}>_download"><{$row['download']}></span></small></div>
-														</div>
-													</div>
-												</div>
-											<{/foreach}>
-										<{/if}>
+										<{/foreach}>
 									<{/if}>
-									<div aria-hidden="true" class="modal modal-va-middle fade" id="buy"  role="dialog" tabindex="-1" >
-										<div class="modal-dialog modal-xs">
-											<div class="modal-content">
-												<div class="modal-inner">
-													<div class="text-center">
-														<h1 class="h1 margin-top-sm" id="msg">开通高级节点</h1>
-														<div class="form-group form-group-label">
-															<label class="floating-label" for="code">输入您的兑换码</label>
-															<input class="form-control" id="code" name="code" maxlength="30" required>
-														</div>
-														<p id="info"></p>
-														<{include file="source.tpl"}>
+								<{/if}>
+								<div aria-hidden="true" class="modal modal-va-middle fade" id="buy"  role="dialog" tabindex="-1" >
+									<div class="modal-dialog modal-xs">
+										<div class="modal-content">
+											<div class="modal-inner">
+												<div class="text-center">
+													<h1 class="h1 margin-top-sm" id="msg">开通高级节点</h1>
+													<div class="form-group form-group-label">
+														<label class="floating-label" for="code">输入您的兑换码</label>
+														<input class="form-control" id="code" name="code" maxlength="30" required>
 													</div>
+													<p id="info"></p>
+													<{include file="source.tpl"}>
 												</div>
 											</div>
-											<div class="modal-footer">
-												<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
-												<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
-												<div class="divider"></div>
-												<p>没有兑换码？</p>
-												<a href="javascript:void(0)" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
-											</div>
+										</div>
+										<div class="modal-footer">
+											<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
+											<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
+											<div class="divider"></div>
+											<p>没有兑换码？</p>
+											<a href="javascript:void(0)" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
 										</div>
 									</div>
 								</div>
