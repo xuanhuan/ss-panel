@@ -14,53 +14,53 @@
 			</div>
 		</div>
 		<div class="container">
-	        <section class="content-inner margin-top-no">
-		        <div class="row">
-			        <div class="col-lg-12 col-md-6">
-				        <div class="card margin-bottom-no">
-				            <div class="card-main">
-				                <div class="card-inner">
-				                    <p><{$GetUserName}>，您好 :-),您在尝试修改<{$site_name}>的密码</p>
-				                </div>
-				            </div>
-				        </div>
-				    </div>
-			    </div>
-                <div class="col-lg-6 col-sm-6">
-                        <div class="card">
-                            <div class="card-main">
-                                <div class="card-inner">
-                                    <p class="card-heading">修改登录密码</p>
-                                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="nowpwd">输入当前密码</label>
-                                        <input class="form-control" id="nowpwd" type="password" name="nowpwd" maxlength="30" required>
-                                    </div>
-                                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="pwd">输入新密码</label>
-                                        <input class="form-control" id="pwd" type="password" name="pwd" maxlength="30" required>
-                                    </div>
-                                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="repwd">输入确认密码</label>
-                                        <input class="form-control" id="repwd" type="password" name="repwd" maxlength="30" required>
-                                    </div>
-                                    <a href="#updatepwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
-                                </div>
-			                </div>
-		                </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <p class="card-heading">修改ShadowSocks连接密码</p>
-				                <div class="form-group form-group-label">
-                                    <label class="floating-label" for="sspwd">输入新的连接密码</label>
-                                    <input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
-                                </div>
-                                <a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
-                            </div>
-                         </div>
-				    </div>
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					<div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p><{$GetUserName}>，您好 :-),您在尝试修改<{$site_name}>的密码</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">修改登录密码</p>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="nowpwd">输入当前密码</label>
+									<input class="form-control" id="nowpwd" type="password" name="nowpwd" maxlength="30" required>
+								</div>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="pwd">输入新密码</label>
+									<input class="form-control" id="pwd" type="password" name="pwd" maxlength="30" required>
+								</div>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="repwd">输入确认密码</label>
+									<input class="form-control" id="repwd" type="password" name="repwd" maxlength="30" required>
+								</div>
+								<a href="#updatepwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">修改ShadowSocks连接密码</p>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="sspwd">输入新的连接密码</label>
+									<input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
+								</div>
+								<a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
