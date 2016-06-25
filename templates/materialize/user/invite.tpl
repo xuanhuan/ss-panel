@@ -25,41 +25,41 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-6 col-sm-6">
-				<div class="ui-card-wrap">
-					<div class="card card-brand-accent">
-						<div class="card-main">
-							<div class="card-inner margin-bottom-no">
-								<p class="card-heading">邀请码申请</p>
-								<div class="card-table">
-									<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y  </
-									<{if $InviteNum !=0}>
-										<button id="invite" class="btn btn-brand waves-attach"><i class="icon icon-lg">near_me</i>&nbsp;我要生喵！</button><br><br>
-									<{/if}>
-									<{include file='loading.tpl'}>
+				<div class="col-lg-6 col-md-12 col-sm-12">
+					<div class="ui-card-wrap">
+						<div class="card card-brand-accent">
+							<div class="card-main">
+								<div class="card-inner margin-bottom-no">
+									<p class="card-heading">邀请码申请</p>
+									<div class="card-table">
+										<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y  </
+										<{if $InviteNum !=0}>
+											<button id="invite" class="btn btn-brand waves-attach"><i class="icon icon-lg">near_me</i>&nbsp;我要生喵！</button><br><br>
+										<{/if}>
+										<{include file='loading.tpl'}>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!--<div class="ui-card-wrap">-->
-				<!--       <div class="card card-brand-brand">-->
-				<!--           <div class="card-main">-->
-				<!--               <div class="card-inner margin-bottom-no">-->
-				<!--                   <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>-->
-				<!--                   <div class="card-table"><{$notice->notice('user_invite')}></div>-->
-				<!--               </div>-->
-				<!--           </div>-->
-				<!--       </div>-->
-				<!--   </div>-->
-				<div class="ui-card-wrap">
-					<div class="card card-brand">
-						<div class="card-main">
-							 <div class="card-inner margin-bottom-no">
-							 	<p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>
-							 	<div class="card-table"><{$notice->notice('user_invite')}></div>
-							 </div>
+					<!--<div class="ui-card-wrap">-->
+					<!--       <div class="card card-brand-brand">-->
+					<!--           <div class="card-main">-->
+					<!--               <div class="card-inner margin-bottom-no">-->
+					<!--                   <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>-->
+					<!--                   <div class="card-table"><{$notice->notice('user_invite')}></div>-->
+					<!--               </div>-->
+					<!--           </div>-->
+					<!--       </div>-->
+					<!--   </div>-->
+					<div class="ui-card-wrap">
+						<div class="card card-brand">
+							<div class="card-main">
+								 <div class="card-inner margin-bottom-no">
+								 	<p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>
+								 	<div class="card-table"><{$notice->notice('user_invite')}></div>
+								 </div>
+							</div>
 						</div>
 					</div>
 				</div>
