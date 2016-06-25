@@ -27,101 +27,100 @@
 						</div>
 					</div>
 				</div>
-			    <div class="col-lg-12 col-sm-12">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <div class="col-lg-6 col-md-12 col-sm-12">
-				                    <p class="card-heading"></p>
-				                    <div class="form-group form-group-label">
-				                        <p>兑换码使用量：<{$used}>/65535</p>
-									    <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <{$used/655.36}>%;">
-                                                <span class="sr-only">123</span>
-                                            </div>
-                                        </div>
-									    <div class="form-group form-group-label">
-									        <p>计划类型：</p>
-										    <div class="from-group">
-                                                <div class="radiobtn radiobtn-adv checkbox-inline">
-                                                    <label for="plan_A">
-                                                        <input class="access-hide plan" id="plan_A" name="plan" type="radio" value="A">时间类
-                                                        <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="radiobtn radiobtn-adv checkbox-inline">
-                                                    <label for="plan_B">
-                                                        <input class="access-hide plan" id="plan_B" name="plan" type="radio" value="B">流量类
-                                                        <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="radiobtn radiobtn-adv checkbox-inline">
-                                                    <label for="plan_C">
-                                                        <input class="access-hide plan" id="plan_C" name="plan" type="radio" value="C">充值类
-                                                        <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="radiobtn radiobtn-adv checkbox-inline">
-                                                    <label for="plan_D">
-                                                        <input class="access-hide plan" id="plan_D" name="plan" type="radio" value="D">其他类
-                                                        <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-									    </div>
+				<div class="col-lg-12 col-sm-12">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<div class="col-lg-6 col-md-12 col-sm-12">
+									<p class="card-heading"></p>
+									<div class="form-group form-group-label">
+										<p>兑换码使用量：<{$used}>/65535</p>
+										<div class="progress">
+											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <{$used/655.36}>%;">
+											<span class="sr-only">123</span>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<p>计划类型：</p>
+										<div class="from-group">
+											<div class="radiobtn radiobtn-adv checkbox-inline">
+												<label for="plan_A">
+													<input class="access-hide plan" id="plan_A" name="plan" type="radio" value="A">时间类
+													<span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+												</label>
+											</div>
+											<div class="radiobtn radiobtn-adv checkbox-inline">
+												<label for="plan_B">
+													<input class="access-hide plan" id="plan_B" name="plan" type="radio" value="B">流量类
+													<span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+												</label>
+											</div>
+											<div class="radiobtn radiobtn-adv checkbox-inline">
+												<label for="plan_C">
+													<input class="access-hide plan" id="plan_C" name="plan" type="radio" value="C">充值类
+													<span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+												</label>
+											</div>
+											<div class="radiobtn radiobtn-adv checkbox-inline">
+												<label for="plan_D">
+													<input class="access-hide plan" id="plan_D" name="plan" type="radio" value="D">
+													<span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+												</label>
+											</div>
+										</div>
 									</div>
 									<div class="form-group form-group-label">
 										<p>即将生成的套餐信息：</p>
-                                        <p id="plan_info">未完成全部选择</p>
+										<p id="plan_info">未完成全部选择</p>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-12 col-sm-12">
 									<div class="form-group form-group-label">
-                                        <label class="floating-label" for="plan_id">计划编号</label>
-                                        <select class="form-control" id="plan_id">
-                                            <option value="null">请先选择计划类型</option>
-                                        </select>
+										<label class="floating-label" for="plan_id">计划编号</label>
+										<select class="form-control" id="plan_id">
+											<option value="null">请先选择计划类型</option>
+										</select>
 									</div>
 									<div class="form-group form-group-label">
-                                        <label class="floating-label" for="amount">请选择生成数量</label>
-                                        <select class="form-control" id="amount">
-                                            <option value="NULL"></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="5">5</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="50">50</option>
-                                            <option value="custom">自定义</option>
-                                        </select>
-                                        <input type="text" class="form-control inline" placeholder="请输自定义的入数量 1-100" style="display:none" id="amount_input">
-                                    </div>
+										<label class="floating-label" for="amount">请选择生成数量</label>
+										<select class="form-control" id="amount">
+											<option value="NULL"></option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="5">5</option>
+											<option value="10">10</option>
+											<option value="20">20</option>
+											<option value="50">50</option>
+											<option value="custom">自定义</option>
+										</select>
+										<input type="text" class="form-control inline" placeholder="请输自定义的入数量 1-100" style="display:none" id="amount_input">
+									</div>
 									<div class="form-group form-group-label">
-									    <p>到期时间：</p>
-									    <label class="floating-label" for="code_end_time"></label>
-								        <input class="form-control" id="code_end_time" type="text"  onclick="$('#plan_end_time').pickdate();" value="">
-								    </div><br/>
-                                </div>
-                                    <button class="btn btn-block btn-brand waves-attach waves-light" id='generate'>生成</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
-			        <div class="modal-inner">
-				        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-			        </div>
-			        <div class="modal-footer">
-				        <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
-			        </div>
-		        </div>
-	        </div>
-        </div>
-    </main>
+										<p>到期时间：</p>
+										<label class="floating-label" for="code_end_time"></label>
+										<input class="form-control" id="code_end_time" type="text"  onclick="$('#plan_end_time').pickdate();" value="">
+									</div><br/>
+								</div>
+								<button class="btn btn-block btn-brand waves-attach waves-light" id='generate'>生成</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+					</div>
+					<div class="modal-footer">
+						<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
 <script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
