@@ -157,7 +157,8 @@ class Ss {
         return $this->getTransferEnable()-$this->getUsedTransfer();
     }
     
-    function update_plan_end_time_checkin(){
+    //签到延迟到期时间
+	function update_plan_end_time_checkin(){
         $current_end_time = $this->get_plan_end_time();
         if ($current_end_time > time()+7*86400)
             $data = $current_end_time;
