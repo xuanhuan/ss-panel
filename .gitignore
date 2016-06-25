@@ -4,3 +4,4 @@ vendor
 composer.lock
 templates_c/
 lib/Ss/Sqlitedb
+lib/Ss/Code/config.php
