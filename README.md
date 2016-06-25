@@ -79,3 +79,5 @@ $ php composer.phar  install
 * [phpqrcode](https://github.com/t0k4rt/phpqrcode)
 * [pingjs](https://github.com/jdfreder/pingjs)
 * [material](https://github.com/Daemonite/material)
+* [淘宝IP地址库](http://ip.taobao.com)
+* [IPIP.NET](https://www.ipip.net)

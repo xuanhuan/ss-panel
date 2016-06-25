@@ -106,11 +106,24 @@ class UserCheck {
 }
 
 function resolve_ip($ip){
-    //返回ip对应的地址
+     //返回ip对应的地址
+    
+    //taobao API
+    $result = json_decode(file_get_contents("http://ip.taobao.com/service/getIpInfo.php?ip=".$ip), true);
+    if($result['code'] == 0){
+        return $result['data']['country'].$result['data']['area'].$result['data']['region'].
+            $result['data']['city'].$result['data']['isp'];
+    }
+    
+    else 
+        return '查询失败';
+    
+    //IPIP.NET付费API
+    //如使用请注释掉上方taobao API并修改下方token值
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "http://ipapi.ipip.net/find?addr=".$ip);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch,  CURLOPT_HTTPHEADER, array('Token:00000000000000000000'));
+    curl_setopt($ch,  CURLOPT_HTTPHEADER, array('Token:1234567890qwertyuiopasdfghjklzxcvbnm1234'));
     
     $output = json_decode(curl_exec($ch), true);
     if($output['ret'] == 'ok'){
