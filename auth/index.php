@@ -1,3 +1,3 @@
-<?php
-header('login.php');
-?>
+<script language="JavaScript"> 
+self.location='login.php'; 
+</script> 
