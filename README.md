@@ -64,6 +64,35 @@ __注意/Attention!：__
 * You can Add User ID into table `ss_user_admin`<br/>
   你可以在 `ss_user_admin` 表里添加管理员。
 
+### 节点列表查看节点负载等信息
+* For Ubuntu/Debian:
+
+```
+$ apt-get install gcc python-dev
+$ pip install psutil
+```
+
+* For Centos:
+
+```
+$ yum install gcc python-devel
+$ pip install psutil
+```
+
+* 在/admin/中添加节点
+
+* 将serverinfo.py上传至节点服务器
+
+* 修改serverinfo.py中posturl为你的站点地址，server_id为当前节点对应的ID（/admin/node.php第一列）
+
+* 运行
+
+```
+$ python serverinfo.py //本脚本可独立于Shadowsocks服务端运行
+```
+
+* 如运行没有问题，请使用nohup/supervisor/screen等后台守护运行，此处不再详述
+
 ### 使用 mail-gun 发邮件/Send mail using mail-gun
 运行/Run:
 
