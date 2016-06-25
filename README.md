@@ -64,7 +64,9 @@ __注意/Attention!：__
 * You can Add User ID into table `ss_user_admin`<br/>
   你可以在 `ss_user_admin` 表里添加管理员。
 
-### 节点列表查看节点负载等信息
+### 节点负载/Load status in Node List
+节点列表查看节点负载等信息
+The following helps you to show load status in Node List page.
 * For Ubuntu/Debian:
 
 ```
@@ -79,19 +81,21 @@ $ yum install gcc python-devel
 $ pip install psutil
 ```
 
-* 在/admin/中添加节点
-
-* 将serverinfo.py上传至节点服务器
-
-* 修改serverinfo.py中posturl为你的站点地址，server_id为当前节点对应的ID（/admin/node.php第一列）
-
-* 运行
+* 在`/admin/`中添加节点<br/>
+  Add node information in `/admin`
+* 将`serverinfo.py`上传至节点服务器<br/>
+  Upload `serverinfo.py` on to your server.
+* 修改`serverinfo.py`中`posturl`为你的站点地址，`server_id`为当前节点对应的ID（`/admin/node.php`第一列）<br/>
+  In `serverinfo.py`, use your website's url as `posturl`, and use node ID (First column in `/admin/node.php`) as `server_id`.
+* 运行<br/>
+  Run.
 
 ```
-$ python serverinfo.py //本脚本可独立于Shadowsocks服务端运行
+$ python serverinfo.py //本脚本可独立于Shadowsocks服务端运行/The script can be used independently of Shadowsocks server.
 ```
 
 * 如运行没有问题，请使用nohup/supervisor/screen等后台守护运行，此处不再详述
+  If there are no problem running the process, please use nohup/supervisor/screen or similar tools to keep the process running in the background.
 
 ### 使用 mail-gun 发邮件/Send mail using mail-gun
 运行/Run:
