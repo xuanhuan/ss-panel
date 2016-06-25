@@ -36,21 +36,21 @@
 											<th>时间</th>
 										</tr>
 									</thead>
-								    <tbody>
-								        <{foreach $datas as $data}>
-                                            <tr>
-                                                <td><{$a++}></td>
-                                                <td><{$data[ 'ip']}></td>
-                                                <td><{$data['location']}></td>
-                                                <td><{date('Y-m-d H:i:s',$data['time'])}></td>
-                                            </tr>
-                                        <{/foreach}>
+									<tbody>
+										<{foreach $datas as $data}>
+											<tr>
+												<td><{$a++}></td>
+												<td><{$data[ 'ip']}></td>
+												<td><{$data['location']}></td>
+												<td><{date('Y-m-d H:i:s',$data['time'])}></td>
+											</tr>
+										<{/foreach}>
 									</tbody>
 								</table>
 							</div>
 						<{else}>
 							<a class="btn btn-brand-accent waves-attach waves-light">暂时没有匹配的IP地址！</a>
-			    	    <{/if}>
+						<{/if}>
 					</section>
 				</div>
 			</div>
