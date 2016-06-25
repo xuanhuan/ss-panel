@@ -20,31 +20,31 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-								    <div class="text-center">
-									                                           <p>统计信息仅供参考<small>The statistical data is only for your information</small></p>
-                                    </div>
+									<div class="text-center">
+										<p>统计信息仅供参考<small>The statistical data is only for your information</small></p>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="card">
-                            <div class="card-main">
-                                <div class="card-inner">
-                                    <div class="text-center">
-                                        <p>当前时间：<{$time}></p>
-                                        <p><{$site_name}> 版本：<span class="label label-brand-accent"><{$version}></span></p>
-                                        <p><{$site_name}> 已经产生流量<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$getTrafficGB}></span>GB</p>
-                                        <p>有<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$allUserCount}> </span>个用户选择了<{$site_name}> 站点</p>
-                                        <p>已经有<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$activedUserCount}></span>个用户使用了<{$site_name}> 服务</p>
-                                        <p>24小时内签到用户：<span class="label label-brand-accent"><{$CheckInUser_24}></span></p>
-                                        <p>过去24小时在线人数：<span class="label label-brand-accent"><{$onlineUserCount_24_h}></span></p>
-                                        <p>过去1小时在线人数：<span class="label label-brand-accent"><{$onlineUserCount_1_h}></span></p>
-                                        <p>过去5分钟在线人数：<span class="label label-brand-accent"><{$onlineUserCount_5_i}></span></p>
-                                        <p>过去1分钟在线人数：<span class="label label-brand-accent"><{$onlineUserCount_1_i}></span></p>
-                                        <p>实时在线人数：<span class="label label-brand-accent"><{$onlineUserCount}></span></p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="text-center">
+										<p>当前时间：<{$time}></p>
+										<p><{$site_name}> 版本：<span class="label label-brand-accent"><{$version}></span></p>
+										<p><{$site_name}> 已经产生流量<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$getTrafficGB}></span>GB</p>
+										<p>有<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$allUserCount}> </span>个用户选择了<{$site_name}> 站点</p>
+										<p>已经有<span class="label label-brand-accent margin-left-sm margin-right-sm"><{$activedUserCount}></span>个用户使用了<{$site_name}> 服务</p>
+										<p>24小时内签到用户：<span class="label label-brand-accent"><{$CheckInUser_24}></span></p>
+										<p>过去24小时在线人数：<span class="label label-brand-accent"><{$onlineUserCount_24_h}></span></p>
+										<p>过去1小时在线人数：<span class="label label-brand-accent"><{$onlineUserCount_1_h}></span></p>
+										<p>过去5分钟在线人数：<span class="label label-brand-accent"><{$onlineUserCount_5_i}></span></p>
+										<p>过去1分钟在线人数：<span class="label label-brand-accent"><{$onlineUserCount_1_i}></span></p>
+										<p>实时在线人数：<span class="label label-brand-accent"><{$onlineUserCount}></span></p></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>
