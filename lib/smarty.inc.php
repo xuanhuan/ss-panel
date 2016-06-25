@@ -10,20 +10,8 @@ define("__ROOT__",str_replace("lib/smarty.inc.php","",str_replace("\\","/",__FIL
 // $templates_dir = "AdminLTE-2"; //模板目录
 // $templates_dir = "materialize"; //模板目录
 // 读取客户端的cookie templates 
-if (!empty($_COOKIE["templates"])) {
-	if ($_COOKIE["templates"] === "materialize") {
-		$templates_dir = "materialize";
-	}
-	if ($_COOKIE["templates"] === "AdminLTE-2") {
-		$templates_dir = "AdminLTE-2";
-	}else{
-		$templates_dir = "materialize";
-		setrawcookie("templates",$templates_dir,time()+3600*24*365,"/");
-	}
-}else{
-	$templates_dir = "materialize";
-	setrawcookie("templates",$templates_dir,time()+3600*24*365,"/");
-}
+$templates_dir = "materialize";
+setrawcookie("templates",$templates_dir,time()+3600*24*365,"/");
 $smarty=new smarty(); //实例化smarty
 $smarty->settemplatedir(__ROOT__."templates/".$templates_dir); //设置模板文件存放目录
 $smarty->setcompiledir(__ROOT__."templates_c/".$templates_dir); //设置生成文件存放目录
