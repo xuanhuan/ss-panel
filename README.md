@@ -36,11 +36,6 @@ __注意/Attention!：__
 * 增加 Nginx 的配置文件 tpl.conf，用于防止直接访问模板文件。 放在当前网站Nginx 配置文件相同目录，然后打开原来的配置文件，找到当前域名的server { } 在里面粘贴：include tpl.conf;
 * 增加Apache 的配置文件 .htaccess，用于防止直接访问模板文件，放在当前目录。
 
-
-### 从0.x升级/Upgrade from 0.X
-
-[读这个/Read this](https://github.com/orvice/ss-panel/blob/master/upgrade_to_v2.md)
-
 ### 需求/Requirements
 * PHP >= 5.4
 * PDO Extension
