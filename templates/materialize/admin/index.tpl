@@ -48,19 +48,19 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-6 col-sm-6">
-										<div class="card">
-											<div class="card-main">
-												<div class="card-inner">
-													<p class="card-heading">用户信息</p>
-													<h1><{$all_user}> 名</h1>
-												</div>
-												<div class="card-action">
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-10 col-md-push-1">
-																<a href="user.php" class="btn btn-block btn-brand waves-attach waves-light">查看</a>
-															</div>
+								</div>
+								<div class="col-lg-6 col-sm-6">
+									<div class="card">
+										<div class="card-main">
+											<div class="card-inner">
+												<p class="card-heading">用户信息</p>
+												<h1><{$all_user}> 名</h1>
+											</div>
+											<div class="card-action">
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-10 col-md-push-1">
+															<a href="user.php" class="btn btn-block btn-brand waves-attach waves-light">查看</a>
 														</div>
 													</div>
 												</div>
