@@ -32,7 +32,7 @@
 								<div class="card-inner margin-bottom-no">
 									<p class="card-heading">邀请码申请</p>
 									<div class="card-table">
-										<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y  </
+										<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y </p>
 										<{if $InviteNum !=0}>
 											<button id="invite" class="btn btn-brand waves-attach"><i class="icon icon-lg">near_me</i>&nbsp;我要生喵！</button><br><br>
 										<{/if}>
