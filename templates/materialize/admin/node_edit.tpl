@@ -11,7 +11,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">编辑节点<small>Edit Node</small></h1>
+				<h1 class="content-heading">编辑节点&nbsp<small>Edit Node</small></h1>
 			</div>
 		</div>
 		<div class="container">
