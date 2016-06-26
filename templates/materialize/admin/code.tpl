@@ -122,6 +122,7 @@
 		</div>
 	</main>
 </body>
+<{include file="footer.tpl"}>
 <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
 <script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
 <script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
