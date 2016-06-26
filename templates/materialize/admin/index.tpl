@@ -77,6 +77,7 @@
 	</div>
 </main>
 </body>
+<{include file="footer.tpl"}>
 <script type="text/javascript">
     $(document).ready(function(){
         $("#checkin").click(function(){
