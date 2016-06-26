@@ -36,7 +36,7 @@
 									<div class="form-group form-group-label">
 										<p>兑换码使用量：<{$used}>/65535</p>
 										<div class="progress">
-											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <{$used/655.36}>%;">
+											<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <{$used/655.36}>%;"></div>
 											<span class="sr-only">123</span>
 										</div>
 									</div>
