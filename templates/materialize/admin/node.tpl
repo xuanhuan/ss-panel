@@ -15,8 +15,6 @@
 				<h1 class="content-heading">节点管理<small>Edit Nodes</small></h1>
 			</div>
 		</div>
-		
-		
 		<div class="container">
 			<section class="content-inner margin-top-no">
 				<div class="row">
@@ -31,47 +29,47 @@
 					</div>
 				</div>
 				<div class="col-lg-12 col-sm-12">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <p class="card-heading">节点概览</p>
-				                <div class="table-responsive">
-					                <table class="table" title="Node List">
-					                    <thead>
-					                        <tr>
-					                            <th>ID</th>
-                                                <th>节点</th>
-                                                <th>加密</th>
-                                                <th>描述</th>
-                                                <th>排序</th>
-                                                <th>操作</th>
-					                        </tr>
-					                    </thead>
-					                    <{foreach $node as $rs}>
-                                            <tr>
-                                                <td><{$rs['id']}></td>
-                                                <td><{$rs['node_name']}></td>
-                                                <td><{$rs['node_method']}></td>
-                                                <td><{$rs['node_info']}></td>
-                                                <td><{$rs['node_order']}></td>
-                                                <td>
-                                                    <a class="btn btn-brand-accent waves-attach waves-light" href="node_edit.php?id=<{$rs['id']}>">编辑</a>
-                                                    <a class="btn btn-red waves-attach waves-light" href="node_del.php?id=<{$rs['id']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
-                                                </td>
-                                            </tr>
-                                        <{/foreach}>
-				                    </table> 
-				                </div>
-				                <div class="col-md-12">
-						                <a href="node_add.php" class="btn btn-block btn-brand waves-attach waves-light">添加节点</a>
-						        </div><br/>
-				            </div>
-				        </div>
-			        </div>
-                </div>
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">节点概览</p>
+								<div class="table-responsive">
+									<table class="table" title="Node List">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>节点</th><th>加密</th>
+												<th>描述</th>
+												<th>排序</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<{foreach $node as $rs}>
+											<tr>
+												<td><{$rs['id']}></td>
+												<td><{$rs['node_name']}></td>
+												<td><{$rs['node_method']}></td>
+												<td><{$rs['node_info']}></td>
+												<td><{$rs['node_order']}></td>
+												<td>
+													<a class="btn btn-brand waves-attach waves-light" href="node_edit.php?id=<{$rs['id']}>">编辑</a>
+													<a class="btn btn-red waves-attach waves-light" href="node_del.php?id=<{$rs['id']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
+												</td>
+											</tr>
+										<{/foreach}>
+									</table> 
+								</div>
+								<div class="col-md-12">
+									<a href="node_add.php" class="btn btn-block btn-brand waves-attach waves-light">添加节点</a>
+								</div><br/>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 		</div>
 	</main>
 </body>
+<{include file="footer.tpl"}>
 </html>
 
