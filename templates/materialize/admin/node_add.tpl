@@ -11,7 +11,7 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">添加节点<small>Add Node</small></h1>
+				<h1 class="content-heading">添加节点&nbsp<small>Add Node</small></h1>
 			</div>
 		</div>
 		<div class="container">
