@@ -8,18 +8,15 @@
 <title>添加节点 - <{$site_name}></title>
 <{include file='admin/header.tpl'}>
 <body>
-    <main class="content">
+	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
 				<h1 class="content-heading">添加节点<small>Add Node</small></h1>
 			</div>
 		</div>
-		
-		
 		<div class="container">
 			<section class="content-inner margin-top-no">
 				<div class="row">
-					
 					<div class="col-lg-12 col-md-6">
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -30,13 +27,13 @@
 						</div>
 					</div>
 				</div>
-			    <div class="col-lg-12 col-sm-12">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <p class="card-heading"><{$rs['node_name']}>节点信息</p>
-				                    <div class="form-group form-group-label">
-				                        <form role="form" method="post" action="javascript:void(0);">
+				<div class="col-lg-12 col-sm-12">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading"><{$rs['node_name']}>节点信息</p>
+								<form role="form" method="post" action="javascript:void(0);">
+									<div class="form-group form-group-label">
 										<label class="floating-label" for="node_name">节点名称</label>
 										<input class="form-control" id="node_name" type="text" value="<{$rs['node_name']}>">
 									</div>
@@ -45,20 +42,20 @@
 										<input class="form-control" id="node_server" type="text" value="<{$rs['node_server']}>">
 									</div>
 									<div class="form-group form-group-label">
-				                            <label class="floating-label" for="plan">加密方式</label>
-				                            <select id="node_method" class="form-control" onchange="changeForm(this.value)">
-				                                <{$method = strtolower($rs['node_method'])}>
-                                                <option value="custom_node_method">自定义加密方式</option>
-                                                <option value="rc4-md5" <{if $method =="rc4-md5"}> selected="selected"<{/if}> >rc4-md5</option>
-                                                <option value="aes-256-cfb" <{if $method =="aes-256-cfb"}> selected="selected"<{/if}> >aes-256-cfb</option>
-                                                <option value="aes-192-cfb" <{if $method =="aes-192-cfb"}> selected="selected"<{/if}> >aes-192-cfb</option>
-                                                <option value="aes-128-cfb" <{if $method =="aes-128-cfb"}> selected="selected"<{/if}> >aes-128-cfb</option>
-                                                <option value="rc4" <{if $method =="rc4"}> selected="selected"<{/if}> >rc4</option>
-                                                <option value="salsa20" <{if $method =="salsa20"}> selected="selected"<{/if}> >salsa20</option>
-                                                <option value="chacha20" <{if $method =="chacha20"}> selected="selected"<{/if}> >chacha20</option>
-                                                <option value="table" <{if $method =="table"}> selected="selected"<{/if}> >table</option>
-                                            </select>
-									    </div>
+										<label class="floating-label" for="plan">加密方式</label>
+										<select id="node_method" class="form-control" onchange="changeForm(this.value)">
+											<{$method = strtolower($rs['node_method'])}>
+											<option value="custom_node_method">自定义加密方式</option>
+											<option value="rc4-md5" <{if $method =="rc4-md5"}> selected="selected"<{/if}> >rc4-md5</option>
+											<option value="aes-256-cfb" <{if $method =="aes-256-cfb"}> selected="selected"<{/if}> >aes-256-cfb</option>
+											<option value="aes-192-cfb" <{if $method =="aes-192-cfb"}> selected="selected"<{/if}> >aes-192-cfb</option>
+											<option value="aes-128-cfb" <{if $method =="aes-128-cfb"}> selected="selected"<{/if}> >aes-128-cfb</option>
+											<option value="rc4" <{if $method =="rc4"}> selected="selected"<{/if}> >rc4</option>
+											<option value="salsa20" <{if $method =="salsa20"}> selected="selected"<{/if}> >salsa20</option>
+											<option value="chacha20" <{if $method =="chacha20"}> selected="selected"<{/if}> >chacha20</option>
+											<option value="table" <{if $method =="table"}> selected="selected"<{/if}> >table</option>
+										</select>
+									</div>
 									<div class="form-group form-group-label" id="custom_node_method_form">
 										<label class="floating-label" for="custom_node_method">自定义加密方式</label>
 										<input class="form-control" id="custom_node_method" type="text" value="<{$rs['node_method']}>">
@@ -79,33 +76,33 @@
 										<label class="floating-label" for="node_order">排序（0为最高）</label>
 										<input class="form-control" id="node_order" type="text"  value="<{$rs['node_order']}>">
 									</div>
-                                    <button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">添加</button>
-                                    </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
-			        <div class="modal-inner">
-			            <{include file='loading.tpl'}>
-				        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-			        </div>
-			        <div class="modal-footer">
-				        <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
-			        </div>
-		        </div>
-	        </div>
-        </div>
-    </main>
+									<button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">添加</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-xs">
+			<div class="modal-content">
+				<div class="modal-inner">
+					<{include file='loading.tpl'}>
+					<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+				</div>
+				<div class="modal-footer">
+					<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-    <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
-    <!-- AES -->
-    <script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
-    <script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
+<script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $("#Submit").click(function(){
