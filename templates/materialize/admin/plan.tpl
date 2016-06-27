@@ -10,7 +10,7 @@
 	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">计划管理<small>Manage Plans</small></h1>
+				<h1 class="content-heading">计划管理&nbsp<small>Manage Plans</small></h1>
 			</div>
 		</div>
 		<div class="container">
