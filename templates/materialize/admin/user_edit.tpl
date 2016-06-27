@@ -10,7 +10,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">编辑用户<small>Edit User</small></h1>
+				<h1 class="content-heading">编辑用户&nbsp<small>Edit User</small></h1>
 			</div>
 		</div>
 		<div class="container">
