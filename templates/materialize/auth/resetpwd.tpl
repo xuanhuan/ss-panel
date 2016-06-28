@@ -5,13 +5,13 @@
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>找回密码 -<{$site_name}></title>
+<title>找回密码 - <{$site_name}></title>
 <{include file='header.tpl'}>
 	<div class="content-header ui-content-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-					    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+						<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 						<h1 class="content-heading" style="font-family: Orbitron;"><{$site_name}></h1>
 					</div>
 				</div>
@@ -19,74 +19,63 @@
 		</div>
 	</div>
 	<div class="container">
-        <div class="row">
-           <div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-               <section class="content-inner marin-top-no">
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner">
-                                    <h1 class="card-heading"><i class="icon icon-lg">error</i>&nbsp;找回密码</h1>
-								</div>
+		<div class="row">
+			<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+				<section class="content-inner marin-top-no">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<h1 class="card-heading"><i class="icon icon-lg">error</i>&nbsp;找回密码</h1>
 							</div>
 						</div>
-				    <section class="content-inner">
-					    <div class="card">
-						    <div class="card-main">
-							    <div class="card-inner">
-								    <p class="text-center">
-									    <span class="avatar avatar-inline avatar-lg">
-										    <img alt="Login" src="https://avatar.duoshuo.com/avatar-50/760/144058.jpg">
-									    </span>
-							    	</p>
-								    <form action="javascript:void(0);" autocomplete="off" method="POST">
-								        <div class="form-group form-group-label">
-								            <div class="row">
-                                                <div class="col-md-10 col-md-push-1">
-                                                    <input id="email" type="email" name="email" class="form-control" maxlength="30">
-                                                    <label for="email" class="floating-label"><i class="icon icon-lg">send</i>&nbsp;邮箱 Email</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-									        <div class="row">
-											    <div class="col-md-10 col-md-push-1">
-												    <button id="reset" type="submit" class="btn btn-block btn-brand waves-attach waves-light"><i class="icon icon-lg">redo</i>&nbsp;找回</button>
-											    </div>
-										    </div>
-									    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
-			        <div class="modal-inner">
-                        <div class="text-center">
-			                <div class="progress-circular progress-circular-inline" style="display:none;" id="loading">
-								<div class="progress-circular-wrapper">
-									<div class="progress-circular-inner">
-										<div class="progress-circular-left">
-										    <div class="progress-circular-spinner"></div>
-										</div>
-										<div class="progress-circular-gap"></div>
-										<div class="progress-circular-right">
-										    <div class="progress-circular-spinner"></div>
+					</div>
+				</section>
+				<section class="content-inner">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="text-center">
+									<span class="avatar avatar-inline avatar-lg">
+										<img alt="Login" src="https://avatar.duoshuo.com/avatar-50/760/144058.jpg">
+									</span>
+								</p>
+								<form action="javascript:void(0);" autocomplete="off" method="POST">
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<input id="email" type="email" name="email" class="form-control" maxlength="30">
+												<label for="email" class="floating-label"><i class="icon icon-lg">send</i>&nbsp;邮箱 Email</label>
+											</div>
 										</div>
 									</div>
-								</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<button id="reset" type="submit" class="btn btn-block btn-brand waves-attach waves-light"><i class="icon icon-lg">redo</i>&nbsp;找回</button>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
-				            <h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
-				        </div>
-			        </div>
-		        </div>
-	        </div>
-        </div>
-    </main>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-xs">
+			<div class="modal-content">
+				<div class="modal-inner">
+					<div class="text-center">
+						<{include file="loading.tpl"}>
+						<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
 </body>
 </html>
 
