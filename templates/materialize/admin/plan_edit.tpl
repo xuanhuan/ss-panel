@@ -52,7 +52,7 @@
 											<select class="form-control" id="plan_type">
 												<option value="null">请选择</option>
 												<option value="Tc">普通流量</option>
-												<option value="Ta">搞基流量</option>
+												<option value="Ta">高級流量</option>
 												<option value="Cc">普通周期</option>
 												<option value="Ca">高级周期</option>
 												<option value="M">钱</option>
@@ -128,11 +128,11 @@ $(document).ready(function(){
             id =<{$rs['id']}>;
             if ($('#plan_price').val()>1000){
                 $("#result").modal();
-                $("#info").html('卖这么贵鬼买！(val>1000)');
+                $("#info").html('这么贵鬼才会买了啦！(val>1000)');
             }
             else if($('#plan_price').val()<0){
                 $("#result").modal();
-                $("#info").html('诶呦，这么乐意亏本？(val<0)');
+                $("#info").html('钱多？为什么不去做慈善家？(val<0)');
             }
             else
                 $.get('_plan_edit.php',{'id':id, 'method':method,plan:$('#plan').val(),plan_id:$('#plan_id').val(),type:$('#plan_type').val(),data:$('#plan_type_amount').val(),money:$('#plan_price').val(),url:$('#plan_url').val()},
