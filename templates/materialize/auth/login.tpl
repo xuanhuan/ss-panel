@@ -92,7 +92,7 @@
 	        <div class="modal-dialog modal-xs">
 		        <div class="modal-content">
 				<div class="modal-inner">
-                        		<{inclue file="loading.tpl"}>
+                        		<{inclue file="../user/loading.tpl"}>
 					<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
 				</div>
 			</div>
