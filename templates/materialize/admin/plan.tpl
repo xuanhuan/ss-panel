@@ -94,7 +94,7 @@
 									<td><{$rs[ 'money']}>元</td>
 									<td><{$rs[ 'url']}></td>
 									<td>
-                                        <a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
+										<a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
 										<button class="btn btn-brand-accent waves-attach waves-light delete" id="<{$rs['id']}>">删除</button>
 									</td>
 								</tr>
@@ -123,7 +123,7 @@
 									<td><{$rs[ 'money']}>元</td>
 									<td><{$rs[ 'url']}></td>
 									<td>
-                                        <a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
+										<a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
 										<button class="btn btn-brand-accent waves-attach waves-light delete" id="<{$rs['id']}>">删除</button>
 									</td>
 								</tr>
@@ -152,7 +152,7 @@
 									<td><{$rs[ 'money']}>元</td>
 									<td><{$rs[ 'url']}></td>
 									<td>
-                                        <a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
+										<a class="btn btn-brand waves-attach waves-light" href="plan_edit.php?id=<{$rs['id']}>&method=edit">编辑</a>
 										<button class="btn btn-brand-accent waves-attach waves-light delete" id="<{$rs['id']}>">删除</button>
 									</td>
 								</tr>
@@ -161,7 +161,7 @@
 					</div>
 					<div class="col-md-5 col-md-push-1">
 						<a href="plan_edit.php?method=add&id=0" class="btn btn-block btn-brand waves-attach waves-light">添加计划</a>
-					</div><br/>
+					</div>
 					<div class="col-md-5 col-md-push-1">
 						<a href="code.php" class="btn btn-block btn-brand waves-attach waves-light">生成兑换码</a></div>
 					</div>
