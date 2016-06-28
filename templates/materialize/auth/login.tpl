@@ -5,7 +5,7 @@
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>登录 -<{$site_name}></title>
+<title>登录 - <{$site_name}></title>
 <{include file='header.tpl'}>
 	<div class="content-header ui-content-header">
 		<div class="container">
@@ -92,7 +92,7 @@
 	        <div class="modal-dialog modal-xs">
 		        <div class="modal-content">
 				<div class="modal-inner">
-                        		<{inclue file="../user/loading.tpl"}>
+                        		<{inclue file="loading.tpl"}>
 					<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
 				</div>
 			</div>
