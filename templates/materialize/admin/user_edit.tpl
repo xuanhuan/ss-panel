@@ -7,7 +7,7 @@
 <{include file='../source.tpl'}>
 <title>编辑用户 - <{$site_name}></title>
 <{include file='admin/header.tpl'}>
-    <main class="content">
+	<main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
 				<h1 class="content-heading">编辑用户&nbsp<small>Edit User</small></h1>
@@ -16,7 +16,6 @@
 		<div class="container">
 			<section class="content-inner margin-top-no">
 				<div class="row">
-					
 					<div class="col-lg-12 col-md-6">
 						<div class="card margin-bottom-no">
 							<div class="card-main">
@@ -27,76 +26,75 @@
 						</div>
 					</div>
 				</div>
-			    <div class="col-lg-12 col-sm-12">
-				    <div class="card">
-				        <div class="card-main">
-				            <div class="card-inner">
-				                <div class="col-lg-6 col-md-12 col-sm-12">
-				                <p class="card-heading">ID: <{$uid}> 的用户信息</p>
-				                <div class="form-group form-group-label">
-				                    <form role="form" method="post" action="javascript:void(0);">
-							    		<label class="floating-label" for="user_name">用户名</label>
-										<input class="form-control" id="user_name" type="text" value="<{$rs['user_name']}>">
-									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="user_email">用户邮箱</label>
-										<input class="form-control" id="user_email" type="text" value="<{$rs['email']}>">
-									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="user_pass">用户密码 新密码(不修改请留空)</label>
-										<input class="form-control" id="user_pass" type="text">
-									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="user_passwd">Shadowsocks 连接密码</label>
-										<input class="form-control" id="user_passwd" type="text" value="<{$rs['passwd']}>">
-									</div>
+				<div class="col-lg-12 col-sm-12">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<form role="form" method="post" action="javascript:void(0);">
+									<div class="col-lg-6 col-md-12 col-sm-12">
+										<p class="card-heading">ID: <{$uid}> 的用户信息</p>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="user_name">用户名</label>
+											<input class="form-control" id="user_name" type="text" value="<{$rs['user_name']}>">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="user_email">用户邮箱</label>
+											<input class="form-control" id="user_email" type="text" value="<{$rs['email']}>">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="user_pass">用户密码 新密码(不修改请留空)</label>
+											<input class="form-control" id="user_pass" type="text">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="user_passwd">Shadowsocks 连接密码</label>
+											<input class="form-control" id="user_passwd" type="text" value="<{$rs['passwd']}>">
+										</div>
 									</div>
 									<div class="col-lg-6 col-md-12 col-sm-12">
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="transfer_enable">设置流量，单位为GB</label>
-										<input class="form-control" id="transfer_enable" type="text" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>">
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="transfer_enable">设置流量，单位为GB</label>
+											<input class="form-control" id="transfer_enable" type="text" value="<{\Ss\Etc\Comm::flowAutoShow($rs['transfer_enable'])}>">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="invite_num">邀请码数量</label>
+											<input class="form-control" id="invite_num" type="text" value="<{$rs['invite_num']}>">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="plan">套餐类别</label>
+											<input class="form-control" id="plan" type="text" value="<{$rs['plan']}>">
+										</div>
+										<div class="form-group form-group-label">
+											<label class="floating-label" for="plan_end_time">套餐到期时间</label>
+											<input class="form-control" id="plan_end_time" type="text"  onclick="$('#plan_end_time').pickdate();" value="<{date('Y-m-d',$rs['plan_end_time'])}>">
+										</div>
+										<div class="checkbox switch">
+											<label for="enable">停止/
+												<input class="access-hide" id="enable" name="enable" type="checkbox"<{if $rs['enable']==1}> checked="checked" <{/if}>  ><span class="switch-toggle"></span>
+												正常
+											</label>
+										</div><br/>
 									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="invite_num">邀请码数量</label>
-										<input class="form-control" id="invite_num" type="text" value="<{$rs['invite_num']}>">
-									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="plan">套餐类别</label>
-										<input class="form-control" id="plan" type="text" value="<{$rs['plan']}>">
-									</div>
-									<div class="form-group form-group-label">
-										<label class="floating-label" for="plan_end_time">套餐到期时间</label>
-										<input class="form-control" id="plan_end_time" type="text"  onclick="$('#plan_end_time').pickdate();" value="<{date('Y-m-d',$rs['plan_end_time'])}>">
-									</div>
-									<div class="checkbox switch">
-                                        <label for="enable">
-                                        停止/
-                                        <input class="access-hide" id="enable" name="enable" type="checkbox"<{if $rs['enable']==1}> checked="checked" <{/if}>  ><span class="switch-toggle"></span>
-                                        正常
-                                        </label>
-                                    </div><br/>
-                                    </div>
-                                    <button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">修改</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
-			        <div class="modal-inner">
-				        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-			        </div>
-			        <div class="modal-footer">
-				        <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
-			        </div>
-		        </div>
-	        </div>
-        </div>
-    </main>
+									<button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">修改</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+			<div class="modal-dialog modal-xs">
+				<div class="modal-content">
+					<div class="modal-inner">
+						<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+					</div>
+					<div class="modal-footer">
+						<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
 <script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
