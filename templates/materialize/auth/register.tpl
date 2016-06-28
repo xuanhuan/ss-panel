@@ -117,7 +117,7 @@
 		<div class="modal-dialog modal-xs">
 			<div class="modal-content">
 				<div class="modal-inner">
-					<{include file="loading.tql"}>
+					<{include file="loading.tpl"}>
 				        <h4 class="h1 margin-top-sm text-black-hint" id="msg"></h4>
 				</div>
 			</div>
