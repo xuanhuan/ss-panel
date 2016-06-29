@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <meta charset="UTF-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>登录 - <{$site_name}></title>
+<title>登录 -<{$site_name}></title>
 <{include file='header.tpl'}>
 	<div class="content-header ui-content-header">
 		<div class="container">
@@ -19,86 +19,87 @@
 		</div>
 	</div>
 	<div class="container">
-        <div class="row">
-        	<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-        		<section class="content-inner margin-top-no">
-				<div class="card">
-					<div class="card-main">
-						<div class="card-inner">
-                                			<h1 class="card-heading"><i class="icon icon-lg">verified_user</i>&nbsp;登录到用户中心</h1>
+		<div class="row">
+			<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+				<section class="content-inner margin-top-no">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<h1 class="card-heading"><i class="icon icon-lg">verified_user</i>&nbsp;登录到用户中心</h1>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-			<section class="content-inner">
-				<div class="card">
-					<div class="card-main">
-						<div class="card-inner">
-							<p class="text-center">
-								<span class="avatar avatar-inline avatar-lg">
-									<img alt="Login" src="https://avatar.duoshuo.com/avatar-50/760/144058.jpg">
-								</span>
-							</p>
-							<form action="javascript:void(0);"  method="POST">
-								<div class="form-group form-group-label">
-									<div class="row">
-                                                				<div class="col-md-10 col-md-push-1">
-                                                    					<input id="email" type="email" name="email" class="form-control" maxlength="30">
-                                                    					<label for="email" class="floating-label"><i class="icon icon-lg">send</i>&nbsp;邮箱 Email</label>
-                                                				</div>
-                                            				</div>
-                                        			</div>
-                                        			<div class="form-group form-group-label">
-									<div class="row">
-                                                				<div class="col-md-10 col-md-push-1">
-                                                    					<input id="password" type="password" name="password" class="form-control">
-                                                    					<label for="password" class="floating-label"><i class="icon icon-lg">visibility_off</i>&nbsp;密码 Password</label>
-                                                				</div>
-                                            				</div>
-                                        			</div>
-                                        			<div class="form-group">
-									<div class="row">
-										<div class="col-md-10 col-md-push-1">
-											<div class="checkbox checkbox-adv">
-												<div id="assp"></div>
-													<label for="remember_me">
-														<input class="access-hide" value="week" id="remember_me" name="remember_me" type="checkbox"><i class="icon icon-lg">done_all</i>&nbsp;记住我
-														<span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
-													</label>
+					<section class="content-inner">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p class="text-center">
+										<span class="avatar avatar-inline avatar-lg">
+											<img alt="Login" src="https://avatar.duoshuo.com/avatar-50/760/144058.jpg">
+										</span>
+									</p>
+									<form action="javascript:void(0);"  method="POST">
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<input id="email" type="email" name="email" class="form-control" maxlength="30">
+													<label for="email" class="floating-label"><i class="icon icon-lg">send</i>&nbsp;邮箱 Email</label>
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-                                        			<div class="form-group">
-									<div class="row">
-										<div class="col-md-10 col-md-push-1">
-											<button id="login" type="submit" class="btn btn-block btn-brand waves-attach waves-light"><i class="icon icon-lg">vpn_key</i>&nbsp;登录</button>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<input id="password" type="password" name="password" class="form-control">
+													<label for="password" class="floating-label"><i class="icon icon-lg">visibility_off</i>&nbsp;密码 Password</label>
+												</div>
+											</div>
 										</div>
-									</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<div class="checkbox checkbox-adv">
+														<div id="assp"></div>
+														<label for="remember_me">
+															<input class="access-hide" value="week" id="remember_me" name="remember_me" type="checkbox"><i class="icon icon-lg">done_all</i>&nbsp;记住我
+															<span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<button id="login" type="submit" class="btn btn-block btn-brand waves-attach waves-light"><i class="icon icon-lg">vpn_key</i>&nbsp;登录</button>
+												</div>
+											</div>
+										</div>
+									</form>
 								</div>
-                                    			</form>
-                                		</div>
-                            		</div>
-                        	</div>
-                        	<div class="clearfix">
-					<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="resetpwd.php">忘记密码？</a></p>
-					<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="register.php">注册账户</a></p>
-				</div>
-                	</section>
-        	</div><!--col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1-->
-        </div><!--row-->
-        <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-	        <div class="modal-dialog modal-xs">
-		        <div class="modal-content">
+							</div>
+						</div>
+						<div class="clearfix">
+							<p class="margin-no-top pull-left"><a class="btn btn-flat btn-brand waves-attach" href="resetpwd.php">忘记密码？</a></p>
+							<p class="margin-no-top pull-right"><a class="btn btn-flat btn-brand waves-attach" href="register.php">注册账户</a></p>
+						</div>
+					</section>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-xs">
+			<div class="modal-content">
 				<div class="modal-inner">
-                        		<{include file="../user/loading.tpl"}>
-					<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
+					<{include file="loading.tpl"}>
+					<div class="text-center">
+						<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div><!--model-->
-        </div><!--container-->
+	</div>
 </body>
 </html>
 <script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
