@@ -44,7 +44,6 @@ $smarty->assign('all_transfer',$all_transfer);
 $smarty->assign('unused_transfer',$unused_transfer);
 $smarty->assign('unix_time',$unix_time);
 $smarty->assign('get_money',$oo->get_money());
-$smarty->assign("user_index_Announcement",Ss\ac::get('user_index_Announcement',get_defined_vars()));// 用户中心公告内容
 $smarty->display('user/index.tpl');
 echo  $js_ua_code;//显示防签到系统平台 页面内容
 ?>
