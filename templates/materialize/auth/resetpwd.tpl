@@ -68,7 +68,7 @@
 			<div class="modal-content">
 				<div class="modal-inner">
 					<div class="text-center">
-						<{include file="loading.tpl"}>
+						<{include file="../user/loading.tpl"}>
 						<h1 class="h1 margin-top-sm text-black-hint" id="msg"></h1>
 					</div>
 				</div>
