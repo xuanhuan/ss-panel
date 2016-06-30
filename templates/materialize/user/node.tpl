@@ -20,7 +20,7 @@
 						<div class="card margin-bottom-no">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>请寻找适合自己的节点；正常情况下普通节点速度在10000kbps-20000kbps，高级节点在20000kbps-90000kbps。</p>
+									<p>请根据本地网络环境，寻找适合自己的节点。</p>
 								</div>
 							</div>
 						</div>
@@ -53,7 +53,7 @@
 										<div class="card card-green">
 											<div class="card-main">
 												<div class="card-inner">
-													<p><i class="icon icon-lg">lightbulb_outline</i>&nbsp;立即成为高级用户，使用全部高速节点，只需10元/月&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+													<p><i class="icon icon-lg">lightbulb_outline</i>&nbsp;立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
 												</div>
 											</div>
 										</div>
@@ -132,7 +132,7 @@
 										<div class="card card-green">
 											<div class="card-main">
 												<div class="card-inner">
-													<p><{$GetUserName}>&nbsp;, 您是高级账户持有者，您可以使用任意的PrSS节点，玩的愉快：-）</p>
+													<p><{$GetUserName}>&nbsp;, 您是高级账户持有者，您可以使用任意的<{$site_name}>节点，玩的愉快：-）</p>
 												</div>
 											</div>
 										</div>
@@ -182,7 +182,7 @@
 										<div class="card card-green">
 											<div class="card-main">
 												<div class="card-inner">
-													<p><i class="icon icon-lg">lightbulb_outline</i>立即成为高级用户，使用全部高速节点，只需10元/月&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
+													<p><i class="icon icon-lg">lightbulb_outline</i>立即成为高级用户，使用全部高速节点。&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-light" href="#buy" data-toggle="modal"><i class="icon icon-lg">credit_card</i>&nbsp;我要装逼</a></p>
 												</div>
 											</div>
 										</div>
