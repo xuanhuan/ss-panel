@@ -40,6 +40,9 @@
 					    <a href="shop.php"><i class="icon icon-lg">shop</i>&nbsp;商店</a>
 					</li>
 					<li>
+					    <a href="miao.php"><i class="icon icon-lg">pets</i>&nbsp;喵币充值</a>
+					</li>
+					<li>
 						<a href="code.php"><i class="icon icon-lg">card_giftcard</i>&nbsp;兑换</a>
 					</li>
 					<!--<li>-->
