@@ -144,17 +144,14 @@
 										<{/if}>
 										<p>最后使用时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$unix_time)}></span></p>
 										<{if $oo->get_plan()==A}>
-											<p>用户到期时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$oo->get_plan_end_time())}></span></p>
-										<{else}>
+											<p>用户暂停时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$oo->get_plan_end_time())}></span></p>
+										<{else if $oo->get_plan()==E ||$oo->get_plan()==C}>
 											<p>套餐到期时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$oo->get_plan_end_time())}></span></p>
 										<{/if}>
 										<p>最后使用时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$unix_time)}></span></p>
 									<{else}>
 										<{if $oo->get_plan_end_time()<1451577600}>
-											<p>状态:停止<br>详询请在群中仔细阅读顶置群公告<br>如果您未加入QQ群，则无法启用服务</p>
-											<p>请您<a href="http://qm.qq.com/cgi-bin/qm/qr?k=h3D5FdK0KjuYkQsnjPFJoMeGHxJJ62BX" target="_blank">点击进群</a>后将您的端口号<code><{$oo->get_port()}></code>和用户名<{$GetUserName}>填写在申请处
-												<br>进群后请<font class="red-class">仔细</font>阅读群公告！
-											</p>
+											<p>状态:停止</p>
 										<{else}>
 											<p>您因为7天内没有签到，账号已经被暂停，请购买任意套餐即可开通~</p>
 										<{/if}>
