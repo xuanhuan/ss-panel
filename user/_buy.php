@@ -12,6 +12,7 @@ if(isset($_POST['id']) && isset($_POST['method'])){
     
     if ($plan){
         $user_info = $UserInfo->UserArray();
+        $current_plan = $UserInfo->get_plan();
         if($method == 'buy'){
             if($user_info['money'] < $plan['money']){
                 die(json_encode(['code'=>0, 'info'=>'您的余额不足，请充值后再购买，或者直接购买兑换码兑换']));
@@ -19,19 +20,20 @@ if(isset($_POST['id']) && isset($_POST['method'])){
             switch ($plan['type']) {
                 case 'Tc'://普通流量
                     $UserInfo->update_transfer($plan['data']*1024*1024*1024+$user_info['transfer_enable']);
-                    $UserInfo->Changeplan('B');
-                    $UserInfo->update_plan_end_time(365);   //流量用户默认加一年
+                    $UserInfo->Changeplan('B');  
                     
-                    $info ='购买成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
+                    $info ='兑换成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
                     break;
                     
                 case 'Ta'://高级流量
                     //高级流量不计算剩余流量
+                    if($current_plan != 'D'){
                     $UserInfo->update_transfer($plan['data']*1024*1024*1024);
-                    $UserInfo->Changeplan('D');
-                    $UserInfo->update_plan_end_time(365);   //流量用户默认加一年
-                    
-                    $info ='成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
+                    $UserInfo->Changeplan('D');}
+                    else{
+                    $UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);}
+                        
+                    $info ='兑换成功！<br>您可以使用'.$plan['data'].'GB的高级节点流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB<br>流量用完后自动回归免费账号并获得10GB流量';
                     break;
                     
                 case 'Ca'://高级周期
@@ -48,9 +50,6 @@ if(isset($_POST['id']) && isset($_POST['method'])){
                     break;
             }
             $UserInfo->AddMoney(-$plan['money']);
-            if ($oo->get_enable() == 0){
-                $UserInfo->set_enable(1);
-            }
             echo json_encode(array('code'=>1, 'info'=>$info));
             exit;
         }
@@ -79,10 +78,14 @@ if(isset($_POST['id']) && isset($_POST['method'])){
                 $code = 0;
                 $info .= '<br><span style="color:red">您目前的喵币余额不足，请先充值再购买，或者直接购买兑换码兑换！</span>';
             }
+            if ($current_plan != $plan['plan']){
+                $code = 0;
+                $info .= '<br><span style="color:red;">您现在的计划类型与您要兑换的不同，继续兑换将覆盖原有计划，请谨慎操作！</span>';
+            }
             echo json_encode(['code'=>$code, 'info'=>$info]);
             exit;
         }
-        die('hi');
+        die('Bad Request! Please Contant your admin.');
     }
     else
     die(json_encode(['code'=>0, 'info'=>'不存在的计划']));
