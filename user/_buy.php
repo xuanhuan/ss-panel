@@ -50,6 +50,9 @@ if(isset($_POST['id']) && isset($_POST['method'])){
                     break;
             }
             $UserInfo->AddMoney(-$plan['money']);
+			if ($oo->get_enable() == 0){
+                $UserInfo->set_enable(1);
+            }
             echo json_encode(array('code'=>1, 'info'=>$info));
             exit;
         }

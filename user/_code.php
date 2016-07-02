@@ -98,7 +98,7 @@ if (isset($_GET['method'])){
             }
         }
         else{
-            echo json_encode(array('status'=>'invalid', 'info'=>'无效的邀请码，请检查！'));
+            echo json_encode(array('status'=>'invalid', 'info'=>'无效的兑换码，请检查！'));
             exit;
         }
         
