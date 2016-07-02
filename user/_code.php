@@ -21,31 +21,33 @@ if (isset($_GET['method'])){
             }
             if($method == 'redeem'){
                 //正确
+                $current_plan = $UserInfo->get_plan();
                 $user_info = $UserInfo->UserArray();
                 $plan = $Plan -> get_plan($ret['plan'], $ret['plan_id']);
                 // var_dump($plan);
                 switch ($plan['type']) {
                     case 'Tc'://普通流量
                         $UserInfo->update_transfer($plan['data']*1024*1024*1024+$user_info['transfer_enable']);
-                        $UserInfo->Changeplan('B');
-                        $UserInfo->update_plan_end_time(365);   //流量用户默认加一年
+                        $UserInfo->Changeplan('B');  
                         
                         $info ='兑换成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
                         break;
                         
                     case 'Ta'://高级流量
                         //高级流量不计算剩余流量
+                        if($current_plan != 'D'){
                         $UserInfo->update_transfer($plan['data']*1024*1024*1024);
-                        $UserInfo->Changeplan('D');
-                        $UserInfo->update_plan_end_time(365);   //流量用户默认加一年
+                        $UserInfo->Changeplan('D');}
+                        else{
+                        $UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);}
                         
-                        $info ='兑换成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
+                        $info ='兑换成功！<br>您可以使用'.$plan['data'].'GB的高级节点流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB<br>流量用完后自动回归免费账号并获得10GB流量';
                         break;
                         
                     case 'Ca'://高级周期
                         $UserInfo->Changeplan('E');
                         $UserInfo->update_plan_end_time($plan['data']);
-                        
+            
                         $info ='兑换成功！<br>您已修改为高级节点无限流量套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
                         break;
                         
@@ -60,8 +62,6 @@ if (isset($_GET['method'])){
                         break;
                 }
                 $Code->set_used_id($ret['id'], $uid);
-                if ($oo->get_enable() == 0)
-                    $UserInfo->set_enable(1);
                 echo json_encode(array('status'=>'success', 'info'=>$info));
                 exit;
             }
@@ -98,7 +98,7 @@ if (isset($_GET['method'])){
             }
         }
         else{
-            echo json_encode(array('status'=>'invalid', 'info'=>'无效的兑换码，请检查！'));
+            echo json_encode(array('status'=>'invalid', 'info'=>'无效的邀请码，请检查！'));
             exit;
         }
         

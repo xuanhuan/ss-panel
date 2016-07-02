@@ -42,16 +42,6 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="ui-card-wrap">-->
-					<!--       <div class="card card-brand-brand">-->
-					<!--           <div class="card-main">-->
-					<!--               <div class="card-inner margin-bottom-no">-->
-					<!--                   <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>-->
-					<!--                   <div class="card-table"><{$notice->notice('user_invite')}></div>-->
-					<!--               </div>-->
-					<!--           </div>-->
-					<!--       </div>-->
-					<!--   </div>-->
 					<div class="ui-card-wrap">
 						<div class="card card-brand">
 							<div class="card-main">
@@ -69,30 +59,36 @@
 							<div class="card-inner margin-bottom-no">
 								<p class="card-heading"><i class="icon icon-lg">adb</i>&nbsp;我的喵星人</p>
 								<div class="card-inner">
-									<{if count($code)!=null}>
-										<div class="table-responsive">
-											<table class="table" title="Invite_code_table">
-												<thead>
-													<tr>
-														<th>###</th>
-														<th>邀请码</th>
-														<th>状态</th>
-													</tr>
-												</thead>
-												<tbody>
-													<{foreach $code as $data}>
+									<{if $oo->get_enable()}>
+										<{if count($code)!=null}>
+											<div class="table-responsive">
+												<table class="table" title="A basic table">
+													<thead>
 														<tr>
-															<td><{$a++}></td>
-															<td><{$data['code']}></td>
-															<td>可用</td>
+															<th>###</th>
+															<th>邀请码</th>
+															<th>状态</th>
 														</tr>
-													<{/foreach}>
-												</tbody>
-											</table> 
-										</div>
+													</thead>
+													<tbody>
+														<{foreach $code as $data}>
+															<tr>
+																<td><{$a++}></td>
+																<td><{$data['code']}></td>
+																<td>可用</td>
+															</tr>
+														<{/foreach}>
+													</tbody>
+												</table>
+											</div>
+										<{else}>
+											<div class="card-table">
+												<p>唔，您暂时没有喵星人 (>_<)</p>
+											</div>
+										<{/if}>
 									<{else}>
 										<div class="card-table">
-											<p>唔，您暂时没有喵星人 (>_<)</p>
+											<p>您的账号已被暂停，无法查看邀请码</p>
 										</div>
 									<{/if}>
 								</div>	
