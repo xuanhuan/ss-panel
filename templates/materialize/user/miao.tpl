@@ -29,23 +29,23 @@
 				<div class="col-lg-12 col-sm-12">
 					<h2 class="content-sub-heading">喵币商城</h2>
 					<div class="card">
-                        <div class="card-main">
-                            <div class="card-inner">
+						<div class="card-main">
+							<div class="card-inner">
 								<{if count($plan_C)!=null}>
-							        <{foreach $plan_C as $rs}>
-							            <div class="col-lg-4 col-sm-12">
-							                <div class="card">
-								                <aside class="card-side pull-left">
-									                <span class="card-heading"><i class="icon icon-lg">pets</i></span>
-								                </aside>
-								                <div class="card-main">
-								                    <div class="card-inner">
-								                        <p class="card-heading"><{$rs[ 'plan']}>-<{$rs[ 'plan_id']}></p>
-										                <p>每个包含：喵币<code><{$rs[ 'data']}></code>个</p>
+									<{foreach $plan_C as $rs}>
+										<div class="col-lg-4 col-sm-12">
+											<div class="card">
+												<aside class="card-side pull-left">
+													<span class="card-heading"><i class="icon icon-lg">pets</i></span>
+												</aside>
+												<div class="card-main">
+													<div class="card-inner">
+														<p class="card-heading"><{$rs[ 'plan']}>-<{$rs[ 'plan_id']}></p>
+														<p>每个包含：喵币<code><{$rs[ 'data']}></code>个</p>
 														<p>价格：<{$rs[ 'money']}>元</p>
-                                                    </div>
-									                <div class="card-action">
-									                	<div class="card-action-btn pull-left">
+													</div>
+													<div class="card-action">
+														<div class="card-action-btn pull-left">
 															<div class="dropdown-wrap">
 																<div class="dropdown dropdown-inline">
 																	<a class="btn btn-flat waves-attach" href="<{$rs['url']}>" target="_blank">
@@ -54,13 +54,13 @@
 																</div>
 															</div>
 														</div>
-									                </div>
-								                </div>
-							                </div>
+													</div>
+												</div>
+											</div>
 										</div>
 									<{/foreach}>
 								<{else}>
-						    		<a class="btn btn-brand-accent waves-attach waves-light">无喵币充值信息</a>
+						    			<a class="btn btn-brand-accent waves-attach waves-light">无喵币充值信息</a>
 								<{/if}>
 							</div>
 						</div>
@@ -69,24 +69,4 @@
 			</div>
 		</main>
 	</body>
-	<div aria-hidden="true" class="modal modal-va-middle fade" id="confirm" role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-xs">
-            <div class="modal-content">
-                <div class="modal-inner">
-                    <div class="text-center">
-                        <div class="modal-heading">
-					        <p class="modal-title" id="msg_header"></p>
-				        </div>
-                        <div class="modal-inner">
-					        <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-				        </div>
-                        <{include file='loading.tpl'}>
-				    </div>
-				    <div class="modal-footer">
-				        <p class="text-right"><a  class="btn btn-flat btn-brand-accent waves-attach confirmed"></a><a id="back" class="btn btn-flat btn-brand-accent waves-attach" style="display:none;" data-dismiss="modal">返回</a></p>
-			        </div>
-                </div>
-            </div>
-        </div>
-    </div>
 <{include file='../footer.tpl' }></html>
