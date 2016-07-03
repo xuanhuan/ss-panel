@@ -148,7 +148,6 @@
 										<{else if $oo->get_plan()==E ||$oo->get_plan()==C}>
 											<p>套餐到期时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$oo->get_plan_end_time())}></span></p>
 										<{/if}>
-										<p>最后使用时间:<span class="label label-brand-accent margin-right"><{date( 'Y-m-d H:i:s',$unix_time)}></span></p>
 									<{else}>
 										<{if $oo->get_plan_end_time()<1451577600}>
 											<p>状态:停止</p>
