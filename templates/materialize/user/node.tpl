@@ -10,7 +10,7 @@
     <main class="content">
 		<div class="content-header ui-content-header">
 			<div class="container">
-				<h1 class="content-heading">节点列表<small>Node List</small></h1>
+				<h1 class="content-heading">节点列表&nbsp;<small>Node List</small></h1>
 			</div>
 		</div>
 		<div class="container">
@@ -239,19 +239,18 @@
 															<div class="form-group form-group-label">
 																<label class="floating-label" for="code">输入您的兑换码</label>
 																<input class="form-control" id="code" name="code" maxlength="30" required>
+																<p>&nbsp;</p>
+																<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
+																<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
+																<p>没有兑换码？</p>
+																<a href="http://your.domain.name/buy" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
 															</div>
-															<p id="info"></p>
+															<p><id="info"></p>
 															<{include file="loading.tpl"}>
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="modal-footer">
-											<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
-											<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
-											<p>没有兑换码？</p>
-											<a href="http://your.domain.name/buy" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
 										</div>
 									<{/if}>
 								<{/if}>
