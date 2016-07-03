@@ -243,7 +243,7 @@
 																<button data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light"  id='test'>提交并检查兑换码</button>
 																<button data-toggle="modal" class="btn btn-block btn-brand waves-attach waves-light"  id='exchange' style="display:none;">兑换</button>
 																<p>没有兑换码？</p>
-																<a href="http://your.domain.name/buy" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
+																<a href="shop.php" target="_blank" class="btn btn-block btn-brand waves-attach waves-light" >购买！</a>
 															</div>
 															<p><id="info"></p>
 															<{include file="loading.tpl"}>
