@@ -92,6 +92,14 @@ $ python serverinfo.py //本脚本可独立于Shadowsocks服务端运行/The scr
 * 如运行没有问题，请使用nohup/supervisor/screen等后台守护运行，此处不再详述
   If there are no problem running the process, please use nohup/supervisor/screen or similar tools to keep the process running in the background.
 
+### 到期时间与套餐等相关/Information about plan_end_time && plans (and so on)
+
+参阅：/See:
+
+```
+https://github.com/Ahref-Group/SS-Panel-smarty-Edition/issues/26
+```
+
 ### 使用 mail-gun 发邮件/Send mail using mail-gun
 运行/Run:
 
