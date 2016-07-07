@@ -5,7 +5,7 @@
 <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 <meta name="theme-color" content="#293696">
 <{include file='source.tpl'}>
-<title>邀请 -<{$site_name}></title>
+<title>邀请好友 -<{$site_name}></title>
 <{include file='user/header.tpl'}>
 	<main class="content">
 		<div class="content-header ui-content-header">
@@ -20,7 +20,7 @@
 					<div class="card margin-bottom-no">
 						<div class="card-main">
 							<div class="card-inner">
-								<p><{$GetUserName}>，您好 :-),<{$site_name}>欢迎您邀请他人加入。</p>
+								<p><{$GetUserName}>，您好，<{$site_name}>欢迎您邀请他人加入。</p>
 							</div>
 						</div>
 					</div>
@@ -32,7 +32,7 @@
 								<div class="card-inner margin-bottom-no">
 									<p class="card-heading">邀请码申请</p>
 									<div class="card-table">
-										<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y </p>
+										<p>哇~你有<code><{$InviteNum}></code>个喵星人耶( •̀ ω •́ )y</p>
 										<{if $InviteNum !=0}>
 											<button id="invite" class="btn btn-brand waves-attach"><i class="icon icon-lg">near_me</i>&nbsp;我要生喵！</button><br><br>
 										<{/if}>
@@ -42,6 +42,16 @@
 							</div>
 						</div>
 					</div>
+					<!--<div class="ui-card-wrap">-->
+					<!--       <div class="card card-brand-brand">-->
+					<!--           <div class="card-main">-->
+					<!--               <div class="card-inner margin-bottom-no">-->
+					<!--                   <p class="card-heading"><i class="icon icon-lg">info</i>&nbsp;注意事项</p>-->
+					<!--                   <div class="card-table"><{$notice->notice('user_invite')}></div>-->
+					<!--               </div>-->
+					<!--           </div>-->
+					<!--       </div>-->
+					<!--   </div>-->
 					<div class="ui-card-wrap">
 						<div class="card card-brand">
 							<div class="card-main">
@@ -57,38 +67,32 @@
 					<div class="card">
 						<div class="card-main">
 							<div class="card-inner margin-bottom-no">
-								<p class="card-heading"><i class="icon icon-lg">adb</i>&nbsp;我的喵星人</p>
+								<p class="card-heading"><i class="icon icon-lg">adb</i>&nbsp;我的邀请码</p>
 								<div class="card-inner">
-									<{if $oo->get_enable()}>
-										<{if count($code)!=null}>
-											<div class="table-responsive">
-												<table class="table" title="A basic table">
-													<thead>
+									<{if count($code)!=null}>
+										<div class="table-responsive">
+											<table class="table" title="Invite_code_table">
+												<thead>
+													<tr>
+														<th>###</th>
+														<th>邀请码</th>
+														<th>状态</th>
+													</tr>
+												</thead>
+												<tbody>
+													<{foreach $code as $data}>
 														<tr>
-															<th>###</th>
-															<th>邀请码</th>
-															<th>状态</th>
+															<td><{$a++}></td>
+															<td><{$data['code']}></td>
+															<td>可用</td>
 														</tr>
-													</thead>
-													<tbody>
-														<{foreach $code as $data}>
-															<tr>
-																<td><{$a++}></td>
-																<td><{$data['code']}></td>
-																<td>可用</td>
-															</tr>
-														<{/foreach}>
-													</tbody>
-												</table>
-											</div>
-										<{else}>
-											<div class="card-table">
-												<p>唔，您暂时没有喵星人 (>_<)</p>
-											</div>
-										<{/if}>
+													<{/foreach}>
+												</tbody>
+											</table> 
+										</div>
 									<{else}>
 										<div class="card-table">
-											<p>您的账号已被暂停，无法查看邀请码</p>
+											<p>您暂时没有邀请码。</p>
 										</div>
 									<{/if}>
 								</div>	
