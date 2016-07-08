@@ -29,7 +29,9 @@ if(isset($_POST['id']) && isset($_POST['method'])){
                     //高级流量不计算剩余流量
                     if($current_plan != 'D'){
                     $UserInfo->update_transfer($plan['data']*1024*1024*1024);
-                    $UserInfo->Changeplan('D');}
+                    $UserInfo->Changeplan('D');
+                    $UserInfo->clean_user_transfer();
+                    }
                     else{
                     $UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);}
                         
