@@ -61,7 +61,6 @@
 							<div class="card-inner margin-bottom-no">
 								<p class="card-heading"><i class="icon icon-lg">adb</i>&nbsp;我的喵星人</p>
 								<div class="card-inner">
-									<{if $oo->get_enable()==1}>
 										<{if count($code)!=null}>
 											<div class="table-responsive">
 												<table class="table" title="Code">
@@ -86,11 +85,6 @@
 												<p>唔，您暂时没有喵星人 (>_<)</p>
 											</div>
 										<{/if}>
-									<{else}>
-										<div class="card-table">
-											<p>您的账号已被暂停，无法查看邀请码</p>
-										</div>
-									<{/if}>
 								</div>	
 							</div>
 						</div>
