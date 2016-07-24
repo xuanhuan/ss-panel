@@ -57,7 +57,7 @@
 										</select>
 									</div>
 									<div class="form-group form-group-label" id="custom_node_method_form">
-										<label class="floating-label" id="custom_node_method"for="custom_node_method">自定义加密方式</label>
+										<label class="floating-label" for="custom_node_method">自定义加密方式</label>
 										<input class="form-control" id="custom_node_method" type="text" value="<{$rs['node_method']}>">
 									</div>
 									<div class="form-group form-group-label">
