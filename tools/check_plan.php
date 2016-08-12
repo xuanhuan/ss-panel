@@ -22,6 +22,8 @@ if ($time<=$now){
     if( $rs['plan'] == 'C'){
         $Users->db->update("user",[
             "plan"=>'A',
+            "u"=>'0',
+            "d"=>'0',
             "transfer_enable" => "10737418240"
         ],[
             "uid" => $rs['uid']
@@ -30,6 +32,8 @@ if ($time<=$now){
     if( $rs['plan'] == 'E'){
         $Users->db->update("user",[
             "plan"=>'A',
+            "u"=>'0',
+            "d"=>'0',
             "transfer_enable" => "21474836480"
         ],[
             "uid" => $rs['uid']
@@ -39,6 +43,8 @@ if ($time<=$now){
 if( $rs['plan'] == 'D' and $rs['transfer_enable']<='0'){
         $Users->db->update("user",[
             "plan"=>'A',
+            "u"=>'0',
+            "d"=>'0',
             "transfer_enable" => "10737418240"
         ],[
             "uid" => $rs['uid']
