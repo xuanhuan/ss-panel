@@ -65,7 +65,7 @@ if (isset($_GET['method'])){
 						else{
 						$UserInfo->update_plan_end_time($plan['data']);
 						}
-						$info ='成功！<br>您已修改为高级节点无限数据套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
+						$info ='成功！<br>您已修改为高级节点无限流量套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
 						break;
                     case 'Cc'://普通周期
                         if($current_plan != 'C'){
@@ -76,7 +76,7 @@ if (isset($_GET['method'])){
 		                else{
                         $UserInfo->update_plan_end_time($plan['data']);
 		                    }
-                        $info ='成功！<br>您已修改为普通节点无限数据套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
+                        $info ='成功！<br>您已修改为普通节点无限流量套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
                         break;
                     case 'M'://钱
                         $UserInfo->AddMoney($plan['data']);
