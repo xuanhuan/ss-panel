@@ -83,6 +83,7 @@ class UserInfo {
     function ChangePlan($plan){
         $this->db->update("user",[
             "plan"=>$plan,
+			"enable" => '1',
             ],[
                 "uid"=>$this->uid
             ]);
@@ -95,6 +96,16 @@ class UserInfo {
         else
             $data = time() + $data*86400;
             
+        $this->db->update("user",[
+            "plan_end_time"=>$data,
+            ],[
+                "uid"=>$this->uid
+            ]);
+    }
+    
+    function update_plan_go_time($data){
+        $current_end_time = $this->get_plan_end_time();
+        $data = time() + $data*86400;
         $this->db->update("user",[
             "plan_end_time"=>$data,
             ],[
