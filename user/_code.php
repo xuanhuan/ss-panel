@@ -27,9 +27,17 @@ if (isset($_GET['method'])){
                 // var_dump($plan);
                 switch ($plan['type']) {
                     case 'Tc'://普通流量
-                        $UserInfo->update_transfer($plan['data']*1024*1024*1024+$user_info['transfer_enable']);
-                        $UserInfo->Changeplan('B');  
-                        
+						if($current_plan != 'B'){
+                    	$UserInfo->update_transfer($plan['data']*1024*1024*1024);
+                    	$UserInfo->Changeplan('B');
+                    	$UserInfo->clean_user_transfer();
+						$UserInfo->update_plan_go_time(365);
+                    	}
+                    	else{
+                    	$UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);
+						$UserInfo->update_plan_go_time(365);
+		    			}
+						
                         $info ='兑换成功！<br>您成功添加了'.$plan['data'].'GB的流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB';
                         break;
                         
@@ -39,24 +47,36 @@ if (isset($_GET['method'])){
                         $UserInfo->update_transfer($plan['data']*1024*1024*1024);
                         $UserInfo->Changeplan('D');
                         $UserInfo->clean_user_transfer();
+						$UserInfo->update_plan_go_time(365);
                         }
                         else{
-                        $UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);}
-                        
+                        $UserInfo->update_transfer($user_info['transfer_enable']+$plan['data']*1024*1024*1024);
+						$UserInfo->update_plan_go_time(365);
+						}
                         $info ='兑换成功！<br>您可以使用'.$plan['data'].'GB的高级节点流量<br>当前流量：'.$UserInfo->get_transfer()/1073741824.0.' GB<br>流量用完后自动回归免费账号并获得10GB流量';
                         break;
                         
                     case 'Ca'://高级周期
-                        $UserInfo->Changeplan('E');
-                        $UserInfo->update_plan_end_time($plan['data']);
-            
-                        $info ='兑换成功！<br>您已修改为高级节点无限流量套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
-                        break;
-                        
+                        if($current_plan != 'E'){
+						$UserInfo->Changeplan('E');
+						$UserInfo->update_plan_go_time($plan['data']);
+						$UserInfo->update_transfer(1099511627776);
+						}
+						else{
+						$UserInfo->update_plan_end_time($plan['data']);
+						}
+						$info ='成功！<br>您已修改为高级节点无限数据套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
+						break;
                     case 'Cc'://普通周期
+                        if($current_plan != 'C'){
                         $UserInfo->Changeplan('C');
+                        $UserInfo->update_plan_go_time($plan['data']);
+                        $UserInfo->update_transfer(1099511627776);
+                        }
+		                else{
                         $UserInfo->update_plan_end_time($plan['data']);
-                        $info ='兑换成功！<br>您已修改为普通节点无限流量套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
+		                    }
+                        $info ='成功！<br>您已修改为普通节点无限数据套餐！<br>到期日期：<code>'.date('Y-m-d H:i:s', $UserInfo->get_plan_end_time()).'</code>';
                         break;
                     case 'M'://钱
                         $UserInfo->AddMoney($plan['data']);
