@@ -1,6 +1,8 @@
 A simple front-end of [Shadowsocks manyuser](https://github.com/mengskysama/shadowsocks/tree/manyuser).
 This Version is based on xuanhuan's [SS-Panel-smarty](https://github.com/xuanhuan/ss-panel).
+
 Great thanks to [kot4ri](https://zankyo.cc/) xiaoxin and others for their help with fixing bugs and updating functions.
+
 炒鸡感谢 [kot4ri](https://zankyo.cc/) xiaoxin 两位大佬不停的给我们这个版本修复Bug和更新内容！！
 SS-Panel-smarty-Edition
 ========
