@@ -29,10 +29,11 @@ if(!empty($_POST)){
     }
     $invite_num = $_POST['invite_num'];
     $enable = $_POST['enable'];
-
+    $plan = $_POST['plan'];
+    $plan_end_time=$_POST['plan_end_time'];
     //更新
     $User = new Ss\User\User($uid);
-    $query = $User->updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num,$enable);
+    $query = $User->updateUser($name,$email,$pass,$passwd,$transfer_enable,$invite_num,$plan,$enable,$plan_end_time);
     if($query){
                 $ue['code'] = '1';
                 $ue['ok'] = '1';

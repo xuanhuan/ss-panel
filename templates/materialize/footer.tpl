@@ -1,48 +1,47 @@
-
-	   <footer class="page-footer light-blue lighten-1">
-	    <div class="container">
-	      <div class="row">
-	        <div class="col 0 s12">
-	          <h5 class="white-text">用户建议</h5>
-	          <p class="nav-wrapper card-panel waves-effect hoverable"><{Ss\ac::get('footer_Announcement',get_defined_vars())}><{* 用户建议的内容 *}></p>
-	        </div>
-	        <div class="col l3 s6 m6">
-	          <h5 class="white-text">Terms of Service</h5>
-	          <ul>
-	            <li><a class="btn waves-effect waves-light light-blue cyan accent-3" href="<{$site_url}>user/tos.php" target="_blank">用户协议</a></li>
-	          </ul>
-	        </div>
-	        <div class="col l3 s6 m6">
-	          <h5 class="white-text">ss-panel github</h5>
-	          <ul>
-	            <li><a class="btn waves-effect waves-light light-blue cyan accent-3" href="https://github.com/orvice/ss-panel" target="_blank">ss-panel</a></li>
-	          </ul>
-	        </div>
-	        <div class="col l3 s6 m6">
-	          <h5 class="white-text">ss-panel smarty github</h5>
-	          <ul>
-	            <li><a class="btn waves-effect waves-light light-blue cyan accent-3" href="https://github.com/xuanhuan/ss-panel" target="_blank">ss-panel smarty</a></li>
-	          </ul>
-	        </div>
-	        <div class="col l3 s6 m6">
-	          <h5 class="white-text">templates</h5>
-	          <ul>
-	            <li><a class="btn waves-effect waves-light light-blue cyan accent-3" href="http://materializecss.com/" target="_blank">Materialize</a></li>
-	          </ul>
-	        </div>
-	            <div class="section">
-					<{$ana}>
-			    </div>
-	      </div>
-	    </div>
-	  	<a href="#!" class="cd-top btn-floating red darken-1 waves-effect" title="回到顶部">Top</a>
-	    <div class="footer-copyright">
-	      <div class="container" font="comic sans ms"> &copy; <{$site_name}> <{date('Y')}> Powered by <a class="orange-text text-lighten-3" href="https://github.com/orvice/ss-panel">ss-panel</a> <{$version}>
-		      <div class="grey-text text-lighten-4 right">Processed in <{$Runtime->Stop()}> <{$Runtime->SpendTime()}> ms
-		      </div>
-	      </div>
-	    </div>
-	  </footer>
-		<{include file='Public_javascript.tpl'}>
-    </body>
-</html>
+<footer class="ui-footer">
+	<p>&copy; <{$site_name}> <{date('Y')}> Powered By SS-Panel-Smarty-Edition mod<{date('Ym')}> | <a href="http://ahref.me/">A Href Group</a> All rights reserved. <a class="btn btn-flat btn-brand-accent waves-attach" data-toggle="modal" href="#Staff">About</a></p>
+</footer>
+<div class="fbtn-container">
+	<div class="fbtn-inner">
+		<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">更多</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+		<div class="fbtn-dropup">
+			<a class="fbtn waves-attach waves-circle" href="https://github.com/Ahref-Group" target="_blank"><span class="fbtn-text fbtn-text-left">Fork us on GitHub</span><span class="icon">code</span></a>
+			<a class="fbtn fbtn-green waves-attach waves-circle" href="http://ahref.me/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Ahref's Website</span><span class="icon">link</span></a>
+		</div>
+	</div>
+</div>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="Staff" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-heading">
+				<h2 class="modal-title">关于<small>&nbsp;About</small></h2>
+			</div>
+			<ul class="nav">
+				<li>
+					<a class="margin-bottom-sm waves-attach" data-dismiss="modal" href="javascript:void(0)">
+						<div class="avatar avatar-inline margin-left-sm margin-right-sm">
+							<img alt="alt text for username avatar" src="<{$resources_dir}>/images/users/yangwang.jpg">
+						</div>
+						<span class="margin-right-sm text-black">YangWang</span>
+					</a>
+				</li>
+				<li>
+					<a class="margin-bottom-sm waves-attach" data-dismiss="modal" href="javascript:void(0)">
+						<div class="avatar avatar-inline margin-left-sm margin-right-sm">
+							<img alt="alt text for another_account avatar" src="<{$resources_dir}>/images/users/avatar-002.jpg">
+						</div>
+						<span class="margin-right-sm text-black">C0lacan</span>
+					</a>
+				</li>
+				<li>
+					<a class="margin-bottom-sm waves-attach" data-dismiss="modal" href="javascript:void(0)">
+						<div class="avatar avatar-inline margin-left-sm margin-right-sm">
+							<img alt="alt text for another_account avatar" src="<{$resources_dir}>/images/users/Head1.png">
+						</div>
+						<span class="margin-right-sm text-black">Dwwwwww</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

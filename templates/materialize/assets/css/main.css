@@ -1,0 +1,364 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+/*  @import url(main-DEL.css); */
+html {   
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: inherit;
+  }
+body {
+    background-color: #00A8FF;
+    background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%);
+    position: static;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; 
+}
+/*滚动条*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
+  background-color: #D3F0FF;
+  border-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0094FF;
+  border-radius: 10px;
+  background-image: -webkit-linear-gradient(360deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
+}
+
+/*body, html {
+  height: 100%;
+}*/
+
+.black-text .white-text h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.icon-block {
+  padding: 0 15px;
+}
+small {
+    font-size: 15px;
+    display: inline-block;
+    padding-left: 4px;
+    font-weight: 300;
+}
+span.badge {
+    min-width: 3rem;
+    /* padding: 0 6px; */
+    /* text-align: center; */
+    /* font-size: 1rem; */
+    /* line-height: inherit; */
+    color: #757575;
+    position: absolute;
+    right: inherit;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+span.badge.new {
+    /* font-weight: 500; */
+    font-size: 1rem; 
+    color: #fff;
+    background-color: #3DAFF5;
+    /* border-radius: 2px; */
+}
+ span.badge.new:after {
+    content: ""; 
+    right: 1;
+    font-size: 1rem;
+    }
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+img.user-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 2px;
+    margin-bottom: -8px;
+}
+
+.ss_node_btn{
+    float: right;
+}
+
+/* 彩色面板 */
+.color-panel {
+    background-image: linear-gradient(-45deg, rgba(224, 223, 145, 0.56), rgb(47, 185, 226));
+}
+/* 去panel边框 */
+.no-padding-panel {
+    padding: 0px;
+}
+.card-panel{
+    margin: 0.5rem 0 .5rem 0;
+}
+p {
+   font-weight: bold;
+}
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: auto;
+}
+table.dataTable tbody td {
+    padding: 11px 10px;
+}
+/* 彩色表格 */
+table {
+    background-image: linear-gradient(-45deg, rgba(208, 14, 114, 0.56), yellow);
+}
+/*margin-bottom: 0px;*/
+/*登录 注册 重置密码 页的*/
+.hlavnistrankaprihlaseni {
+  position: static;
+ }
+ 
+.prihlasovaci-formular {
+  background-color: #fafafa;
+  margin: 0 auto 3rem;
+  border-radius: 5px;
+  padding: 1.5rem 2rem 0.5rem;
+}
+.hlavnistrankaprihlaseni #registrace {
+  background-color: #47C9F9;
+  margin: 0 auto 2rem;
+}
+.prihlasovaci-formular #login {
+  background-color: #3FA0F2;
+}
+.hlavnistrankaprihlaseni {
+  /* background: linear-gradient(to bottom,rgba(39, 165, 255, 0.97) 0%,rgba(98, 198, 221, 0.96) 100%); */
+  /* position: absolute; */
+  width: 100%; 
+  height: 100%; 
+  text-align: center;
+}
+.row {
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.hlavnistrankaprihlaseni .col {
+  display: inline-block;
+  float: none;
+}
+.center-btn {
+  text-align: center;
+}
+.hlavnistrankaprihlaseni p {
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+}
+/*当屏幕宽度分辨率小于 600px 使用*/
+@media only screen and (min-width : 600px){
+  /*登录  表单下的p标签（单选）*/
+  form>p.modal-trigger.waves-effect {
+    margin-right: 52%;
+  }
+}
+/*注册页的用户协议h3字大小*/
+div.modal-content>div>h3{
+  font-size: 1.92rem;
+}
+
+/*用户协议h3字大小*/
+div.container>div.row>div.col.s12>div.nav-wrapper>h3{
+  font-size: 1.92rem;
+}
+/*按钮高度和不使用默认的大写英文*/
+.btn, .btn-large, .btn-flat {
+  margin-bottom: 30px;
+  text-transform: none;
+}
+/*输入*/
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #279EE7;
+  box-shadow: 0 1px 0 0 #1F99D8;
+}
+input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
+  border-bottom: 1px solid #8ED2EF;
+  box-shadow: 0 1px 0 0 #CEEBF9;
+}
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #0AA6CF;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 15px 0;
+  padding: 0;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  transition: all .3s;
+}
+.input-field input[type=text]:focus+label,.input-field input[type=password]:focus+label,.input-field input[type=email]:focus+label,.input-field input[type=date]:focus+label,.input-field textarea:focus+label{color:#4CAEEA}
+.input-field .prefix.active {
+  color: #4CAEEA;
+}
+
+.progress {
+  position: relative;
+  height: 10px;
+  display: block;
+  width: 100%;
+  background-color: rgba(200, 200, 200, 0.48);
+  border-radius: 10px;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+}
+.progress .determinate {
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #56CCFF;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.28) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  border-radius: 10px;
+  -webkit-transition: width .3s linear;
+  -moz-transition: width .3s linear;
+  -o-transition: width .3s linear;
+  -ms-transition: width .3s linear;
+  transition: width 0.8s linear;
+}
+.center-btn { text-align: center }
+.modal { padding: 0px 0px 0px;}
+.modal p { text-align: center }
+.modal h4 { text-align: center }
+/* modal窗口中的内容离内边距为24px */
+.modal .modal-content {
+  padding: 24px;
+}
+/* 平板以下的显示 */
+@media only screen and (max-width : 720px) {
+ /* modal窗口宽度为100% */
+    .modal {
+      max-height: 85%;
+      width: 100%; 
+     } 
+ /* modal窗口中的内容离内边距为13px */
+    .modal .modal-content {
+      padding: 13px;
+    }
+    .modal .modal-footer {
+      border-radius: 0 0 2px 2px;
+      padding: 4px 6px;
+      height: 56px;
+      width: 100%;
+    }
+    /*缩小二维码*/
+    #qrcode canvas{
+      width: 160px;
+      height: 160px;
+    }
+}
+/* 小屏手机 */
+@media only screen and (max-width : 480px) {
+ /* modal窗口中的内容离内边距为3px */
+    .modal .modal-content {
+      padding: 3px;
+    }
+    
+    /* 文字自动换行 */
+    #ssqr_text{
+      word-wrap: break-word;
+    }
+    /*缩小二维码*/
+    #qrcode canvas{
+      width: 130px;
+      height: 130px;
+    /*  display: inline-block;
+      vertical-align: baseline;*/
+    }
+    #node p{
+      text-align: left;
+    }
+}
+/* 屏幕高度为465px以下使用 */
+@media only screen and (max-height : 465px) {
+  /* 缩小节点地址字距离 */
+    #node p{
+      margin-top: 3px;
+      height: 18px;
+      line-height: 0.9;
+      text-align: left;
+    }
+}
+.hide { display: none }
+span i { vertical-align: middle }
+span b { vertical-align: middle; font-weight: 500; }
+/* 按钮高度2px */
+.ss_node_btn0 {
+    display: grid;
+    padding: 0 0.2rem;
+    margin-bottom: 2px;
+}
+.chip {
+  display: inline-block;
+  height: 32px;
+  /* font-size: 13px; */
+  /* font-weight: 500; */
+  /* color: rgba(0, 0, 0, 0.6); */
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #C2EEFD;
+}
+.chip img {
+  float: left;
+  margin: 0 8px 0 -12px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+/* 顶部导航下拉菜单 */
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 1.2rem;
+  color: #2298E0;
+  display: block;
+  padding: 0.6rem 1rem;
+}
+nav ul a{
+  display: inline-block;
+}

@@ -1,115 +1,149 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>修改资料 - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='user/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          信息更新
-          <small>Profile Update</small>
-      </h5>
-
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2 hoverable">
-            <div class="col s12 m12 l6">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">网站登录密码修改</h5>
-                      <div class="black-text">
-                        <div class="input-field">
-                        <i class="mdi-action-lock prefix"></i>
-                        <input id="nowpwd" type="password" name="password" class="validate" required>
-                        <label for="nowpwd">当前密码(必填)</label>
-                      </div>
-                      <div class="input-field">
-                        <i class="mdi-action-lock prefix"></i>
-                        <input id="pwd" type="password" name="password" class="validate" maxlength="18" required>
-                        <label for="pwd">新密码</label>
-                      </div>
-                      <div class="input-field">
-                        <i class="mdi-action-lock prefix"></i>
-                        <input id="repwd" type="password" name="password" class="validate" maxlength="18" required>
-                        <label for="repwd">确认密码</label>
-                      </div>
-                          <button id="pwd-update" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>
-                      </div>
-                 </span> 
-                </div>
-            </div>
-
-            <div class="col s12 m12 l6">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">Shadowsocks连接密码修改</h5>
-                      <div class="black-text">
-                      <div class="input-field">
-                        <i class="mdi-action-lock prefix"></i>
-                        <input id="sspwd" type="password" name="password" class="validate" maxlength="30" required>
-                        <label for="sspwd">输入新密码</label>
-                      </div>
-                          <button id="ss-pwd-update" type="submit" class="btn waves-effect waves-light light-blue lighten-1">修改</button>   
-                      </div>
-                 </span> 
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='source.tpl'}>
+<title>修改个人信息 -<{$site_name}></title>
+<{include file='user/header.tpl'}>
+    <main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">修改个人信息&nbsp;<small>Update Information</small></h1>
+			</div>
+		</div>
+		<div class="container">
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					<div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p><{$GetUserName}>，您好 :-),您在尝试修改<{$site_name}>的密码</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">修改登录密码</p>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="nowpwd">输入当前密码</label>
+									<input class="form-control" id="nowpwd" type="password" name="nowpwd" maxlength="30" required>
+								</div>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="pwd">输入新密码</label>
+									<input class="form-control" id="pwd" type="password" name="pwd" maxlength="30" required>
+								</div>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="repwd">输入确认密码</label>
+									<input class="form-control" id="repwd" type="password" name="repwd" maxlength="30" required>
+								</div>
+								<a href="#updatepwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading">修改ShadowSocks连接密码</p>
+								<div class="form-group form-group-label">
+									<label class="floating-label" for="sspwd">输入新的连接密码</label>
+									<input class="form-control" id="sspwd" type="password" name="sspwd" maxlength="30" required>
+								</div>
+								<a href="#updatesspwd" data-toggle="modal" class="btn btn-block btn-brand-accent waves-attach waves-light">更改</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</body>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="updatepwd" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+			<div class="modal-heading">
+				<p class="modal-title">修改登录密码</p>
+			</div>
+			<div class="modal-inner">
+				<p class="h5 margin-top-sm text-black-hint"><br>确认修改<{$site_name}>的登录密码？</p>
+			</div>
+			<div class="modal-footer">
+				<p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">放弃</a><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="pwd-update" type="submit">我确认</button></p>
+			</div>
+		</div>
+	</div>
 </div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-
-<!-- AES -->
-<script type="text/javascript" src="<{$public}>/js_aes/aes.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="updatesspwd" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-xs">
+		<div class="modal-content">
+		    <div class="modal-heading">
+				<p class="modal-title">修改ShadowSocks连接密码</p>
+			</div>
+			<div class="modal-inner">
+				<p class="h5 margin-top-sm text-black-hint">确认修改<{$site_name}>的所有节点连接密码？</p>
+			</div>
+			<div class="modal-footer">
+				<p class="text-right"><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal">放弃</a><a class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="ss-pwd-update" type="submit">我确认</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-xs">
+        <div class="modal-content">
+            <div class="modal-inner">
+				<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+			</div>
+			<div class="modal-footer">
+				<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file='footer.tpl'}>
+<script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
 <script type="text/javascript">
-	_Prompt_ss_msg();
-	_Prompt_msg();
-// 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
-function removeHTMLTag(str) {
-  str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-  str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-  str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-  str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-  return str;
-}
+  _Prompt_msg();
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#msg-error").click(function(){
-           $(id_name).focus();
-        });
         $("#pwd-update").click(function(){
+            $("#updatepwd").hide();
             function msg_out(msgout,msgcss){
-                $("#msg-"+msgcss).openModal();
-                $("#msg-"+msgcss+"-p").html(msgout);
-                $(id_name).focus();
+                $("#result").modal();
+                $("#msg").html(msgout);
             }
             if($("#nowpwd").val().length==0){
-                id_name="#nowpwd";
-                msg_out("请输入密码","error");
+                $("#result").modal();
+                $("#msg").html("请输入密码")
                 msg_id=1;
                 return false;
             }
             if($("#pwd").val().length==0){
-                id_name="#pwd";
-                msg_out("请输入新密码","error");
+                 $("#result").modal();
+                 $("#msg").html("请输入新密码")
                 msg_id=1;
                 return false;
             }
             if($("#repwd").val().length==0){
-                id_name="#repwd";
-                msg_out("请输入确认密码","error");
+                 $("#result").modal();
+                 $("#msg").html("请输入确认密码")
                 msg_id=1;
                 return false;
             }
             if($("#repwd").val()!=$("#pwd").val()){
-                id_name="#repwd";
-                msg_out("新密码与确认密码不一样，请重新输入。","error");
+                $("#result").modal();
+                $("#msg").html("新密码与确认密码不一样，请重新输入。")
                 msg_id=1;
                 return false;
             }
@@ -124,18 +158,17 @@ function removeHTMLTag(str) {
                 },
                 success:function(data){
                     if(data.ok){
-                        $("#msg-error").closeModal();
-                        $("#msg-success").openModal();
-                        $("#msg-success-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                         window.setTimeout("location.href='login.php'", 2000);
                     }else{
-                        $("#msg-error").openModal();
-                        $("#msg-error-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                        $("#msg-error-p").html("发生错误："+jqXHR.status);
-                        $("#msg-error").openModal();
+                        $("#msg").html("发生错误："+jqXHR.status);
+                        $("#result").modal();
                         // 在控制台输出错误信息
                         console.log(removeHTMLTag(jqXHR.responseText));
                 }
@@ -143,8 +176,8 @@ function removeHTMLTag(str) {
         })
     })
 </script>
-<script type="text/javascript">
-    $(document).ready(function(){
+<script>
+   $(document).ready(function(){
         $("#ss-pwd-update").click(function(){
             $.ajax({
                 type:"POST",
@@ -155,20 +188,20 @@ function removeHTMLTag(str) {
                 },
                 success:function(data){
                     if(data.ok){
-                        $("#ss-msg-success").openModal();
-                        $("#ss-msg-success-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                     }else{
-                        $("#ss-msg-error").openModal();
-                        $("#ss-msg-error-p").html(data.msg);
+                        $("#result").modal();
+                        $("#msg").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                        $("#ss-msg-error-p").html("发生错误："+jqXHR.status);
-                        $("#ss-msg-error").openModal();
+                        $("#msg").html("发生错误："+jqXHR.status);
+                        $("#result").modal();
                         // 在控制台输出错误信息
                         console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
         })
     })
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+</script>

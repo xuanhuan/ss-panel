@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
 require_once '_main.php';
 $Users = new Ss\User\User();
 $us = $Users->AllUser();
@@ -12,7 +14,7 @@ function get_ref_name($rs,$content){
         $ref_name = $ref_u->GetUserName();
     	return $ref_name;
     }else{
-    	return '<code class="hoverable">公开</code>';
+    	return '<code>公开</code>';
     }
 }
 $smarty->display('admin/user.tpl');

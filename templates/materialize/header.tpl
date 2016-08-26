@@ -1,32 +1,53 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title><{block name="title"}><{$site_name}><{/block}></title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="<{$resources_dir}>/asset/css/LoadingBar.css?<{$version}><{date('Ym')}>" />
-        <script>
-            paceOptions = {
-              elements: true
-            };
-        </script>
-        <script src="<{$resources_dir}>/asset/js/pace.min.js?<{$version}><{date('Ym')}>"></script>
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no">
-        <meta name="robots" content="noindex,nofollow">
-        <!-- Favicon -->
-        <link rel="icon" href="<{$site_url}>favicon.ico?<{$version}><{date('Ym')}>">
-        <meta name="theme-color" content="#4CAEEA">
-        <meta name="mobile-web-app-capable" content="yes">
-        <!-- <link rel="icon" sizes="192x192" href="chrome-touch-icon-192x192.png"> -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-title" content="<{$site_name}>">
-        <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
-        <!-- <meta name="msapplication-TileImage" content="favicon-win.png"> -->
-        <meta name="msapplication-TileColor" content="#4CAEEA">
-        <meta name="application-name" content="<{$site_name}>">
-        <link href="<{$resources_dir}>/asset/css/materialize.min.css?<{$version}><{date('Ym')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<{$resources_dir}>/asset/css/Material_Icons.css?<{$version}><{date('Ym')}>" rel="stylesheet">
-        <link href="<{$resources_dir}>/asset/css/main.css?<{$version}><{date('Ym')}>" type="text/css" rel="stylesheet" media="screen,projection"/>
-    </head>
-    <body><{block name="contents"}><{/block}>
+<body class="page-brand">
+	<header class="header header-transparent header-waterfall ui-header">
+		<ul class="nav nav-list pull-left">
+			<li>
+				<a data-toggle="menu" href="#ui_menu">
+					<span class="icon icon-lg">menu</span>
+				</a>
+			</li>
+		</ul>
+		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<a class="header-logo margin-left-no" href="/index.php" style="font-family: Orbitron;"><{$site_name}></a>
+		<ul class="nav nav-list pull-right">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+				    <p></p>
+					<span class="access-hide">User Head</span>
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="https://avatar.duoshuo.com/avatar-50/760/144058.jpg"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li>
+						<a class="padding-right-lg waves-attach" href="/user"><i class="icon icon-lg">account_circle</i>&nbsp;用户中心</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="/auth/register.php"><i class="icon icon-lg">add</i>&nbsp;注册<{$site_name}></a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
+		<div class="menu-scroll">
+			<div class="menu-content">
+				<a class="menu-logo" href="/index.php" style="font-family: Orbitron;"><{$site_name}></a>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="/index.php">首页</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="/user">登录</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="/auth/register.php">注册</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="/tos.php">用户协议</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="/code.php">邀请码</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>

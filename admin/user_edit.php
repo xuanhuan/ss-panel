@@ -1,4 +1,4 @@
-<?php
+ <?php
 //开启session
 session_start();
 require_once '_main.php';

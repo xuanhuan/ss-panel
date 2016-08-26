@@ -19,6 +19,7 @@ elseif(!$oo->is_able_to_check_in()){
     session_destroy();  //清空当前用户所有的Session信息
     $oo->add_transfer($transfer_to_add*$tomb);
     $oo->update_last_check_in_time();
+    $oo->update_plan_end_time_checkin();
     $a['msg'] = "获得了".$transfer_to_add."MB流量";
 }
 

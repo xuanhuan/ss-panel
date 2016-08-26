@@ -1,100 +1,119 @@
-<{extends file="header.tpl"}><{block name="title" prepend}>节点添加 - <{/block}><{block name="contents"}>
-<div class="had-container">
-   <{include file='admin/nav.tpl'}>
-
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container ">
-      <h5 class="white-text">
-          节点添加
-          <small>Add Node</small>
-      </h5>
-
-        <div class="section">
-          <div class="row card-panel color-panel light-blue lighten-5 z-depth-2 hoverable">
-            <div class="col s12">
-              <div class="card-panel darken-1 hoverable">
-                      <span class="white-text">
-                      <h5 class="header black-text">节点添加</h5>
-                      <div class="black-text">
-                          <form role="form" method="post" action="javascript:void(0);">
-                              <div class="input-field">
-                                <input id="node_name" type="text" name="node_name" class="validate">
-                                <label for="node_name">节点名字</label>
-                              </div>
-                              <div class="input-field">
-                                <input id="node_server" type="text" name="node_server" class="validate">
-                                <label for="node_server">节点地址</label>
-                              </div>
-                              <div>
-                                <label for="node_method">加密方式</label>
-                                <select id="node_method" onchange="changeForm(this.value)" class="browser-default">
-                                  <option value="custom_node_method">自定义加密方式</option>
-                                  <option value="rc4-md5">rc4-md5</option>
-                                  <option value="aes-256-cfb">aes-256-cfb</option>
-                                  <option value="aes-192-cfb">aes-192-cfb</option>
-                                  <option value="aes-128-cfb">aes-128-cfb</option>
-                                  <option value="rc4">rc4</option>
-                                  <option value="salsa20">salsa20</option>
-                                  <option value="chacha20">chacha20</option>
-                                  <option value="table">table</option>
-                                </select>
-                              </div>
-                              <div class="input-field" id="custom_node_method_css">
-                                <input id="custom_node_method" type="text" name="custom_node_method" class="validate">
-                                <label for="custom_node_method">自定义加密方式</label>
-                              </div>
-                              <div class="input-field">
-                                <textarea id="node_info" type="text" name="node_info" class="materialize-textarea"></textarea>
-                                <label for="node_info">节点描述</label>
-                              </div>
-                              <div class="input-field">
-                                <input id="node_type" type="text" name="node_type" class="validate">
-                                <label for="node_type">分类(0或者1)</label>
-                              </div>
-                              <div class="input-field">
-                                <input id="node_status" type="text" name="node_status" class="validate">
-                                <label for="node_status">状态</label>
-                              </div>
-                              <div class="input-field">
-                                <input id="node_order" type="text" name="node_order" class="validate">
-                                <label for="node_order">排序</label>
-                              </div>
-                                  <button id="Submit" type="submit" class="btn waves-effect waves-light light-blue lighten-1">添加</button>
-                          </form>
-                      </div>
-                 </span> 
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<{include file='footer.tpl'}> <{/block}> <{* 以上继承内容到父模板header.tpl 中的 contents *}>
-<{extends file="Public_javascript.tpl" append}> <{block name="javascript"}>
-<{* 请在下面加入你的 javascript *}>
-
-<script type="text/javascript" src="<{$resources_dir}>/asset/js/Prompt_message.js?<{$version}><{date('Ym')}>"></script>
-<script type="text/javascript">
-  _Prompt_msg();
-  // 过滤HTML标签以及&nbsp 来自：http://www.cnblogs.com/liszt/archive/2011/08/16/2140007.html
-  function removeHTMLTag(str) {
-      str = str.replace(/<\/?[^>]*>/g,''); //去除HTML tag
-      str = str.replace(/[ | ]*\n/g,'\n'); //去除行尾空白
-      str = str.replace(/\n[\s| | ]*\r/g,'\n'); //去除多余空行
-      str = str.replace(/&nbsp;/ig,'');//去掉&nbsp;
-      return str;
-  }
-</script>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+<meta name="theme-color" content="#293696">
+<{include file='../source.tpl'}>
+<title>添加节点 - <{$site_name}></title>
+<{include file='admin/header.tpl'}>
+<body>
+	<main class="content">
+		<div class="content-header ui-content-header">
+			<div class="container">
+				<h1 class="content-heading">添加节点&nbsp<small>Add Node</small></h1>
+			</div>
+		</div>
+		<div class="container">
+			<section class="content-inner margin-top-no">
+				<div class="row">
+					<div class="col-lg-12 col-md-6">
+						<div class="card margin-bottom-no">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>管理员 <{$GetUserName}> 您好 :-)，您正在 <{$site_name}> 上添加节点。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-sm-12">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-inner">
+								<p class="card-heading"><{$rs['node_name']}>节点信息</p>
+								<form role="form" method="post" action="javascript:void(0);">
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_name">节点名称</label>
+										<input class="form-control" id="node_name" type="text" value="<{$rs['node_name']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_server">节点地址</label>
+										<input class="form-control" id="node_server" type="text" value="<{$rs['node_server']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="plan">加密方式</label>
+										<select id="node_method" class="form-control" onchange="changeForm(this.value)">
+											<{$method = strtolower($rs['node_method'])}>
+											<option value="custom_node_method">自定义加密方式</option>
+											<option value="rc4-md5" <{if $method =="rc4-md5"}> selected="selected"<{/if}> >rc4-md5</option>
+											<option value="aes-256-cfb" <{if $method =="aes-256-cfb"}> selected="selected"<{/if}> >aes-256-cfb</option>
+											<option value="aes-192-cfb" <{if $method =="aes-192-cfb"}> selected="selected"<{/if}> >aes-192-cfb</option>
+											<option value="aes-128-cfb" <{if $method =="aes-128-cfb"}> selected="selected"<{/if}> >aes-128-cfb</option>
+											<option value="rc4" <{if $method =="rc4"}> selected="selected"<{/if}> >rc4</option>
+											<option value="salsa20" <{if $method =="salsa20"}> selected="selected"<{/if}> >salsa20</option>
+											<option value="chacha20" <{if $method =="chacha20"}> selected="selected"<{/if}> >chacha20</option>
+											<option value="table" <{if $method =="table"}> selected="selected"<{/if}> >table</option>
+										</select>
+									</div>
+									<div class="form-group form-group-label" id="custom_node_method_form">
+										<label class="floating-label" for="custom_node_method">自定义加密方式</label>
+										<input class="form-control" id="custom_node_method" type="text" value="<{$rs['node_method']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_info">节点描述</label>
+										<textarea class="form-control textarea-autosize" id="node_info" rows="1"><{$rs['node_info']}></textarea>
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_type">分类（0为普通节点，1为高级节点）</label>
+										<input class="form-control" id="node_type" type="text" value="<{$rs['node_type']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_status">节点状态</label>
+										<input class="form-control" id="node_status" type="text" value="<{$rs['node_status']}>">
+									</div>
+									<div class="form-group form-group-label">
+										<label class="floating-label" for="node_order">排序（0为最高）</label>
+										<input class="form-control" id="node_order" type="text"  value="<{$rs['node_order']}>">
+									</div>
+									<button class="btn btn-block btn-brand waves-attach waves-light" id="Submit" type="submit">添加</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-xs">
+			<div class="modal-content">
+				<div class="modal-inner">
+					<{include file='loading.tpl'}>
+					<p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+				</div>
+				<div class="modal-footer">
+					<p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button">确定</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="<{$resources_dir}>/assets/js/Prompt_message.js"></script>
+<!-- AES -->
+<script type="text/javascript" src="<{$public}>/js_aes/aes.js"></script>
+<script type="text/javascript" src="<{$public}>/js_aes/aes-ctr.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $("#Submit").click(function(){
+            $('#result').modal();
+            $('#loading').show();
             $.ajax({
                 type:"POST",
                 url:"node_add.php",
                 dataType:"json",
                 data:{
+                    node_id: "<{$id}>",
                     node_name: $("#node_name").val(),
                     node_server: $("#node_server").val(),
                     node_method: $("#node_method").val()=="custom_node_method" ? $("#custom_node_method").val() : $("#node_method").val(),
@@ -105,36 +124,30 @@
                 },
                 success:function(data){
                     if(data.ok){
-                        $("#msg-error").closeModal();
-                        $("#msg-success").openModal();
-                        $("#msg-success-p").html(data.msg);
+                        $('#loading').hide();
+                        $("#msg").html(data.msg);
                     }else{
-                        $("#msg-error").openModal();
-                        $("#msg-error-p").html(data.msg);
+                        $('#loading').hide();
+                        $("#msg").html(data.msg);
                     }
                 },
                 error:function(jqXHR){
-                        $("#msg-error-p").html("发生错误："+jqXHR.status);
-                        $("#msg-error").openModal();
+                        $("#msg").html("发生错误："+jqXHR.status);
+                        $('#loading').hide();
                         // 在控制台输出错误信息
                         console.log(removeHTMLTag(jqXHR.responseText));
                 }
             })
         })
-        $("#ok-close").click(function(){
-            $("#msg-success").closeModal();
-        })
-        $("#error-close").click(function(){
-            $("#msg-error").closeModal();
-        })
     })
-   function changeForm(value){
+    function changeForm(value){
      if(value=="custom_node_method") {
-         $('#custom_node_method_css').show(200);
-         $('#custom_node_method').focus();
-         $('#custom_node_method').select();
+         $('#custom_node_method_form').show(200);
+         $('#custom_node_method_form').focus();
+         $('#custom_node_method_form').select();
      }else{
-         $('#custom_node_method_css').hide(200);
+         $('#custom_node_method_form').hide(200);
      }
    }
-</script><{/block}> <{* 以上继承内容到父模板 Public_javascript.tpl 中的 javascript *}>
+    window.onload = changeForm($("#node_method").val());
+</script>

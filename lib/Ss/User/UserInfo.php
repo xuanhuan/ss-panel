@@ -22,6 +22,9 @@ class UserInfo {
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
+        if (sizeof($datas) == 0){
+            $datas[0]['user_name']='用户不存在';
+        }
         return $datas['0'];
     }
 
@@ -56,7 +59,60 @@ class UserInfo {
             "uid" => $this->uid
         ]);
     }
+    function  get_plan(){
+        return $this->UserArray()['plan'];
+    }
+    
+    function get_transfer(){
+        return $this->UserArray()['transfer_enable'];
+    }
+    
+    function get_plan_end_time(){
+        return $this->UserArray()['plan_end_time'];
+    }
 
+    
+    function update_transfer($transfer){
+        // $current_transfer = $this->UserArray()['transfer_enable'];
+        $this->db->update('user', ['transfer_enable'=>$transfer], ['uid'=>$this->uid]);
+    }
+    function clean_user_transfer(){
+        $this->db->update('user', ['u'=>'0','d'=>'0', ], ['uid'=>$this->uid]);
+    }
+    
+    function ChangePlan($plan){
+        $this->db->update("user",[
+            "plan"=>$plan,
+			"enable" => '1',
+            ],[
+                "uid"=>$this->uid
+            ]);
+    }
+    
+    function update_plan_end_time($data){
+        $current_end_time = $this->get_plan_end_time();
+        if ($current_end_time > time())
+            $data = $current_end_time + $data*86400;
+        else
+            $data = time() + $data*86400;
+            
+        $this->db->update("user",[
+            "plan_end_time"=>$data,
+            ],[
+                "uid"=>$this->uid
+            ]);
+    }
+    
+    function update_plan_go_time($data){
+        $current_end_time = $this->get_plan_end_time();
+        $data = time() + $data*86400;
+        $this->db->update("user",[
+            "plan_end_time"=>$data,
+            ],[
+                "uid"=>$this->uid
+            ]);
+    }
+    
     function Money(){
         return $this->UserArray()['money'];
     }
@@ -75,7 +131,7 @@ class UserInfo {
         ]);
         return $c;
     }
-
+    
     function UpdatePwd($pass){
         $this->db->update("user",[
             "pass" => $pass
@@ -99,4 +155,17 @@ class UserInfo {
             "uid" => $this->uid
         ]);
     }
+    
+    function get_user_ip(){
+        return $this->db->select('login_ip', '*', ['uid' => $this->uid])[0];
+    }
+    
+    function get_user_ip_list(){
+        return $this->db -> select('login_ip', '*', ['uid' => $this->uid, 'ORDER' => 'time DESC']);
+    }
+    
+    function set_enable($enable){
+        $this->db->update('user', ['enable' => $enable], ['uid'=>$this->uid]);
+    }
+    
 }
