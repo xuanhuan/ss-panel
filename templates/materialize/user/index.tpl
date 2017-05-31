@@ -56,6 +56,7 @@
                             <p><a class="btn waves-effect waves-light light-blue lighten-1 disabled" href="#!">已签到</a> </p>
                         <{/if}>
                         <p id="checkin-msg" ></p>
+          		<p>您已连续签到<code><b><{$oo->get_sign_day()}></b></code>天</p>
                         <p>上次签到时间：<code><{date('Y-m-d H:i:s',$oo->get_last_check_in_time())}></code></p>
                       </div>
                  </span>     
