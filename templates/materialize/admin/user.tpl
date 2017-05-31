@@ -68,7 +68,9 @@
                     <th>启用状态</th>
                     <th>邀请人</th>
                     <th>邀请码</th>
+                    <th>连签</th>
                     <th>操作</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
@@ -89,6 +91,7 @@
                         <td><{if $rs['enable']}>正常<{else}><code>停止</code><{/if}></td>
                         <td><{get_ref_name rs=$rs['ref_by']}></td><{* 调用自定义插件 传$rs['ref_by'] 然后返回数据 *}>
                         <td><{$rs['invite_num']}></td>
+                        <td><code><{$rs['sign_day']}></code>天</td>
                         <td>
                             <a class="btn btn-sm waves-effect waves-light" href="user_edit.php?uid=<{$rs['uid']}>">查看</a>
                             <a class="btn btn-sm waves-effect waves-light red accent-4" href="user_del.php?uid=<{$rs['uid']}>" onclick="JavaScript:return confirm('确定删除吗？')">删除</a>
